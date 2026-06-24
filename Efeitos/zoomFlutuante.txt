@@ -1,0 +1,162 @@
+---HMTL---
+<!-- ===== ZOOM FLUTUANTE (cole onde quiser) ===== -->
+<div class="kw-space">
+  <span class="kw-word">Auditorias Rápidas</span>
+  <span class="kw-word">Agentes Cognitivos Altonics</span>
+  <span class="kw-word">Governança &amp; Segurança</span>
+  <span class="kw-word">Projetos Sob Medida Plug &amp; Play</span>
+  <span class="kw-word">IA para Empresas</span>
+  <span class="kw-word">LGPD e Normas</span>
+  <span class="kw-word">Treinamentos Corporativos</span>
+  <span class="kw-word">Marketing Empresarial Automatizado</span>
+</div>
+
+
+---CSS---
+<style>
+  .kw-space {
+    position: relative;
+    height: 420px;
+    width: 100%;
+    background: radial-gradient(
+      circle at center,
+      rgba(0, 200, 255, 0.08) 0%,
+      transparent 70%
+    );
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  .kw-space .kw-word {
+    position: absolute;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    white-space: nowrap;
+    background: linear-gradient(90deg, #00e696, #00c8ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.35;
+    will-change: font-size, top, left, translate, opacity;
+    animation:
+      kwFloat 6s ease-in-out infinite,
+      kwZoom 20s ease-in-out infinite;
+  }
+
+  @keyframes kwFloat {
+    0%,
+    100% {
+      translate: 0 0;
+    }
+    50% {
+      translate: 0 -10px;
+    }
+  }
+
+  @keyframes kwZoom {
+    0% {
+      top: var(--rt);
+      left: var(--rl);
+      translate: 0 0;
+      font-size: 0.95rem;
+      opacity: 0.35;
+    }
+    8% {
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      font-size: 2.6rem;
+      opacity: 1;
+      z-index: 10;
+    }
+    14% {
+      top: 50%;
+      left: 50%;
+      translate: -50% -50%;
+      font-size: 2.6rem;
+      opacity: 1;
+      z-index: 10;
+    }
+    20% {
+      top: var(--rt);
+      left: var(--rl);
+      translate: 0 0;
+      font-size: 0.95rem;
+      opacity: 0.35;
+    }
+    100% {
+      top: var(--rt);
+      left: var(--rl);
+      translate: 0 0;
+      font-size: 0.95rem;
+      opacity: 0.35;
+    }
+  }
+
+  .kw-space .kw-word:nth-child(1) {
+    --rt: 6%;
+    --rl: 4%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: 0s, 0s;
+  }
+  .kw-space .kw-word:nth-child(2) {
+    --rt: 10%;
+    --rl: 70%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -1s, 2.5s;
+  }
+  .kw-space .kw-word:nth-child(3) {
+    --rt: 34%;
+    --rl: 8%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -2s, 5s;
+  }
+  .kw-space .kw-word:nth-child(4) {
+    --rt: 38%;
+    --rl: 65%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -3s, 7.5s;
+  }
+  .kw-space .kw-word:nth-child(5) {
+    --rt: 64%;
+    --rl: 6%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -4s, 10s;
+  }
+  .kw-space .kw-word:nth-child(6) {
+    --rt: 68%;
+    --rl: 68%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -1.5s, 12.5s;
+  }
+  .kw-space .kw-word:nth-child(7) {
+    --rt: 88%;
+    --rl: 12%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -2.5s, 15s;
+  }
+  .kw-space .kw-word:nth-child(8) {
+    --rt: 90%;
+    --rl: 62%;
+    top: var(--rt);
+    left: var(--rl);
+    animation-delay: -3.5s, 17.5s;
+  }
+
+  @media (max-width: 768px) {
+    .kw-space {
+      height: 340px;
+    }
+    .kw-space .kw-word {
+      font-size: 0.8rem;
+    }
+  }
+</style>
