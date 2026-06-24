@@ -1,318 +1,3313 @@
 <!doctype html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>TollazAi — Engenharia de Inteligência Artificial</title>
-    <meta
-      name="description"
-      content="TollazAi — Arquitetura de software com rigor de engenharia. Sistemas cognitivos e automações de IA para empresas."
-    />
-
-    <!-- Fontes -->
+    <title>
+      TolazzAI Corp — Inteligência Artificial & Governança Corporativa
+    </title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
       rel="stylesheet"
     />
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css" />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "bg-deep": "#0B0C10",
+              "bg-mid": "#0F1117",
+              "bg-card": "#13151C",
+              "cyan-neon": "#00E5FF",
+              gold: "#D4AF37",
+              "txt-white": "#FFFFFF",
+              "txt-gray": "#9CA3AF",
+              "txt-dim": "#6B7280",
+              "border-dim": "#1E2330",
+            },
+            fontFamily: {
+              heading: ["Space Grotesk", "sans-serif"],
+              body: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
 
-    <!-- tsParticles v3 -->
-    <!-- tsParticles — bundle completo (auto-registra tudo) -->
-    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/all@3/tsparticles.all.min.js"></script>
+    <style>
+      /* ── Base ── */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        font-size: 16px;
+      }
+      body {
+        background-color: #0b0c10;
+        color: #9ca3af;
+        font-family: "Montserrat", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Space Grotesk", sans-serif;
+        color: #ffffff;
+      }
+
+      /* ── Scrollbar ── */
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b0c10;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #00e5ff30;
+        border-radius: 2px;
+      }
+
+      /* ── Glassmorphism ── */
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.07);
+      }
+      .glass-cyan {
+        background: rgba(0, 229, 255, 0.04);
+        backdrop-filter: blur(16px);
+        border: 1px solid rgba(0, 229, 255, 0.15);
+      }
+
+      /* ── Gradient borders ── */
+      .border-gradient {
+        position: relative;
+        border-radius: 12px;
+      }
+      .border-gradient::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 229, 255, 0.4),
+          rgba(212, 175, 55, 0.15),
+          rgba(0, 229, 255, 0.1)
+        );
+        -webkit-mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        mask:
+          linear-gradient(#fff 0 0) content-box,
+          linear-gradient(#fff 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      /* ── Cyan glow text ── */
+      .text-glow {
+        text-shadow:
+          0 0 30px rgba(0, 229, 255, 0.5),
+          0 0 60px rgba(0, 229, 255, 0.2);
+      }
+      .gold-glow {
+        text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+      }
+
+      /* ── Section separator ── */
+      .sep {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(0, 229, 255, 0.3),
+          transparent
+        );
+      }
+
+      /* ── Animated underline CTA ── */
+      .btn-primary {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 229, 255, 0.12),
+          rgba(0, 229, 255, 0.04)
+        );
+        border: 1px solid rgba(0, 229, 255, 0.5);
+        border-radius: 6px;
+        color: #00e5ff;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+        overflow: hidden;
+      }
+      .btn-primary::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 229, 255, 0.2),
+          transparent
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      .btn-primary:hover {
+        border-color: #00e5ff;
+        box-shadow:
+          0 0 24px rgba(0, 229, 255, 0.35),
+          inset 0 0 20px rgba(0, 229, 255, 0.05);
+        transform: translateY(-1px);
+      }
+      .btn-primary:hover::after {
+        opacity: 1;
+      }
+
+      .btn-gold {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        background: linear-gradient(
+          135deg,
+          rgba(212, 175, 55, 0.15),
+          rgba(212, 175, 55, 0.05)
+        );
+        border: 1px solid rgba(212, 175, 55, 0.5);
+        border-radius: 6px;
+        color: #d4af37;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn-gold:hover {
+        border-color: #d4af37;
+        box-shadow: 0 0 24px rgba(212, 175, 55, 0.3);
+        transform: translateY(-1px);
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 14px 32px;
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        border-radius: 6px;
+        color: #fff;
+        font-family: "Space Grotesk", sans-serif;
+        font-weight: 500;
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .btn-ghost:hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        background: rgba(255, 255, 255, 0.04);
+        transform: translateY(-1px);
+      }
+
+      /* ── Card hover ── */
+      .card-hover {
+        transition: all 0.35s ease;
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .card-hover:hover {
+        border-color: rgba(0, 229, 255, 0.35);
+        box-shadow:
+          0 0 30px rgba(0, 229, 255, 0.1),
+          0 20px 40px rgba(0, 0, 0, 0.4);
+        transform: translateY(-4px);
+      }
+
+      /* ── Navbar ── */
+      #navbar {
+        transition:
+          background 0.4s ease,
+          box-shadow 0.4s ease;
+      }
+      #navbar.scrolled {
+        background: rgba(11, 12, 16, 0.95);
+        backdrop-filter: blur(20px);
+        box-shadow: 0 1px 0 rgba(0, 229, 255, 0.1);
+      }
+
+      /* ── Checklist item ── */
+      .check-item {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+        padding: 20px 24px;
+        background: rgba(0, 229, 255, 0.03);
+        border: 1px solid rgba(0, 229, 255, 0.1);
+        border-radius: 8px;
+        transition: all 0.3s ease;
+      }
+      .check-item:hover {
+        background: rgba(0, 229, 255, 0.06);
+        border-color: rgba(0, 229, 255, 0.25);
+      }
+
+      /* ── Badge ── */
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 14px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 100px;
+        font-size: 0.75rem;
+        font-family: "Space Grotesk", sans-serif;
+        color: #9ca3af;
+        letter-spacing: 0.04em;
+        transition: all 0.25s;
+      }
+      .badge:hover {
+        border-color: rgba(0, 229, 255, 0.3);
+        color: #00e5ff;
+      }
+
+      /* ── Flow diagram ── */
+      .flow-node {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 16px 20px;
+        background: rgba(0, 229, 255, 0.05);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 10px;
+        min-width: 140px;
+        transition: all 0.3s;
+      }
+      .flow-node:hover {
+        background: rgba(0, 229, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+      }
+      .flow-arrow {
+        color: #00e5ff;
+        font-size: 1.4rem;
+        opacity: 0.6;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      /* ── Security icon card ── */
+      .sec-card {
+        padding: 28px;
+        background: rgba(0, 229, 255, 0.03);
+        border: 1px solid rgba(0, 229, 255, 0.12);
+        border-radius: 12px;
+        transition: all 0.35s;
+      }
+      .sec-card:hover {
+        background: rgba(0, 229, 255, 0.07);
+        border-color: rgba(0, 229, 255, 0.35);
+        box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+      }
+
+      /* ── Gold card (exec) ── */
+      .exec-card {
+        padding: 28px;
+        background: rgba(212, 175, 55, 0.03);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+        border-radius: 12px;
+        transition: all 0.35s;
+      }
+      .exec-card:hover {
+        border-color: rgba(212, 175, 55, 0.4);
+        box-shadow: 0 0 30px rgba(212, 175, 55, 0.1);
+        transform: translateY(-3px);
+      }
+
+      /* ── Fade in on scroll ── */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ── Price tag ── */
+      .price-tag {
+        display: inline-block;
+        padding: 3px 10px;
+        background: rgba(0, 229, 255, 0.08);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 4px;
+        color: #00e5ff;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+      .price-tag-gold {
+        display: inline-block;
+        padding: 3px 10px;
+        background: rgba(212, 175, 55, 0.08);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 4px;
+        color: #d4af37;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      /* ── Mobile menu ── */
+      #mobile-menu {
+        transition:
+          max-height 0.4s ease,
+          opacity 0.3s ease;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+      }
+      #mobile-menu.open {
+        max-height: 400px;
+        opacity: 1;
+      }
+
+      /* ── Grid line background ── */
+      .grid-bg {
+        background-image:
+          linear-gradient(rgba(0, 229, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(0, 229, 255, 0.03) 1px, transparent 1px);
+        background-size: 60px 60px;
+      }
+
+      /* ── Responsive utility ── */
+      @media (max-width: 640px) {
+        .flow-diagram-wrap {
+          flex-direction: column;
+          align-items: center;
+        }
+        .flow-arrow {
+          transform: rotate(90deg);
+        }
+      }
+
+      /* ══════════════════════════════════════════
+       ZOOM FLUTUANTE (zoomFlutuante.txt)
+    ══════════════════════════════════════════ */
+      .kw-space {
+        position: relative;
+        height: 500px;
+        width: 100%;
+        background: radial-gradient(
+          circle at center,
+          rgba(0, 200, 255, 0.08) 0%,
+          transparent 70%
+        );
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
+      }
+      .kw-space .kw-word {
+        position: absolute;
+        font-family: "Segoe UI", Tahoma, sans-serif;
+        font-size: 0.95rem;
+        font-weight: 700;
+        white-space: normal; /* era nowrap */
+        max-width: 85%; /* limita a largura → força a quebra */
+        overflow-wrap: break-word; /* quebra palavras longas se precisar */
+        text-align: center;
+        background: linear-gradient(90deg, #00e696, #00c8ff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        opacity: 0.35;
+        will-change: font-size, top, left, translate, opacity;
+        animation:
+          kwFloat 6s ease-in-out infinite,
+          kwZoom 20s ease-in-out infinite;
+      }
+
+      @keyframes kwFloat {
+        0%,
+        100% {
+          translate: 0 0;
+        }
+        50% {
+          translate: 0 -10px;
+        }
+      }
+      @keyframes kwZoom {
+        0% {
+          top: var(--rt);
+          left: var(--rl);
+          translate: 0 0;
+          font-size: 0.95rem;
+          opacity: 0.35;
+        }
+        8% {
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+          font-size: 2.6rem;
+          opacity: 1;
+          z-index: 10;
+        }
+        14% {
+          top: 50%;
+          left: 50%;
+          translate: -50% -50%;
+          font-size: 2.6rem;
+          opacity: 1;
+          z-index: 10;
+        }
+        20% {
+          top: var(--rt);
+          left: var(--rl);
+          translate: 0 0;
+          font-size: 0.95rem;
+          opacity: 0.35;
+        }
+        100% {
+          top: var(--rt);
+          left: var(--rl);
+          translate: 0 0;
+          font-size: 0.95rem;
+          opacity: 0.35;
+        }
+      }
+      .kw-space .kw-word:nth-child(1) {
+        --rt: 6%;
+        --rl: 4%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: 0s, 0s;
+      }
+      .kw-space .kw-word:nth-child(2) {
+        --rt: 10%;
+        --rl: 70%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -1s, 2.5s;
+      }
+      .kw-space .kw-word:nth-child(3) {
+        --rt: 34%;
+        --rl: 8%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -2s, 5s;
+      }
+      .kw-space .kw-word:nth-child(4) {
+        --rt: 38%;
+        --rl: 65%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -3s, 7.5s;
+      }
+      .kw-space .kw-word:nth-child(5) {
+        --rt: 64%;
+        --rl: 6%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -4s, 10s;
+      }
+      .kw-space .kw-word:nth-child(6) {
+        --rt: 68%;
+        --rl: 68%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -1.5s, 12.5s;
+      }
+      .kw-space .kw-word:nth-child(7) {
+        --rt: 88%;
+        --rl: 12%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -2.5s, 15s;
+      }
+      .kw-space .kw-word:nth-child(8) {
+        --rt: 90%;
+        --rl: 62%;
+        top: var(--rt);
+        left: var(--rl);
+        animation-delay: -3.5s, 17.5s;
+      }
+      @media (max-width: 768px) {
+        .kw-space {
+          height: 340px;
+        }
+        .kw-space .kw-word {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* ══════════════════════════════════════════
+       TLZ BUILDER (custom.txt)
+    ══════════════════════════════════════════ */
+      .tlz-builder * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .tlz-builder {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 1.5rem;
+        max-width: 900px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+        font-family: "Space Grotesk", "Segoe UI", Tahoma, sans-serif;
+        color: #fff;
+        overflow: hidden;
+      }
+      .tlz-links {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+        overflow: visible;
+      }
+      .tlz-link-line {
+        fill: none;
+        stroke: url(#tlzLinkGrad);
+        stroke-width: 2;
+        stroke-linecap: round;
+        filter: drop-shadow(0 0 4px rgba(0, 230, 150, 0.6));
+        animation: tlzDraw 6s ease-in-out infinite;
+      }
+      .tlz-link-line[data-i="0"] {
+        animation-delay: 0s;
+      }
+      .tlz-link-line[data-i="1"] {
+        animation-delay: 0.7s;
+      }
+      .tlz-link-line[data-i="2"] {
+        animation-delay: 1.4s;
+      }
+      .tlz-link-line[data-i="3"] {
+        animation-delay: 2.1s;
+      }
+      @keyframes tlzDraw {
+        0% {
+          stroke-dashoffset: var(--len);
+          opacity: 1;
+        }
+        10% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        92% {
+          stroke-dashoffset: 0;
+          opacity: 1;
+        }
+        98% {
+          stroke-dashoffset: 0;
+          opacity: 0;
+        }
+        100% {
+          stroke-dashoffset: var(--len);
+          opacity: 0;
+        }
+      }
+      .tlz-modules {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+      }
+      .tlz-modules.right {
+        align-items: flex-start;
+      }
+      .tlz-modules.left {
+        align-items: flex-end;
+      }
+      .tlz-mod {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 14px;
+        padding: 0.9rem 1.2rem;
+        width: 100%;
+        max-width: 240px;
+        position: relative;
+        opacity: 0.9;
+        transition:
+          border-color 0.3s,
+          background 0.3s;
+      }
+      .tlz-mod:hover {
+        background: rgba(0, 229, 255, 0.06);
+        border-color: rgba(0, 229, 255, 0.25);
+      }
+      .tlz-modules.right .tlz-mod {
+        flex-direction: row-reverse;
+        text-align: right;
+      }
+      .tlz-mod-icon {
+        width: 42px;
+        height: 42px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+      }
+      .tlz-mod-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+      }
+      .tlz-mod-text {
+        min-width: 0;
+      }
+      .tlz-mod-text strong {
+        display: block;
+        font-size: 0.95rem;
+      }
+      .tlz-mod-text small {
+        color: rgba(255, 255, 255, 0.5);
+        font-size: 0.78rem;
+      }
+      .tlz-core {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        flex-shrink: 0;
+        display: grid;
+        place-items: center;
+        background: radial-gradient(
+          circle,
+          rgba(0, 200, 255, 0.15),
+          transparent 70%
+        );
+        border-radius: 50%;
+        z-index: 2;
+      }
+      .tlz-core-inner {
+        width: 110px;
+        height: 110px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        text-align: center;
+        background: linear-gradient(135deg, #00e696, #00c8ff);
+        color: #0a0e1a;
+        font-weight: 800;
+        font-size: 0.85rem;
+        line-height: 1.2;
+        box-shadow: 0 0 40px rgba(0, 200, 255, 0.4);
+        animation: tlzCoreGlow 6s ease-in-out infinite;
+      }
+      @keyframes tlzCoreGlow {
+        0%,
+        47% {
+          transform: scale(1);
+          box-shadow: 0 0 40px rgba(0, 200, 255, 0.4);
+        }
+        55% {
+          transform: scale(1.15);
+          box-shadow:
+            0 0 80px rgba(0, 230, 150, 1),
+            0 0 130px rgba(0, 200, 255, 0.7);
+        }
+        70% {
+          transform: scale(1.05);
+          box-shadow: 0 0 55px rgba(0, 230, 150, 0.6);
+        }
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 40px rgba(0, 200, 255, 0.4);
+        }
+      }
+      .tlz-core::before,
+      .tlz-core::after {
+        content: "";
+        position: absolute;
+        border-radius: 50%;
+        border: 1px dashed rgba(0, 200, 255, 0.3);
+      }
+      .tlz-core::before {
+        inset: 0;
+        animation: tlzSpin 14s linear infinite;
+      }
+      .tlz-core::after {
+        inset: 18px;
+        border-color: rgba(0, 230, 150, 0.25);
+        animation: tlzSpin 9s linear infinite reverse;
+      }
+      @keyframes tlzSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* ===== MOBILE / ANDROID ===== */
+      @media (max-width: 820px) {
+        .tlz-builder {
+          grid-template-columns: 1fr;
+          gap: 1.2rem;
+          padding: 2rem 1rem;
+        }
+        .tlz-links {
+          display: none;
+        }
+        .tlz-modules.left {
+          order: 1;
+        }
+        .tlz-core {
+          order: 2;
+        }
+        .tlz-modules.right {
+          order: 3;
+        }
+
+        .tlz-modules.left,
+        .tlz-modules.right {
+          width: 100%;
+          align-items: center;
+        }
+        .tlz-modules.right .tlz-mod {
+          flex-direction: row;
+          text-align: left;
+        }
+        .tlz-mod {
+          width: 100%;
+          max-width: 320px;
+        }
+        .tlz-core {
+          margin: 0.5rem auto;
+        }
+      }
+
+      /* Escurece o fundo neon animado */
+      #neonBg {
+        opacity: 0.45; /* diminua mais se quiser: 0.3, 0.25... */
+      }
+
+      /* Camada escura global sobre o canvas de fundo */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: rgba(11, 12, 16, 0.55); /* aumente p/ escurecer mais */
+        z-index: -1;
+        pointer-events: none;
+      }
+
+      /* ── Cursor do efeito máquina de escrever ── */
+      .tw-cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1em;
+        margin-left: 4px;
+        background: #00e5ff;
+        vertical-align: text-bottom;
+        animation: twBlink 0.8s step-end infinite;
+        box-shadow: 0 0 10px rgba(0, 229, 255, 0.7);
+      }
+      @keyframes twBlink {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+      }
+      .tw-cursor.done {
+        animation: twBlink 1s step-end infinite;
+      }
+      .tw-cyan {
+        color: #00e5ff;
+      }
+
+      /* Garante que a imagem fique nítida, sem ruído/filtros */
+      img {
+        image-rendering: auto;
+        filter: none;
+      }
+
+      /* Bloqueia qualquer overlay de ruído sobre o container da imagem */
+      .relative > .rounded-2xl::before,
+      .relative > .rounded-2xl::after {
+        display: none !important;
+      }
+
+      /* Suaviza e melhora a renderização da foto */
+      .rounded-2xl img {
+        filter: contrast(1.02) saturate(1.05);
+        backface-visibility: hidden;
+        transform: translateZ(0);
+      }
+    </style>
   </head>
-  <body>
-    <!-- ===== HEADER / NAV ===== -->
-    <header class="navbar" id="navbar">
-      <div class="container nav-inner">
-        <!-- Logo grande centralizada -->
-        <a href="#hero" class="brand brand-center">
-          <img
-            src="logoBranco.jpg"
-            alt="Logo TolazzAi"
-            class="brand-logo-big"
-          />
+
+  <body class="bg-bg-deep">
+    <!-- ═══════════════════════════════════════════
+     NAVBAR
+═══════════════════════════════════════════ -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 py-4 px-6 lg:px-10">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <!-- Logo -->
+        <a href="#" class="flex items-center">
+          <div class="h-10 w-36 flex items-center justify-center">
+            <img
+              src="logoBranco.png"
+              alt="TolazzAI Corp"
+              class="h-full w-auto object-contain"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'flex';
+              "
+            />
+            <div style="display: none" class="items-center gap-2">
+              <div
+                class="w-7 h-7 rounded bg-cyan-neon opacity-80 flex items-center justify-center"
+              >
+                <span class="text-bg-deep font-bold text-xs font-heading"
+                  >T</span
+                >
+              </div>
+              <span
+                class="font-heading font-bold text-white text-lg tracking-tight"
+                >TolazzAI</span
+              >
+              <span
+                class="font-heading text-gold text-xs tracking-widest uppercase"
+                >Corp</span
+              >
+            </div>
+          </div>
         </a>
 
-        <!-- Menus pequenos à direita -->
-        <nav class="nav-links" id="navLinks">
-          <a href="#sobre">Sobre</a>
-          <a href="#expertise">Expertise</a>
-          <a href="#produtos">Produtos</a>
-          <a href="#fundador">Fundador</a>
+        <!-- Desktop nav links -->
+        <div class="hidden lg:flex items-center gap-8">
           <a
-            href="https://wa.me/554299164414"
-            target="_blank"
-            rel="noopener"
-            class="nav-cta"
-            >Falar Conosco</a
+            href="#ecossistema"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body tracking-wide transition-colors duration-200"
+            >Ecossistema</a
           >
-        </nav>
+          <a
+            href="#auditorias"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body tracking-wide transition-colors duration-200"
+            >Auditorias</a
+          >
+          <a
+            href="#seguranca"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body tracking-wide transition-colors duration-200"
+            >Segurança</a
+          >
+          <a
+            href="#executivo"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body tracking-wide transition-colors duration-200"
+            >Executivo</a
+          >
+          <a
+            href="#cultura"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body tracking-wide transition-colors duration-200"
+            >Cultura</a
+          >
+        </div>
 
-        <!-- Botão menu mobile -->
-        <button class="nav-toggle" id="navToggle" aria-label="Abrir menu">
-          <span></span><span></span><span></span>
+        <!-- CTA -->
+        <div class="hidden lg:block">
+          <a href="#contato" class="btn-primary text-xs"
+            >Falar com Especialista</a
+          >
+        </div>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="menu-toggle"
+          class="lg:hidden flex flex-col gap-1.5 p-2"
+          aria-label="Menu"
+        >
+          <span class="w-6 h-0.5 bg-txt-gray transition-all"></span>
+          <span class="w-6 h-0.5 bg-txt-gray transition-all"></span>
+          <span class="w-6 h-0.5 bg-txt-gray transition-all"></span>
         </button>
       </div>
-    </header>
 
-    <!-- ===== HERO ===== -->
-    <section class="hero" id="hero">
-        <section class="hero" id="hero">
-  <!-- Efeito de luzes flutuantes -->
-  <div class="hero-orbs">
-    <span class="orb orb-1"></span>
-    <span class="orb orb-2"></span>
-    <span class="orb orb-3"></span>
-  </div>
-
-  <div class="hero-bg"></div>
-  <div class="container hero-content">
-    <!-- ... seu conteúdo continua igual ... -->
-
-      <div id="particles-canvas"></div>
-      <div class="hero-bg"></div>
-      <div class="container hero-content">
-        <span class="badge">Engenharia de IA &amp; Sistemas Cognitivos</span>
-        <h1 class="hero-title">
-          Construímos a <span class="gradient-text">inteligência</span><br />
-          que opera o seu negócio.
-        </h1>
-        <p class="hero-sub">
-          A TolazzAi projeta sistemas cognitivos com rigor de engenharia.
-          Transformamos processos manuais em automações inteligentes, confiáveis
-          e escaláveis.
-        </p>
-        <div class="hero-actions">
-          <a href="#produtos" class="btn btn-primary"
-            >Conheça nossas soluções</a
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="lg:hidden">
+        <div
+          class="mt-4 px-4 pb-4 flex flex-col gap-4 border-t border-border-dim pt-4"
+        >
+          <a
+            href="#ecossistema"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body"
+            >Ecossistema</a
           >
-          <a href="#contato" class="btn btn-ghost">Falar com um Estrategista</a>
-        </div>
-
-        <div class="hero-stats">
-          <div class="stat">
-            <strong>+6 anos</strong><span>em Engenharia de Qualidade</span>
-          </div>
-          <div class="stat">
-            <strong>24/7</strong><span>operações automatizadas</span>
-          </div>
-          <div class="stat">
-            <strong>100%</strong><span>governança de dados</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== SOBRE ===== -->
-    <section class="section" id="sobre">
-      <div class="container grid-2">
-        <div>
-          <span class="eyebrow">Quem somos</span>
-          <h2 class="section-title">
-            Software de IA com <span class="accent">rigor de engenharia</span>.
-          </h2>
-          <p class="section-text">
-            A TolazzAi é a empresa-mãe responsável pela arquitetura, segurança e
-            confiabilidade por trás de cada solução que entregamos. Não criamos
-            "robôs genéricos" — desenvolvemos sistemas cognitivos treinados com
-            as regras de cada negócio.
-          </p>
-          <p class="section-text">
-            Nossa obsessão é simples: automações que
-            <strong>não quebram</strong>
-            no momento mais crítico do seu cliente.
-          </p>
-        </div>
-        <div class="about-visual">
-          <div class="node-graphic">
-            <span class="node n1"></span>
-            <span class="node n2"></span>
-            <span class="node n3"></span>
-            <span class="node n4"></span>
-            <span class="line l1"></span>
-            <span class="line l2"></span>
-            <span class="line l3"></span>
-          </div>
+          <a
+            href="#auditorias"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body"
+            >Auditorias</a
+          >
+          <a
+            href="#seguranca"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body"
+            >Segurança</a
+          >
+          <a
+            href="#executivo"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body"
+            >Executivo</a
+          >
+          <a
+            href="#cultura"
+            class="text-txt-gray hover:text-cyan-neon text-sm font-body"
+            >Cultura</a
+          >
+          <a href="#contato" class="btn-primary text-xs text-center"
+            >Falar com Especialista</a
+          >
         </div>
       </div>
-    </section>
+    </nav>
 
-    <!-- ===== EXPERTISE ===== -->
-    <section class="section section-alt" id="expertise">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">O que fazemos</span>
-          <h2 class="section-title">Capacidades de engenharia</h2>
+    <!-- ===== FUNDO NEON ANIMADO ===== -->
+    <canvas
+      id="neonBg"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        pointer-events: none;
+        touch-action: none;
+      "
+    ></canvas>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 1: HERO
+═══════════════════════════════════════════ -->
+    <section
+      class="relative min-h-screen flex items-center justify-center overflow-hidden"
+      id="hero"
+    >
+      <!-- Radial glow on hero content area -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: radial-gradient(
+            ellipse 70% 50% at 50% 60%,
+            rgba(0, 229, 255, 0.06) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-5xl mx-auto px-6 text-center pt-28 pb-20">
+        <!-- Badge -->
+        <div class="fade-in inline-flex items-center gap-3 mb-10">
+          <div class="h-px w-12 bg-cyan-neon opacity-60"></div>
+          <span
+            class="font-body text-xs tracking-[0.18em] uppercase text-cyan-neon font-medium"
+          >
+            TolazzAI — Inteligência Artificial &amp; Governança Corporativa
+          </span>
+          <div class="h-px w-12 bg-cyan-neon opacity-60"></div>
         </div>
 
-        <div class="cards">
-          <article class="card">
-            <div class="card-icon">⚙️</div>
-            <h3>Automação de Fluxos</h3>
-            <p>
-              Orquestração de processos complexos com integrações ponta a ponta
-              entre CRMs, ERPs e plataformas de mensageria.
-            </p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🧠</div>
-            <h3>Sistemas Cognitivos</h3>
-            <p>
-              Agentes de IA treinados sob governança estrita de prompt,
-              respondendo somente com base no seu banco de dados.
-            </p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🛡️</div>
-            <h3>Qualidade &amp; Confiabilidade</h3>
-            <p>
-              Background em QA garantindo que cada automação seja testada,
-              monitorada e resistente a falhas em escala.
-            </p>
-          </article>
-          <article class="card">
-            <div class="card-icon">🔗</div>
-            <h3>Integrações sob medida</h3>
-            <p>
-              Conexões bidirecionais com as ferramentas que sua operação já
-              utiliza, sem retrabalho.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+        <!-- H1 com efeito máquina de escrever -->
+        <h1
+          class="fade-in font-heading text-4xl sm:text-5xl lg:text-7xl font-bold text-white leading-[1.08] tracking-tight mb-8"
+          style="transition-delay: 0.1s"
+        >
+          <span id="typewriter"></span><span class="tw-cursor"></span>
+        </h1>
 
-    <!-- ===== PRODUTOS ===== -->
-    <section class="section" id="produtos">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">Nossos produtos</span>
-          <h2 class="section-title">Inteligência aplicada ao seu negócio</h2>
-        </div>
+        <!-- Slogan (Subtítulo Direto) -->
+        <p
+          class="fade-in font-heading text-lg sm:text-xl lg:text-2xl text-cyan-neon font-medium leading-snug mb-8"
+          style="transition-delay: 0.15s"
+        >
+          Implementação de Inteligência Artificial, Agentes Autônomos e Business
+          Intelligence para escalar negócios.
+        </p>
 
-        <div class="product-feature">
-          <div class="product-info">
-            <span class="badge badge-small">Powered by TolazzAi</span>
-            <h3 class="product-name">
-              Altonics<span class="accent"> Agent</span>
-            </h3>
-            <p>
-              Transforme o WhatsApp da sua empresa em uma máquina de vendas e
-              triagem 24/7. Mais que um robô — um cérebro operacional que
-              qualifica leads, integra com seu CRM e sabe a hora certa de chamar
-              um humano.
-            </p>
-            <a href="altonics.html" class="btn btn-primary"
-              >Conhecer a Altonics →</a
+        <!-- Subtitle -->
+        <p
+          class="fade-in font-body text-base sm:text-lg text-txt-gray max-w-3xl mx-auto leading-relaxed mb-12"
+          style="transition-delay: 0.2s"
+        >
+          Eleve a sua operação a um novo patamar de excelência, deixe os
+          processos manuais no passado.
+          <strong class="text-white font-medium"
+            >Construímos ecossistemas corporativos</strong
+          >. onde a tecnologia atende, qualifica e analisa dados 24 horas por
+          dia com
+          <strong class="text-white font-medium"
+            >Inteligência Artificial e Business Intelligence.</strong
+          >. Para líderes que exigem previsibilidade financeira e não procuram
+          apenas crescer,
+          <strong class="text-white font-medium">dominar o seu mercado.</strong
+          >.
+        </p>
+
+        <!-- CTA -->
+        <div
+          class="fade-in flex flex-col sm:flex-row gap-4 justify-center"
+          style="transition-delay: 0.3s"
+        >
+          <a href="#arsenal" class="btn-primary">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
             >
+              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
+            </svg>
+            Conhecer a TolazzAI
+          </a>
+          <a href="#contato" class="btn-ghost">Falar com Especialista</a>
+        </div>
+
+        <!-- Scroll indicator -->
+        <div
+          class="fade-in mt-20 flex flex-col items-center gap-2 opacity-40"
+          style="transition-delay: 0.5s"
+        >
+          <span class="font-body text-xs tracking-widest uppercase"
+            >Scroll</span
+          >
+          <div
+            class="w-px h-12 bg-gradient-to-b from-cyan-neon to-transparent"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 1.5: MANIFESTO
+═══════════════════════════════════════════ -->
+    <section class="py-10 border-y border-border-dim bg-bg-mid">
+      <div class="max-w-4xl mx-auto px-6 text-center">
+        <p
+          class="font-body italic text-sm sm:text-base text-txt-gray leading-relaxed opacity-80"
+        >
+          "Um aviso rápido: Não fazemos marketing apelativo nem vendemos a
+          'tecnologia da moda'. Somos profissionais sérios, focados em
+          engenharia e resultados corporativos. O nosso compromisso é entrar na
+          sua operação e mudar o jogo. Sabemos que o seu negócio tem um objetivo
+          grandioso e nós também temos, a TolazzAI acredita nessa visão e a
+          possibilita."
+        </p>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 2: PONTO DE INFLEXÃO
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6" id="inflexao">
+      <div class="max-w-4xl mx-auto text-center">
+        <p
+          class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+        >
+          Ponto de Inflexão
+        </p>
+        <h2
+          class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8"
+        >
+          Até onde a sua operação atual<br />consegue acompanhar a sua visão?
+        </h2>
+        <p
+          class="fade-in font-body text-base text-txt-gray leading-relaxed mb-16 max-w-2xl mx-auto"
+        >
+          Você construiu um negócio de sucesso. Mas, como líder, sabe que o
+          crescimento sustentável não se faz apenas com mais esforço humano, mas
+          com inteligência de sistemas — aumentar a equipe indefinidamente não é
+          o caminho para a eficiência absoluta.
+        </p>
+
+        <!-- Checklist -->
+        <div class="space-y-4 mb-14 text-left">
+          <div class="fade-in check-item">
+            <span
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-neon bg-opacity-10 border border-cyan-neon border-opacity-30 flex items-center justify-center text-cyan-neon font-heading font-bold text-sm"
+              >1</span
+            >
+            <p
+              class="font-body text-txt-gray text-sm sm:text-base leading-relaxed pt-1"
+            >
+              O talento da sua equipe está focado em fechar negócios, ou está
+              <strong class="text-white">preso em processos manuais</strong>?
+            </p>
           </div>
-          <div class="product-visual">
-            <div class="flow-mini">
-              <span>WhatsApp</span>
-              <span class="flow-arrow">➔</span>
-              <span>Altonics</span>
-              <span class="flow-arrow">➔</span>
-              <span>CRM</span>
-              <span class="flow-arrow">➔</span>
-              <span>Venda</span>
+          <div class="fade-in check-item" style="transition-delay: 0.1s">
+            <span
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-neon bg-opacity-10 border border-cyan-neon border-opacity-30 flex items-center justify-center text-cyan-neon font-heading font-bold text-sm"
+              >2</span
+            >
+            <p
+              class="font-body text-txt-gray text-sm sm:text-base leading-relaxed pt-1"
+            >
+              A sua empresa mantém o mesmo padrão de atendimento
+              <strong class="text-white">24/7</strong>, mesmo quando você não
+              está presente?
+            </p>
+          </div>
+          <div class="fade-in check-item" style="transition-delay: 0.2s">
+            <span
+              class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-neon bg-opacity-10 border border-cyan-neon border-opacity-30 flex items-center justify-center text-cyan-neon font-heading font-bold text-sm"
+              >3</span
+            >
+            <p
+              class="font-body text-txt-gray text-sm sm:text-base leading-relaxed pt-1"
+            >
+              A sua tomada de decisão é suportada por
+              <strong class="text-white">dados em tempo real (BI)</strong>, ou
+              depende de intuição?
+            </p>
+          </div>
+        </div>
+
+        <!-- Closing -->
+        <div class="fade-in inline-block glass-cyan rounded-lg px-8 py-5">
+          <p class="font-body text-sm sm:text-base text-white">
+            Se procura a precisão em <em>todas</em> as respostas, a sua empresa
+            está pronta para a
+            <strong class="text-cyan-neon"> transição tecnológica</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 3: ARSENAL TOLAZZAI
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6" id="arsenal">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left text -->
+        <div>
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+          >
+            O Arsenal
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8"
+          >
+            Da intervenção cirúrgica à arquitetura completa.<br />
+            <span class="text-cyan-neon">Nós construímos o seu caminho.</span>
+          </h2>
+          <p
+            class="fade-in font-body text-base text-txt-gray leading-relaxed mb-10"
+          >
+            Não acreditamos em soluções engessadas. A TolazzAI atua como o seu
+            <strong class="text-white">braço direito tecnológico</strong>,
+            oferecendo um ecossistema completo para cada fase do seu negócio.
+            Seja através de diagnósticos rápidos para estancar perdas
+            financeiras hoje, ou desenhando arquiteturas complexas e sob medida
+            de Inteligência Artificial para dominar o seu mercado amanhã. Você
+            dita o ritmo, nós construímos a ponte.
+          </p>
+
+          <!-- Target badges -->
+          <div class="fade-in flex flex-wrap gap-3">
+            <span class="badge">Pequenas Empresas</span>
+            <span class="badge">Médias Empresas</span>
+            <span class="badge">Grandes Empresas</span>
+            <span class="badge">Profissionais Autônomos</span>
+          </div>
+        </div>
+
+        <!-- Right: zoomFlutuante.txt component -->
+        <div
+          class="fade-in flex items-center justify-center overflow-hidden rounded-2xl"
+          style="border: 1px solid rgba(0, 229, 255, 0.12)"
+        >
+          <!-- ===== ZOOM FLUTUANTE ===== -->
+          <div class="kw-space">
+            <span class="kw-word">Auditorias Rápidas</span>
+            <span class="kw-word">Agentes Cognitivos Altonics</span>
+            <span class="kw-word">Governança &amp; Segurança</span>
+            <span class="kw-word">Projetos Sob Medida Plug &amp; Play</span>
+            <span class="kw-word">IA para Empresas</span>
+            <span class="kw-word">LGPD e Normas</span>
+            <span class="kw-word">Treinamentos Corporativos</span>
+            <span class="kw-word">Marketing Automatizado</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 4: ECOSSISTEMA ALTONICS
+═══════════════════════════════════════════ -->
+    <section
+      class="py-28 px-6 relative overflow-hidden"
+      id="ecossistema"
+      style="
+        background: linear-gradient(
+          180deg,
+          #0b0c10 0%,
+          #0d1018 50%,
+          #0b0c10 100%
+        );
+      "
+    >
+      <!-- Glow backdrop -->
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: radial-gradient(
+            ellipse 60% 40% at 50% 50%,
+            rgba(0, 229, 255, 0.05) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+
+      <div class="relative max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+          >
+            Tecnologia Proprietária
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8"
+          >
+            Conheça a Tecnologia Altonics.<br />
+            <span class="text-cyan-neon"
+              >O cérebro digital da sua empresa.</span
+            >
+          </h2>
+          <p
+            class="fade-in font-body text-base text-txt-gray max-w-3xl mx-auto leading-relaxed"
+          >
+            Altonics Agent é um sistema cognitivo proprietário desenvolvido pela
+            TolazzAI que se integra perfeitamente à sua operação atual — seu
+            WhatsApp, seu ERP, seu Site, onde você precisar. Ele atende,
+            qualifica leads, consulta o seu catálogo e transfere os dados para o
+            seu CRM.
+          </p>
+        </div>
+
+        <!-- Flow diagram -->
+        <div class="fade-in mb-14">
+          <div class="glass-cyan rounded-2xl p-8 overflow-x-auto">
+            <div
+              class="flow-diagram-wrap flex items-center justify-center gap-3 min-w-max mx-auto"
+            >
+              <div class="flow-node">
+                <svg
+                  class="mb-3 text-cyan-neon"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+                  />
+                </svg>
+                <span
+                  class="font-heading text-xs font-semibold text-white text-center"
+                  >Cliente entra<br />no WhatsApp</span
+                >
+              </div>
+
+              <div class="flow-arrow">→</div>
+
+              <div
+                class="flow-node"
+                style="
+                  background: rgba(0, 229, 255, 0.1);
+                  border-color: rgba(0, 229, 255, 0.35);
+                "
+              >
+                <svg
+                  class="mb-3 text-cyan-neon"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="12" cy="12" r="3" />
+                  <path
+                    d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
+                  />
+                </svg>
+                <span
+                  class="font-heading text-xs font-bold text-cyan-neon text-center"
+                  >Agente Altonics<br />Responde & Ajuda</span
+                >
+              </div>
+
+              <div class="flow-arrow">→</div>
+
+              <div class="flow-node">
+                <svg
+                  class="mb-3 text-cyan-neon"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M9 12l2 2 4-4" />
+                  <path
+                    d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"
+                  />
+                </svg>
+                <span
+                  class="font-heading text-xs font-semibold text-white text-center"
+                  >Qualificação<br />com IA</span
+                >
+              </div>
+
+              <div class="flow-arrow">→</div>
+
+              <div class="flow-node">
+                <svg
+                  class="mb-3 text-cyan-neon"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="2" y="3" width="20" height="14" rx="2" />
+                  <path d="M8 21h8M12 17v4" />
+                </svg>
+                <span
+                  class="font-heading text-xs font-semibold text-white text-center"
+                  >Dados → CRM<br />& Dashboard</span
+                >
+              </div>
+
+              <div class="flow-arrow">→</div>
+
+              <div
+                class="flow-node"
+                style="
+                  background: rgba(212, 175, 55, 0.07);
+                  border-color: rgba(212, 175, 55, 0.3);
+                "
+              >
+                <svg
+                  class="mb-3"
+                  width="28"
+                  height="28"
+                  fill="none"
+                  stroke="#D4AF37"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
+                </svg>
+                <span
+                  class="font-heading text-xs font-bold text-center"
+                  style="color: #d4af37"
+                  >Equipe Humana<br />Fecha o Negócio</span
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Highlight + CTA -->
+        <div class="fade-in text-center space-y-8">
+          <div
+            class="inline-block glass rounded-xl px-8 py-4 border border-gold border-opacity-20"
+          >
+            <p class="font-heading text-base sm:text-lg text-white">
+              "O equilíbrio perfeito entre a
+              <span class="text-cyan-neon">hiperautomação da máquina</span> e o
+              <span style="color: #d4af37">toque humano</span>." <br /><span
+                class="font-body text-xs text-txt-dim mt-2 block"
+                >Human Handoff nativo.</span
+              >
+            </p>
+          </div>
+          <div>
+            <a href="altonics.html" class="btn-primary">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5 12h14M12 5l7 7-7 7" />
+              </svg>
+              Explorar Ecossistema Altonics e Ver Planos
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 5: DIAGNÓSTICOS E AUDITORIAS
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6" id="auditorias">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+          >
+            Diagnósticos
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight"
+          >
+            Conhecimento é poder.<br />Comece com um raio-X preciso<br />da sua
+            operação.
+          </h2>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <div
+            class="fade-in card-hover glass border-gradient rounded-xl p-6 flex flex-col gap-4"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+                  />
+                </svg>
+              </div>
+              <span class="price-tag">R$ 297</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-base font-semibold text-white mb-2">
+                Análise de Maturidade em IA
+              </h3>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Para implantar uma estratégia de IA, é essencial entender em que
+                ponto esta a partida da organização com a própria IA. Analisamos
+                5 pontos: Dados, Tecnologia, Pessoas, Processos, Estratégia.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div
+            class="fade-in card-hover glass border-gradient rounded-xl p-6 flex flex-col gap-4"
+            style="transition-delay: 0.05s"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                  />
+                </svg>
+              </div>
+              <span class="price-tag">R$ 697</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-base font-semibold text-white mb-2">
+                Adequação Expressa: LGPD &amp; Normas de IA
+              </h3>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Blindagem jurídica corporativa. Analisamos o seu fluxo de dados
+                e o comportamento dos seus agentes de IA para garantir
+                conformidade total e evitar riscos e multas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div
+            class="fade-in card-hover glass border-gradient rounded-xl p-6 flex flex-col gap-4"
+            style="transition-delay: 0.1s"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                </svg>
+              </div>
+              <span class="price-tag">R$ 497</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-base font-semibold text-white mb-2">
+                Auditoria de Riscos e Segurança de Software
+              </h3>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Análise do seu ecossistema tecnológico com o rigor da Engenharia
+                de Qualidade (QA). Identificamos falhas críticas e riscos de
+                queda para garantir que os seus sistemas suportem períodos de
+                alta demanda sem falhar.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div
+            class="fade-in card-hover glass border-gradient rounded-xl p-6 flex flex-col gap-4"
+            style="transition-delay: 0.15s"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <rect x="2" y="7" width="20" height="14" rx="2" />
+                  <path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2" />
+                  <line x1="12" y1="12" x2="12" y2="16" />
+                  <line x1="10" y1="14" x2="14" y2="14" />
+                </svg>
+              </div>
+              <span class="price-tag">R$ 247</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-base font-semibold text-white mb-2">
+                Análise de Infraestrutura e Stack Tecnológico
+              </h3>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Mapeamento completo das ferramentas e sistemas que a sua empresa
+                já paga. Identificamos redundâncias financeiras e oportunidades
+                de integração para reduzir o seu custo mensal com software.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div
+            class="fade-in card-hover glass border-gradient rounded-xl p-6 flex flex-col gap-4"
+            style="transition-delay: 0.2s"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M3 3h18v18H3z" rx="2" />
+                  <path d="M3 9h18M9 21V9" />
+                </svg>
+              </div>
+              <span class="price-tag">R$ 397</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-base font-semibold text-white mb-2">
+                Diagnóstico de Governança de Dados
+              </h3>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Avaliação profunda de como a sua empresa armazena e utiliza
+                informações. Preparamos a sua base estrutural para a futura
+                criação de Dashboards de Business Intelligence (BI) para tomadas
+                de decisão rápidas.
+              </p>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div
+            class="fade-in card-hover glass border-gradient rounded-xl p-6 flex flex-col gap-4"
+            style="transition-delay: 0.25s"
+          >
+            <div class="flex items-start justify-between">
+              <div
+                class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <circle cx="11" cy="11" r="8" />
+                  <path d="m21 21-4.35-4.35M11 8v3M11 14h.01" />
+                </svg>
+              </div>
+              <span class="price-tag">R$ 297</span>
+            </div>
+            <div>
+              <h3 class="font-heading text-base font-semibold text-white mb-2">
+                Auditoria de "Shadow AI"
+              </h3>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Mapeamento investigativo para descobrir quais ferramentas de
+                Inteligência Artificial (não oficiais) os seus funcionários
+                estão a utilizar no dia a dia, mitigando riscos severos de
+                vazamento de dados confidenciais.
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== FUNDADOR ===== -->
-    <section class="section section-alt" id="fundador">
-      <div class="container grid-2 founder">
-        <div class="founder-photo">
-          <img src="Saimon.jpg" alt="Saimon Tolazzi — Fundador da TollazAi" />
-        </div>
-        <div>
-          <span class="eyebrow">Quem está por trás do código</span>
-          <h2 class="section-title">
-            Arquitetura de software com
-            <span class="accent">rigor de engenharia</span>.
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 6: SEGURANÇA E CONTINUIDADE
+═══════════════════════════════════════════ -->
+    <section
+      class="py-28 px-6 relative overflow-hidden"
+      id="seguranca"
+      style="background: linear-gradient(180deg, #0b0c10 0%, #060810 100%)"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: radial-gradient(
+            ellipse 50% 40% at 50% 50%,
+            rgba(0, 100, 200, 0.05) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+
+      <div class="relative max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <div
+            class="fade-in inline-flex items-center justify-center w-16 h-16 rounded-full mx-auto mb-8"
+            style="
+              background: rgba(0, 229, 255, 0.08);
+              border: 1px solid rgba(0, 229, 255, 0.25);
+            "
+          >
+            <svg
+              width="28"
+              height="28"
+              fill="none"
+              stroke="#00E5FF"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+          </div>
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+          >
+            Segurança & Continuidade
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8"
+          >
+            Inovação sem segurança<br />é apenas risco.
           </h2>
-          <p class="section-text">
-            Com mais de 6 anos atuando em Engenharia de Qualidade (QA), Saimon
-            Tolazzi fundou a TollazAi com uma convicção: automações de IA
-            precisam ser tratadas como software crítico.
-          </p>
-          <p class="section-text">
-            Isso significa testes rigorosos, governança de dados e a garantia de
-            que as automações não vão quebrar no meio do lançamento do seu
-            cliente.
-          </p>
-          <a
-            href="https://www.linkedin.com/in/saimon-tolazzi/"
-            target="_blank"
-            rel="noopener"
-            class="btn btn-ghost"
-            >Ver perfil no LinkedIn</a
+          <p
+            class="fade-in font-body text-base text-txt-gray max-w-2xl mx-auto leading-relaxed"
           >
+            Protegemos o seu maior ativo com tecnologia de ponta. Um ataque
+            cibernético ou a perda do seu banco de dados pode paralisar a sua
+            operação em minutos. Nós
+            <strong class="text-white">blindamos o seu negócio</strong> para que
+            ele seja o mais robusto possível a invasões, falhas e sequestros
+            digitais.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+          <!-- Security card 1 -->
+          <div class="fade-in sec-card">
+            <div class="flex items-center gap-4 mb-5">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  <path d="M9 12l2 2 4-4" />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-base font-bold text-white">
+                  Blindagem Corporativa e Prevenção contra Invasões
+                </h3>
+                <span class="price-tag mt-1">R$ 897</span>
+              </div>
+            </div>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              Simulação controlada de ataques (Pentest Básico) e varredura
+              profunda de vulnerabilidades na sua rede, Wi-Fi e sistemas.
+              Fechamos as portas para hackers antes que a sua empresa vire um
+              alvo.
+            </p>
+          </div>
+
+          <!-- Security card 2 -->
+          <div class="fade-in sec-card" style="transition-delay: 0.1s">
+            <div class="flex items-center gap-4 mb-5">
+              <div
+                class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
+                style="
+                  background: rgba(0, 229, 255, 0.08);
+                  border: 1px solid rgba(0, 229, 255, 0.2);
+                "
+              >
+                <svg
+                  width="22"
+                  height="22"
+                  fill="none"
+                  stroke="#00E5FF"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 8l-5-5-5 5M12 3v12"
+                  />
+                </svg>
+              </div>
+              <div>
+                <h3 class="font-heading text-base font-bold text-white">
+                  Disaster Recovery &amp; Backups Cloud
+                </h3>
+                <div class="flex gap-2 mt-1 flex-wrap">
+                  <span class="price-tag">Setup R$ 497</span>
+                  <span class="price-tag">Mensal a partir de R$ 147</span>
+                </div>
+              </div>
+            </div>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              A sua apólice de seguro digital. Estruturamos backups
+              automatizados e criptografados em nuvem com proteção
+              Anti-Ransomware. Se o pior acontecer, a sua operação volta ao ar
+              em tempo recorde, sem perder uma única informação.
+            </p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== CTA FINAL ===== -->
-    <section class="cta-final" id="contato">
-      <div class="container">
-        <h2>Pronto para colocar a IA para trabalhar pela sua empresa?</h2>
-        <p>
-          Agende uma consultoria gratuita e descubra onde a automação pode gerar
-          mais resultado.
-        </p>
-        <a
-          href="https://wa.me/554299164414"
-          target="_blank"
-          rel="noopener"
-          class="btn btn-primary btn-lg"
-          >Agendar Consultoria Gratuita</a
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 7: KITS DE IMPLEMENTAÇÃO
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6 bg-bg-mid" id="kits">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-6">
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-4"
+          >
+            Kits de Implementação
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-4"
+          >
+            Soluções modulares.<br />Transformação imediata.
+          </h2>
+          <p class="fade-in font-body text-sm text-txt-gray max-w-2xl mx-auto">
+            Desenvolvemos pacotes de integração e automação sob medida para
+            resolver os gargalos mais críticos da sua empresa em tempo recorde.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 mt-14">
+          <!-- Kit 1 -->
+          <div class="fade-in border-gradient rounded-2xl">
+            <div class="glass rounded-2xl p-8 h-full flex flex-col gap-6">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style="
+                    background: rgba(0, 229, 255, 0.1);
+                    border: 1px solid rgba(0, 229, 255, 0.25);
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect x="3" y="3" width="18" height="18" rx="2" />
+                    <path d="M3 9h18M9 21V9" />
+                  </svg>
+                </div>
+                <h3 class="font-heading text-base font-bold text-white">
+                  Kit Governança Básica Automatizada
+                </h3>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <span
+                    class="font-body text-xs uppercase tracking-wider text-txt-dim"
+                    >Para quem</span
+                  >
+                  <p
+                    class="font-body text-xs text-txt-gray mt-1 leading-relaxed"
+                  >
+                    Operações perdendo dinheiro com falta de processos e
+                    planilhas descentralizadas.
+                  </p>
+                </div>
+                <div>
+                  <span
+                    class="font-body text-xs uppercase tracking-wider text-txt-dim"
+                    >A Solução</span
+                  >
+                  <p
+                    class="font-body text-xs text-txt-gray mt-1 leading-relaxed"
+                  >
+                    Orquestração ágil (Jira/Trello), automação de rotinas via
+                    Zapier e a construção de um Dashboard de BI centralizado.
+                  </p>
+                </div>
+              </div>
+
+              <div class="mt-auto glass-cyan rounded-lg p-4">
+                <p class="font-body text-xs text-white italic leading-relaxed">
+                  "O raio-X financeiro e operacional da sua empresa atualizado
+                  em
+                  <span class="text-cyan-neon font-semibold">tempo real</span>,
+                  sem depender de trabalho manual."
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Kit 2 -->
+          <div
+            class="fade-in border-gradient rounded-2xl"
+            style="transition-delay: 0.1s"
+          >
+            <div class="glass rounded-2xl p-8 h-full flex flex-col gap-6">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style="
+                    background: rgba(212, 175, 55, 0.1);
+                    border: 1px solid rgba(212, 175, 55, 0.25);
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="#D4AF37"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                </div>
+                <h3 class="font-heading text-base font-bold text-white">
+                  Kit Marketing com IA
+                </h3>
+              </div>
+
+              <div class="space-y-4">
+                <div>
+                  <span
+                    class="font-body text-xs uppercase tracking-wider text-txt-dim"
+                    >Para quem</span
+                  >
+                  <p
+                    class="font-body text-xs text-txt-gray mt-1 leading-relaxed"
+                  >
+                    Empresas precisando escalar campanhas e estética visual, mas
+                    sem orçamento para inchar a equipe.
+                  </p>
+                </div>
+                <div>
+                  <span
+                    class="font-body text-xs uppercase tracking-wider text-txt-dim"
+                    >A Solução</span
+                  >
+                  <p
+                    class="font-body text-xs text-txt-gray mt-1 leading-relaxed"
+                  >
+                    Automação de funis de leads, geração de ativos visuais com
+                    IA Generativa (Krea.ai, Leonardo.ai) e automação de
+                    postagens.
+                  </p>
+                </div>
+              </div>
+
+              <div
+                class="mt-auto rounded-lg p-4"
+                style="
+                  background: rgba(212, 175, 55, 0.05);
+                  border: 1px solid rgba(212, 175, 55, 0.15);
+                "
+              >
+                <p class="font-body text-xs text-white italic leading-relaxed">
+                  "Sua empresa produzindo marketing com a velocidade e a
+                  qualidade visual de uma
+                  <span style="color: #d4af37" class="font-semibold"
+                    >agência de ponta</span
+                  >, rodando no automático."
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 8: CONSULTORIA EXECUTIVA (C-LEVEL)
+═══════════════════════════════════════════ -->
+    <section
+      class="py-28 px-6 relative overflow-hidden"
+      id="executivo"
+      style="
+        background: linear-gradient(
+          180deg,
+          #0b0c10 0%,
+          #0e0d08 50%,
+          #0b0c10 100%
+        );
+      "
+    >
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: radial-gradient(
+            ellipse 55% 40% at 50% 50%,
+            rgba(212, 175, 55, 0.04) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+
+      <div class="relative max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+          <div
+            class="fade-in inline-flex items-center justify-center w-14 h-14 rounded-full mx-auto mb-8"
+            style="
+              background: rgba(212, 175, 55, 0.08);
+              border: 1px solid rgba(212, 175, 55, 0.3);
+            "
+          >
+            <svg
+              width="24"
+              height="24"
+              fill="none"
+              stroke="#D4AF37"
+              stroke-width="1.5"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+          </div>
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase mb-4"
+            style="color: #d4af37"
+          >
+            Consultoria C-Level
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+          >
+            Para quem joga<br />
+            <span class="gold-glow" style="color: #d4af37">em alto nível.</span>
+          </h2>
+          <p
+            class="fade-in font-body text-sm text-txt-gray max-w-2xl mx-auto leading-relaxed"
+          >
+            Projetos desenhados exclusivamente para o C-Level. Unimos o rigor
+            dos dados à inteligência de mercado e tecnologia para criar
+            fundações corporativas inabaláveis.
+          </p>
+        </div>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 mb-12">
+          <div class="fade-in exec-card">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-heading text-sm font-bold text-white max-w-[70%]">
+                Consultoria de Investimentos Financeiros
+              </h3>
+              <span class="price-tag-gold flex-shrink-0"
+                >A partir de R$ 1.500</span
+              >
+            </div>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              Com o apoio de especialistas financeiros, analisamos e
+              estruturamos o capital da sua empresa. Focamos na gestão de fluxo
+              de caixa, viabilidade e diversificação para multiplicar o seu
+              lucro.
+            </p>
+          </div>
+
+          <div class="fade-in exec-card" style="transition-delay: 0.08s">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-heading text-sm font-bold text-white max-w-[60%]">
+                Consultoria de Roadmaps e Metas de IA
+              </h3>
+              <span class="price-tag-gold flex-shrink-0"
+                >R$ 2.000 – R$ 4.000</span
+              >
+            </div>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              O seu plano tático. Focado em "Quick Wins" (3 a 6 meses),
+              alinhamos as metas do negócio com o seu orçamento para priorizar
+              implementações de Automação e IA que gerem retorno imediato.
+            </p>
+          </div>
+
+          <div class="fade-in exec-card" style="transition-delay: 0.16s">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-heading text-sm font-bold text-white max-w-[60%]">
+                Consultoria de Investimentos em Tecnologia
+              </h3>
+              <span class="price-tag-gold flex-shrink-0"
+                >R$ 1.500 – R$ 3.000</span
+              >
+            </div>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              Orientação executiva focada em ROI. Ajudamos a sua diretoria a
+              decidir onde alocar o orçamento de inovação com sabedoria: comprar
+              vs. construir software, contratar vs. automatizar.
+            </p>
+          </div>
+
+          <div class="fade-in exec-card" style="transition-delay: 0.24s">
+            <div class="flex justify-between items-start mb-4">
+              <h3 class="font-heading text-sm font-bold text-white max-w-[60%]">
+                Estruturação de Centro de Excelência em Automação
+              </h3>
+              <span class="price-tag-gold flex-shrink-0"
+                >A partir de R$ 5.000</span
+              >
+            </div>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              Ideal para empresas em expansão. Ajudamos a estruturar um comitê
+              interno de qualidade e automação (CoE), instaurando a sua própria
+              cultura de inovação contínua.
+            </p>
+          </div>
+        </div>
+
+        <div class="fade-in text-center">
+          <a href="#contato" class="btn-gold">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+            Agendar Reunião de Diretoria
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 9: EDUCAÇÃO
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6 bg-bg-mid" id="cultura">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-16">
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+          >
+            Educação Corporativa
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+          >
+            Cultura de Inovação.<br />Preparamos a sua equipe<br />para o
+            futuro.
+          </h2>
+          <p
+            class="fade-in font-body text-base text-txt-gray max-w-2xl mx-auto leading-relaxed"
+          >
+            A tecnologia mais brilhante falha se a sua equipe não souber como
+            utilizá-la. Soluções focadas em quebrar objeções e elevar o capital
+            humano da sua empresa.
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Edu card 1 -->
+          <div class="fade-in border-gradient rounded-2xl">
+            <div class="glass rounded-2xl p-8 h-full flex flex-col gap-5">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style="
+                    background: rgba(0, 229, 255, 0.08);
+                    border: 1px solid rgba(0, 229, 255, 0.2);
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                    <path
+                      d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading text-sm font-bold text-white">
+                    Palestra Executiva: A Era da IA nos Negócios
+                  </h3>
+                  <span class="price-tag mt-1">R$ 1.000 – R$ 2.500</span>
+                </div>
+              </div>
+              <p
+                class="font-body text-xs text-txt-gray leading-relaxed flex-grow"
+              >
+                Apresentação transformacional para quebrar resistências da
+                equipe. Alinhamos a visão corporativa mostrando como a IA
+                elimina o trabalho robótico e valoriza a estratégia e o talento
+                humano.
+              </p>
+            </div>
+          </div>
+
+          <!-- Edu card 2 -->
+          <div
+            class="fade-in border-gradient rounded-2xl"
+            style="transition-delay: 0.1s"
+          >
+            <div class="glass rounded-2xl p-8 h-full flex flex-col gap-5">
+              <div class="flex items-center gap-3">
+                <div
+                  class="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style="
+                    background: rgba(0, 229, 255, 0.08);
+                    border: 1px solid rgba(0, 229, 255, 0.2);
+                  "
+                >
+                  <svg
+                    width="18"
+                    height="18"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <rect x="2" y="2" width="20" height="8" rx="2" />
+                    <rect x="2" y="14" width="20" height="8" rx="2" />
+                    <line x1="6" y1="6" x2="6.01" y2="6" />
+                    <line x1="6" y1="18" x2="6.01" y2="18" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-heading text-sm font-bold text-white">
+                    Treinamento Corporativo de IA e Prompt Engineering
+                  </h3>
+                  <span class="price-tag mt-1">R$ 1.997 – R$ 3.500</span>
+                </div>
+              </div>
+              <p
+                class="font-body text-xs text-txt-gray leading-relaxed flex-grow"
+              >
+                Capacitação técnica e prática para os funcionários da sua
+                empresa. Ensinamos a equipa a extrair o máximo de ferramentas
+                como ChatGPT, Gemini e sistemas de automação nas suas rotinas
+                diárias.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="fade-in text-center mt-12">
+          <a href="#contato" class="btn-primary">
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+              />
+            </svg>
+            Levar a Inovação para a Minha Equipe
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 10: TOLAZZAI CUSTOM
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6" id="custom">
+      <div class="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        <!-- Left: Text -->
+        <div>
+          <p
+            class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
+          >
+            TolazzAI Custom
+          </p>
+          <h2
+            class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-8"
+          >
+            Projetos Sob Medida.<br />
+            <span class="text-cyan-neon">A intervenção cirúrgica</span><br />
+            que o seu negócio exige.
+          </h2>
+          <p
+            class="fade-in font-body text-sm text-txt-gray leading-relaxed mb-8"
+          >
+            Para empresas que precisam de soluções personalizadas em múltiplos
+            setores simultaneamente. A flexibilidade total para o seu negócio.
+            Nós analisamos a sua dor e montamos um pacote mesclando as nossas
+            soluções.
+          </p>
+
+          <!-- Abordagem -->
+          <div class="fade-in glass-cyan rounded-xl p-6 mb-8">
+            <h4 class="font-heading text-sm font-semibold text-white mb-3">
+              A Abordagem Customizada
+            </h4>
+            <p class="font-body text-xs text-txt-gray leading-relaxed">
+              Você pode, por exemplo, combinar a implementação de um
+              <strong class="text-cyan-neon">Agente Altonics</strong> com um
+              <strong class="text-white">Diagnóstico de Governança</strong> e um
+              <strong class="text-white">Treinamento para a equipe</strong>.
+              Você dita o ritmo, o orçamento e os módulos; nós conectamos as
+              peças para criar um ecossistema exclusivo.
+            </p>
+          </div>
+
+          <div class="fade-in mb-8">
+            <p class="font-body text-xs text-txt-dim mb-1">Investimento</p>
+            <p class="font-body text-sm text-white">
+              Orçamento corporativo personalizado, desenhado exclusivamente após
+              a reunião de diagnóstico inicial.
+            </p>
+          </div>
+
+          <div class="fade-in">
+            <a href="#contato" class="btn-primary">
+              <svg
+                width="16"
+                height="16"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4M12 16h.01" />
+              </svg>
+              Desenhar o Meu Ecossistema Customizado
+            </a>
+          </div>
+        </div>
+
+        <!-- Right: custom.txt — TolazzAI Ecossistema Builder -->
+        <div class="fade-in flex items-center justify-center">
+          <!-- ===== TolazzAI · Ecossistema de Soluções ===== -->
+          <div class="tlz-builder" id="tlzBuilder">
+            <svg class="tlz-links" id="tlzLinks">
+              <defs>
+                <linearGradient id="tlzLinkGrad" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#00e696" />
+                  <stop offset="100%" stop-color="#00c8ff" />
+                </linearGradient>
+              </defs>
+            </svg>
+
+            <div class="tlz-modules left">
+              <div class="tlz-mod" data-side="left">
+                <div class="tlz-mod-icon">
+                  <img
+                    src="altonicsAzul.png"
+                    alt="Agente Altonics"
+                    onerror="
+                      this.outerHTML =
+                        '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'3\'/><path d=\'M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3\'/></svg>'
+                    "
+                  />
+                </div>
+                <div class="tlz-mod-text">
+                  <strong>Agente Altonics</strong
+                  ><small>Automação inteligente</small>
+                </div>
+              </div>
+              <div class="tlz-mod" data-side="left">
+                <div class="tlz-mod-icon">
+                  <img
+                    src="governançaLGPD.png"
+                    alt="Diagnóstico de Governança"
+                    onerror="
+                      this.outerHTML =
+                        '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\'/></svg>'
+                    "
+                  />
+                </div>
+                <div class="tlz-mod-text">
+                  <strong>Diagnóstico de Governança</strong
+                  ><small>LGPD &amp; segurança</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="tlz-core" id="tlzCore">
+              <div class="tlz-core-inner">
+                SEU<br />ECOSSISTEMA<br />EXCLUSIVO
+              </div>
+            </div>
+
+            <div class="tlz-modules right">
+              <div class="tlz-mod" data-side="right">
+                <div class="tlz-mod-icon">
+                  <img
+                    src="treinamento.png"
+                    alt="Treinamento de Equipe"
+                    onerror="
+                      this.outerHTML =
+                        '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2\'/><circle cx=\'9\' cy=\'7\' r=\'4\'/><path d=\'M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75\'/></svg>'
+                    "
+                  />
+                </div>
+                <div class="tlz-mod-text">
+                  <strong>Treinamento de Equipe</strong
+                  ><small>Capacitação prática</small>
+                </div>
+              </div>
+              <div class="tlz-mod" data-side="right">
+                <div class="tlz-mod-icon">
+                  <img
+                    src="marketing.png"
+                    alt="Marketing Automatizado"
+                    onerror="
+                      this.outerHTML =
+                        '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M13 10V3L4 14h7v7l9-11h-7z\'/></svg>'
+                    "
+                  />
+                </div>
+                <div class="tlz-mod-text">
+                  <strong>Marketing Automatizado</strong
+                  ><small>Escale resultados</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sep"></div>
+
+    <!-- SEÇÃO 11: SUPORTE E ONBOARDING - CUSTOMER SUCCESS -->
+    <section class="py-24 bg-[#0B0C10] relative overflow-hidden">
+      <div
+        class="absolute inset-0 opacity-5"
+        style="
+          background-image: radial-gradient(
+            circle at 30% 50%,
+            #00e5ff 0%,
+            transparent 60%
+          );
+        "
+      ></div>
+      <div
+        class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10"
+      >
+        <!-- Texto -->
+        <div>
+          <span
+            class="inline-block border border-[#00E5FF44] text-[#00E5FF] text-xs tracking-widest uppercase px-4 py-2 rounded mb-8"
+            >Customer Success</span
+          >
+          <h2
+            class="font-space text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
+          >
+            A tecnologia é autônoma.
+            <span class="text-[#00E5FF]">O nosso suporte é humano</span> e
+            próximo.
+          </h2>
+          <p class="text-[#9CA3AF] text-lg leading-relaxed mb-4">
+            Sabemos que mudar a operação de uma empresa assusta. É por isso que
+            na TolazzAI você nunca é deixado sozinho para falar com "robôs de
+            atendimento". Durante toda a implementação do seu projeto, você terá
+            o acompanhamento lado a lado da nossa equipe de Customer Success
+            (Sucesso do Cliente).
+          </p>
+          <p class="text-[#9CA3AF] text-lg leading-relaxed mb-10">
+            Nós pegamos na sua mão, treinamos o seu time e garantimos que a
+            tecnologia funcione perfeitamente no seu dia a dia.
+          </p>
+
+          <!-- Pillars -->
+          <div class="space-y-4 mb-10">
+            <div
+              class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-5 hover:border-[#00E5FF33] transition-colors duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00E5FF15] border border-[#00E5FF33] flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-5 h-5 text-[#00E5FF]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg>
+              </div>
+              <div>
+                <strong class="block text-white text-sm font-semibold mb-1"
+                  >Acompanhamento lado a lado</strong
+                >
+                <span class="text-[#9CA3AF] text-sm leading-relaxed"
+                  >Um especialista dedicado do início ao fim da
+                  implementação.</span
+                >
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-5 hover:border-[#00E5FF33] transition-colors duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00E5FF15] border border-[#00E5FF33] flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-5 h-5 text-[#00E5FF]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.36 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.61a16 16 0 0 0 6 6l.88-.88a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong class="block text-white text-sm font-semibold mb-1"
+                  >Suporte humano real</strong
+                >
+                <span class="text-[#9CA3AF] text-sm leading-relaxed"
+                  >Sem filas de chatbot. Fale com pessoas que conhecem o seu
+                  projeto.</span
+                >
+              </div>
+            </div>
+            <div
+              class="flex items-start gap-4 bg-white/5 border border-white/10 rounded-xl p-5 hover:border-[#00E5FF33] transition-colors duration-300"
+            >
+              <div
+                class="w-10 h-10 rounded-lg bg-[#00E5FF15] border border-[#00E5FF33] flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-5 h-5 text-[#00E5FF]"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.8"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M12 20h9" />
+                  <path
+                    d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"
+                  />
+                </svg>
+              </div>
+              <div>
+                <strong class="block text-white text-sm font-semibold mb-1"
+                  >Treinamento do seu time</strong
+                >
+                <span class="text-[#9CA3AF] text-sm leading-relaxed"
+                  >Capacitamos seus colaboradores para dominarem a nova
+                  tecnologia.</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-3 gap-4">
+            <div
+              class="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+            >
+              <strong class="block text-[#00E5FF] text-2xl font-bold font-space"
+                >100%</strong
+              >
+              <span class="text-[#9CA3AF] text-xs mt-1 block"
+                >Projetos com CS dedicado</span
+              >
+            </div>
+            <div
+              class="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+            >
+              <strong class="block text-[#00E5FF] text-2xl font-bold font-space"
+                >1h</strong
+              >
+              <span class="text-[#9CA3AF] text-xs mt-1 block"
+                >Tempo máx. de resposta</span
+              >
+            </div>
+            <div
+              class="bg-white/5 border border-white/10 rounded-xl p-4 text-center"
+            >
+              <strong class="block text-[#00E5FF] text-2xl font-bold font-space"
+                >∞</strong
+              >
+              <span class="text-[#9CA3AF] text-xs mt-1 block"
+                >Suporte pós-entrega</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Imagem -->
+        <div class="relative">
+          <div
+            class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] bg-[#161820]"
+          >
+            <img
+              src="suporte_humano.jpg"
+              alt="Especialista de Customer Success TolazzIA"
+              class="w-full h-full object-cover object-center"
+            />
+          </div>
+          <!-- Barra decorativa dourada -->
+          <div
+            class="absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl"
+            style="background: linear-gradient(90deg, #00e5ff, #d4af37)"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     SEÇÃO 12: AUTORIDADE (SOBRE)
+═══════════════════════════════════════════ -->
+    <section class="py-28 px-6 bg-bg-mid" id="sobre">
+      <div class="max-w-4xl mx-auto text-center">
+        <p
+          class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-10"
         >
+          Sobre o Fundador
+        </p>
+
+        <!-- Avatar -->
+        <div class="fade-in flex justify-center mb-10">
+          <div class="relative">
+            <div
+              class="w-64 h-64 rounded-full overflow-hidden border-2 border-cyan-neon border-opacity-30"
+              style="box-shadow: 0 0 40px rgba(0, 229, 255, 0.2)"
+            >
+              <img
+                src="saimon.jpg"
+                alt="Saimon Tolazzi"
+                class="w-full h-full object-cover"
+                onerror="
+                  this.style.display = 'none';
+                  this.parentElement.innerHTML =
+                    '<div class=\'w-full h-full bg-bg-card flex items-center justify-center\'><span class=\'font-heading text-4xl font-bold text-cyan-neon\'>ST</span></div>';
+                "
+              />
+            </div>
+            <!-- Gold ring accent -->
+            <div
+              class="absolute -inset-1 rounded-full border border-gold border-opacity-20 pointer-events-none"
+            ></div>
+          </div>
+        </div>
+
+        <h2
+          class="fade-in font-heading text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-8"
+        >
+          Rigor de Engenharia<br />em cada linha de código.
+        </h2>
+
+        <blockquote
+          class="fade-in glass-cyan rounded-2xl px-8 py-8 mb-8 text-left max-w-3xl mx-auto"
+        >
+          <div
+            class="text-cyan-neon text-4xl font-serif leading-none mb-4 opacity-50"
+          >
+            "
+          </div>
+          <p
+            class="font-body text-sm sm:text-base text-txt-gray leading-relaxed"
+          >
+            Mais do que implementar ferramentas brilhantes, o meu objetivo é
+            construir arquiteturas sólidas. Com 6 anos de experiência em
+            Engenharia de Software e Qualidade (QA), Mestrado Internacional em
+            Inteligência Artificial e diversos projetos implementados na área, a
+            visão da TolazzAI é clara:
+            <strong class="text-white"
+              >a tecnologia deve trabalhar para a humanidade de forma eficiente
+              mas sem reduzir o nosso valor.</strong
+            >.
+          </p>
+        </blockquote>
+
+        <div class="fade-in">
+          <p class="font-heading text-base font-semibold text-white">
+            Saimon Tolazzi
+          </p>
+          <p
+            class="font-body text-xs text-txt-dim tracking-wider uppercase mt-1"
+            style="color: #d4af37"
+          >
+            Founder &amp; Estrategista de IA
+          </p>
+        </div>
       </div>
     </section>
 
-    <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-      <div class="container footer-inner">
-        <div class="footer-brand">
-          <img src="logoBranco.jpg" alt="Logo TollazAi" class="brand-logo" />
-          <span class="brand-name">Tolazz<span class="accent">Ai</span></span>
-          <p class="footer-tag">Engenharia de Inteligência Artificial.</p>
-        </div>
+    <div class="sep"></div>
 
-        <div class="footer-col">
-          <h4>Contato</h4>
-          <a href="tel:+554299164414">+55 42 9916-4414</a>
+    <!-- ═══════════════════════════════════════════
+     CONTATO CTA
+═══════════════════════════════════════════ -->
+    <section
+      class="py-28 px-6 text-center relative overflow-hidden"
+      id="contato"
+    >
+      <div
+        class="absolute inset-0 pointer-events-none"
+        style="
+          background: radial-gradient(
+            ellipse 60% 40% at 50% 50%,
+            rgba(0, 229, 255, 0.06) 0%,
+            transparent 70%
+          );
+        "
+      ></div>
+      <div class="relative max-w-3xl mx-auto">
+        <div class="fade-in inline-flex items-center gap-3 mb-8">
+          <div class="h-px w-8 bg-cyan-neon opacity-40"></div>
+          <span
+            class="font-body text-xs tracking-widest uppercase text-cyan-neon"
+            >Próximo Passo</span
+          >
+          <div class="h-px w-8 bg-cyan-neon opacity-40"></div>
+        </div>
+        <h2
+          class="fade-in font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight mb-6"
+        >
+          Pronto para dominar<br />o seu mercado?
+        </h2>
+        <p
+          class="fade-in font-body text-base text-txt-gray mb-12 leading-relaxed"
+        >
+          Agende uma conversa com o nosso time. Sem compromisso, sem script de
+          vendas — apenas uma análise honesta do que a tecnologia pode fazer
+          pelo seu negócio.
+        </p>
+        <div class="fade-in flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="https://wa.me/5542991644144?text=Ol%C3%A1!%20Quero%20falar%20com%20um%20especialista.%20"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-primary"
+          >
+            <svg
+              width="16"
+              height="16"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.16 13.4 19.79 19.79 0 011.1 4.8a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+              />
+            </svg>
+            Falar com Especialista
+          </a>
+
           <a
             href="https://www.linkedin.com/in/saimon-tolazzi/"
             target="_blank"
-            rel="noopener"
-            >LinkedIn</a
+            rel="noopener noreferrer"
+            class="btn-ghost"
           >
-        </div>
-
-        <div class="footer-col">
-          <h4>Empresa</h4>
-          <a href="#sobre">Sobre</a>
-          <a href="#produtos">Produtos</a>
-          <a href="altonics.html">Altonics</a>
-        </div>
-
-        <div class="footer-col">
-          <h4>Jurídico</h4>
-          <span class="footer-info">CNPJ: 61.363.615/0001-77</span>
+            <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
+              <path
+                d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+              />
+              <circle cx="4" cy="4" r="2" />
+            </svg>
+            LinkedIn
+          </a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>© 2026 TolazzAi. Todos os direitos reservados.</p>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
+     RODAPÉ
+═══════════════════════════════════════════ -->
+    <footer
+      class="py-12 px-6 border-t border-border-dim"
+      style="background: #090a0d"
+    >
+      <div class="max-w-6xl mx-auto">
+        <div class="grid sm:grid-cols-3 gap-10 mb-10">
+          <!-- Logo & company -->
+          <div>
+            <div class="mb-4">
+              <img
+                src="logoBranco.png"
+                alt="TolazzAI Corp"
+                class="h-8 w-auto object-contain"
+                onerror="
+                  this.style.display = 'none';
+                  this.nextElementSibling.style.display = 'flex';
+                "
+              />
+              <div style="display: none" class="items-center gap-2">
+                <div
+                  class="w-6 h-6 rounded bg-cyan-neon bg-opacity-80 flex items-center justify-center"
+                >
+                  <span class="text-bg-deep font-bold text-xs font-heading"
+                    >T</span
+                  >
+                </div>
+                <span
+                  class="font-heading font-bold text-white text-base tracking-tight"
+                  >TolazzAI</span
+                >
+                <span
+                  class="font-heading text-gold text-xs tracking-widest uppercase"
+                  >Corp</span
+                >
+              </div>
+            </div>
+            <p class="font-body text-xs text-txt-dim leading-relaxed">
+              Inteligência Artificial &amp; Governança Corporativa
+            </p>
+            <p class="font-body text-xs text-txt-dim mt-3">
+              CNPJ: 61.363.615/0001-77
+            </p>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h4
+              class="font-heading text-xs font-semibold text-white tracking-wider uppercase mb-4"
+            >
+              Soluções
+            </h4>
+            <div class="space-y-2">
+              <a
+                href="#ecossistema"
+                class="block font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+                >Ecossistema Altonics</a
+              >
+              <a
+                href="#auditorias"
+                class="block font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+                >Diagnósticos & Auditorias</a
+              >
+              <a
+                href="#seguranca"
+                class="block font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+                >Segurança Corporativa</a
+              >
+              <a
+                href="#executivo"
+                class="block font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+                >Consultoria Executiva</a
+              >
+              <a
+                href="#cultura"
+                class="block font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+                >Educação Corporativa</a
+              >
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h4
+              class="font-heading text-xs font-semibold text-white tracking-wider uppercase mb-4"
+            >
+              Contato
+            </h4>
+            <div class="space-y-3">
+              <a
+                href="tel:+5542991644144"
+                class="flex items-center gap-2 font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.16 13.4 19.79 19.79 0 011.1 4.8a2 2 0 012-2.18h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 10.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"
+                  />
+                </svg>
+                +55 (42) 99164-4144
+              </a>
+              <a
+                href="https://www.linkedin.com/in/saimon-tolazzi/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="flex items-center gap-2 font-body text-xs text-txt-dim hover:text-cyan-neon transition-colors"
+              >
+                <svg
+                  width="14"
+                  height="14"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"
+                  />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+                LinkedIn — Saimon Tolazzi
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-border-dim pt-8 flex flex-col sm:flex-row items-center justify-between gap-4"
+        >
+          <p class="font-body text-xs text-txt-dim">
+            Copyright &copy; 2026 TolazzAI Corp. Todos os direitos reservados.
+          </p>
+          <p class="font-body text-xs" style="color: rgba(0, 229, 255, 0.3)">
+            Engenharia. Inteligência. Resultado.
+          </p>
+        </div>
       </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════ -->
+    <script>
+      // ── Navbar scroll effect ──
+      const navbar = document.getElementById("navbar");
+      window.addEventListener(
+        "scroll",
+        () => {
+          if (window.scrollY > 40) navbar.classList.add("scrolled");
+          else navbar.classList.remove("scrolled");
+        },
+        { passive: true },
+      );
+
+      // ── Mobile menu toggle ──
+      const toggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+      toggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
+      });
+      mobileMenu.querySelectorAll("a").forEach((a) => {
+        a.addEventListener("click", () => mobileMenu.classList.remove("open"));
+      });
+
+      // ── Scroll-triggered fade-in ──
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
+      );
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+    </script>
+
+    <!-- ===== FUNDO NEON ANIMADO (fundoParticulas.txt) ===== -->
+    <script>
+      (function () {
+        const canvas = document.getElementById("neonBg");
+        const ctx = canvas.getContext("2d");
+
+        let width, height;
+        let particles = [];
+        const pointer = { x: null, y: null };
+        const isMobile = window.innerWidth < 768;
+
+        const CONFIG = {
+          count: isMobile ? 40 : 80,
+          maxDist: isMobile ? 100 : 130,
+          mouseDist: isMobile ? 140 : 180,
+          speed: 0.5,
+          radius: 2.5,
+          blur: isMobile ? 8 : 12,
+          color: "0, 200, 255",
+        };
+
+        function resize() {
+          width = canvas.width = window.innerWidth;
+          height = canvas.height = window.innerHeight;
+        }
+
+        function createParticles() {
+          particles = [];
+          for (let i = 0; i < CONFIG.count; i++) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * height,
+              vx: (Math.random() - 0.5) * CONFIG.speed,
+              vy: (Math.random() - 0.5) * CONFIG.speed,
+            });
+          }
+        }
+
+        function draw() {
+          ctx.clearRect(0, 0, width, height);
+
+          for (let p of particles) {
+            p.x += p.vx;
+            p.y += p.vy;
+            if (p.x < 0 || p.x > width) p.vx *= -1;
+            if (p.y < 0 || p.y > height) p.vy *= -1;
+
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, CONFIG.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgb(${CONFIG.color})`;
+            ctx.shadowBlur = CONFIG.blur;
+            ctx.shadowColor = `rgb(${CONFIG.color})`;
+            ctx.fill();
+          }
+          ctx.shadowBlur = 0;
+
+          // Fios entre bolinhas
+          for (let i = 0; i < particles.length; i++) {
+            for (let j = i + 1; j < particles.length; j++) {
+              const dx = particles[i].x - particles[j].x;
+              const dy = particles[i].y - particles[j].y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < CONFIG.maxDist) {
+                const opacity = 1 - dist / CONFIG.maxDist;
+                ctx.beginPath();
+                ctx.moveTo(particles[i].x, particles[i].y);
+                ctx.lineTo(particles[j].x, particles[j].y);
+                ctx.strokeStyle = `rgba(${CONFIG.color}, ${opacity * 0.5})`;
+                ctx.lineWidth = 1;
+                ctx.stroke();
+              }
+            }
+          }
+
+          // Fios com o ponteiro (mouse/toque)
+          if (pointer.x !== null) {
+            for (let p of particles) {
+              const dx = p.x - pointer.x;
+              const dy = p.y - pointer.y;
+              const dist = Math.sqrt(dx * dx + dy * dy);
+              if (dist < CONFIG.mouseDist) {
+                const opacity = 1 - dist / CONFIG.mouseDist;
+                ctx.beginPath();
+                ctx.moveTo(p.x, p.y);
+                ctx.lineTo(pointer.x, pointer.y);
+                ctx.strokeStyle = `rgba(${CONFIG.color}, ${opacity})`;
+                ctx.lineWidth = 1.2;
+                ctx.stroke();
+              }
+            }
+          }
+
+          requestAnimationFrame(draw);
+        }
+
+        // Mouse
+        window.addEventListener("mousemove", (e) => {
+          pointer.x = e.clientX;
+          pointer.y = e.clientY;
+        });
+        window.addEventListener("mouseout", () => {
+          pointer.x = null;
+          pointer.y = null;
+        });
+
+        // Toque
+        window.addEventListener(
+          "touchstart",
+          (e) => {
+            pointer.x = e.touches[0].clientX;
+            pointer.y = e.touches[0].clientY;
+          },
+          { passive: true },
+        );
+        window.addEventListener(
+          "touchmove",
+          (e) => {
+            pointer.x = e.touches[0].clientX;
+            pointer.y = e.touches[0].clientY;
+          },
+          { passive: true },
+        );
+        window.addEventListener("touchend", () => {
+          pointer.x = null;
+          pointer.y = null;
+        });
+
+        window.addEventListener("resize", () => {
+          resize();
+          createParticles();
+        });
+
+        resize();
+        createParticles();
+        draw();
+      })();
+    </script>
+    <!-- ===== FIM DO FUNDO NEON ===== -->
+
+    <!-- ===== TLZ BUILDER SVG LINES (custom.txt) ===== -->
+    <script>
+      (function () {
+        const builder = document.getElementById("tlzBuilder");
+        if (!builder) return;
+        const svg = document.getElementById("tlzLinks");
+        const core = document.getElementById("tlzCore");
+        const mods = builder.querySelectorAll(".tlz-mod");
+        const NS = "http://www.w3.org/2000/svg";
+
+        function drawLines() {
+          svg.querySelectorAll(".tlz-link-line").forEach((l) => l.remove());
+          const bRect = builder.getBoundingClientRect();
+          const cRect = core.getBoundingClientRect();
+          const cx = cRect.left + cRect.width / 2 - bRect.left;
+          const cy = cRect.top + cRect.height / 2 - bRect.top;
+
+          mods.forEach((mod, i) => {
+            const r = mod.getBoundingClientRect();
+            const side = mod.dataset.side;
+            const x1 = (side === "left" ? r.right : r.left) - bRect.left;
+            const y1 = r.top + r.height / 2 - bRect.top;
+
+            const line = document.createElementNS(NS, "line");
+            line.setAttribute("class", "tlz-link-line");
+            line.setAttribute("data-i", i);
+            line.setAttribute("x1", x1);
+            line.setAttribute("y1", y1);
+            line.setAttribute("x2", cx);
+            line.setAttribute("y2", cy);
+
+            const len = Math.hypot(cx - x1, cy - y1);
+            line.style.strokeDasharray = len;
+            line.style.setProperty("--len", len);
+            line.style.strokeDashoffset = len;
+            svg.appendChild(line);
+          });
+        }
+
+        window.addEventListener("load", drawLines);
+        window.addEventListener("resize", drawLines);
+        drawLines();
+      })();
+    </script>
+    <script>
+      (function () {
+        const el = document.getElementById("typewriter");
+        if (!el) return;
+
+        // Linhas do título — a parte ciano fica destacada
+        const segments = [
+          { text: "Nós não automatizamos\n", className: "" },
+          { text: "apenas tarefas.\n", className: "" },
+          {
+            text: "Nós arquitetamos o futuro\n",
+            className: "text-glow tw-cyan",
+          },
+          { text: "da sua empresa.", className: "" },
+        ];
+
+        const speed = 45; // ms por caractere (menor = mais rápido)
+        let segIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+          if (segIndex >= segments.length) {
+            // Termina: deixa o cursor piscando mais lento
+            const cursor = document.querySelector(".tw-cursor");
+            if (cursor) cursor.classList.add("done");
+            return;
+          }
+
+          const seg = segments[segIndex];
+          const char = seg.text[charIndex];
+
+          if (char === "\n") {
+            el.appendChild(document.createElement("br"));
+          } else {
+            // cria/usa um span para o segmento atual
+            let span = el.querySelector(`[data-seg="${segIndex}"]`);
+            if (!span) {
+              span = document.createElement("span");
+              span.setAttribute("data-seg", segIndex);
+              if (seg.className) span.className = seg.className;
+              el.appendChild(span);
+            }
+            span.textContent += char;
+          }
+
+          charIndex++;
+          if (charIndex >= seg.text.length) {
+            segIndex++;
+            charIndex = 0;
+          }
+          setTimeout(type, speed);
+        }
+
+        // Inicia logo após o carregamento
+        window.addEventListener("load", () => setTimeout(type, 400));
+      })();
+    </script>
   </body>
 </html>
