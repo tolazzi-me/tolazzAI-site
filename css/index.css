@@ -374,6 +374,11 @@
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+/* Pausa as keywords flutuantes quando fora da tela */
+.kw-space:not(.is-active) .kw-word {
+  animation-play-state: paused;
+}
+
 .kw-space .kw-word {
   position: absolute;
   font-family: "Segoe UI", Tahoma, sans-serif;
@@ -764,7 +769,7 @@
   height: 100%;
   z-index: 0;
   pointer-events: none;
-  opacity: 40;
+  opacity: 0.8;
 }
 
 /* Camada escura global sobre o canvas de fundo */
@@ -1379,4 +1384,15 @@ img {
 .pain-icon.icon-red {
   color: #ef4444;
   filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.45));
+}
+/* Respeita usuários que preferem menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
