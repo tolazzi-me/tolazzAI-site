@@ -400,7 +400,12 @@
         max-height: 0;
         opacity: 0;
         overflow: hidden;
+        background: #0b0c10; /* ✅ fundo sólido */
+        border-radius: 0 0 12px 12px;
+        margin: 0 -1.5rem; /* estende até as bordas da nav */
+        padding: 0 1.5rem;
       }
+
       #mobile-menu.open {
         max-height: 400px;
         opacity: 1;
@@ -892,6 +897,279 @@
         backface-visibility: hidden;
         transform: translateZ(0);
       }
+      /* ═══ ECOSSISTEMA — Fluxo vertical ═══ */
+      .flow-node-h {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 18px;
+        background: rgba(0, 229, 255, 0.05);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+        border-radius: 10px;
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.9rem;
+        transition: all 0.3s;
+      }
+      .flow-node-h svg {
+        flex-shrink: 0;
+      }
+      .flow-node-h:hover {
+        background: rgba(0, 229, 255, 0.1);
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+      }
+      .flow-arrow-v {
+        color: #00e5ff;
+        opacity: 0.5;
+        text-align: center;
+        font-size: 1.2rem;
+        line-height: 1;
+      }
+
+      /* ═══ ECOSSISTEMA — Palco celular + raios ═══ */
+      .alt-stage {
+        position: relative;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        max-width: 440px;
+        margin: 0 auto;
+      }
+      .alt-rays {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        pointer-events: none;
+      }
+      .alt-ray {
+        fill: none;
+        stroke: url(#rayGrad);
+        stroke-width: 2.5;
+        stroke-linecap: round;
+        stroke-dasharray: 8 10;
+        filter: drop-shadow(0 0 5px rgba(0, 230, 150, 0.7));
+        animation: altRay 2s linear infinite;
+        animation-delay: var(--d);
+        animation-play-state: paused;
+      }
+      .alt-stage.is-active .alt-ray {
+        animation-play-state: running; /* 👈 liga ao entrar na tela */
+      }
+      @keyframes altRay {
+        to {
+          stroke-dashoffset: -36;
+        }
+      }
+
+      /* Ícones nos cantos */
+      .alt-icon {
+        position: absolute;
+        z-index: 3;
+        display: grid;
+        place-items: center;
+        width: 92px;
+        padding: 10px 8px;
+        text-align: center;
+        background: rgba(11, 12, 16, 0.85);
+        border: 1px solid rgba(0, 229, 255, 0.3);
+        border-radius: 12px;
+        backdrop-filter: blur(8px);
+        box-shadow: 0 0 20px rgba(0, 229, 255, 0.15);
+      }
+      .alt-icon span {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #00e5ff;
+        line-height: 1.1;
+      }
+
+      /* Celular */
+      .alt-phone {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 2;
+        width: 55%;
+        aspect-ratio: 9 / 19;
+        background: #0b0c10;
+        border: 3px solid rgba(0, 229, 255, 0.35);
+        border-radius: 26px;
+        padding: 6px;
+        box-shadow: 0 0 40px rgba(0, 229, 255, 0.3);
+      }
+      .alt-video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 18px;
+        display: block;
+      }
+
+      /* Mobile */
+      @media (max-width: 1023px) {
+        .alt-stage {
+          max-width: 360px;
+          margin-top: 1rem;
+        }
+        .alt-icon {
+          width: 78px;
+        }
+      }
+      /* ===== PALCO DO ESCUDO ===== */
+      .shield-stage {
+        position: relative;
+        max-width: 560px;
+        margin: 0 auto;
+        display: grid;
+      }
+
+      .shield-svg,
+      .shield-cards {
+        grid-area: 1 / 1; /* 👈 ambos empilhados, mesma altura */
+      }
+
+      /* SVG do escudo ocupa TODO o palco (que cresce com os cards) */
+      .shield-svg {
+        width: 100%;
+        height: 100%;
+        filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.25));
+      }
+
+      /* Aura pulsante — começa pausada */
+      .shield-aura {
+        transform-origin: center;
+        animation: shieldPulse 3s ease-in-out infinite;
+        animation-play-state: paused;
+      }
+
+      /* Linha que "escaneia" a borda */
+      .shield-scan {
+        animation: shieldScan 6s linear infinite;
+        animation-play-state: paused;
+      }
+
+      /* Liga as animações quando entra na tela */
+      .shield-stage.is-active .shield-aura,
+      .shield-stage.is-active .shield-scan {
+        animation-play-state: running;
+      }
+
+      @keyframes shieldPulse {
+        0%,
+        100% {
+          opacity: 0.6;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 1;
+          transform: scale(1.05);
+        }
+      }
+      @keyframes shieldScan {
+        to {
+          stroke-dashoffset: -680;
+        }
+      }
+
+      /* ===== CARDS FLUTUANTES ===== */
+      .shield-cards {
+        position: relative;
+        z-index: 2; /* 👈 cards SEMPRE na frente do escudo */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1.2rem;
+        padding: 14% 13%;
+      }
+      .shield-svg {
+        z-index: 1;
+      }
+
+      .shield-card {
+        background: rgba(10, 16, 28, 0.72);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0, 229, 255, 0.22);
+        border-radius: 14px;
+        padding: 1rem 1.1rem;
+        box-shadow:
+          0 8px 30px rgba(0, 0, 0, 0.4),
+          0 0 20px rgba(0, 229, 255, 0.08);
+
+        /* Entrada: invisível por padrão */
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+        transition:
+          opacity 0.7s ease,
+          transform 0.7s ease;
+      }
+
+      /* Quando ativo: aparecem + começam a flutuar */
+      .shield-stage.is-active .shield-card {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+      .shield-stage.is-active .float-a {
+        animation: floatA 5s ease-in-out infinite 0.7s;
+      }
+      .shield-stage.is-active .float-b {
+        animation: floatB 6s ease-in-out infinite 0.9s;
+      }
+
+      /* Delay de entrada do segundo card */
+      .float-b {
+        transition-delay: 0.2s;
+      }
+
+      @keyframes floatA {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-6px);
+        } /* reduzido de -10px */
+      }
+      @keyframes floatB {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(5px);
+        } /* reduzido de 8px */
+      }
+
+      .shield-icon {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        background: rgba(0, 229, 255, 0.08);
+        border: 1px solid rgba(0, 229, 255, 0.2);
+      }
+
+      /* ===== RESPONSIVO ===== */
+      @media (max-width: 640px) {
+        .shield-stage {
+          max-width: 100%;
+        }
+        .shield-cards {
+          padding: 16% 9%; /* mais respiro lateral no mobile */
+          gap: 0.9rem;
+        }
+        .shield-card {
+          padding: 0.85rem 0.95rem;
+        }
+        .shield-card h3 {
+          font-size: 0.8rem;
+        }
+      }
     </style>
   </head>
 
@@ -1326,6 +1604,7 @@
       ></div>
 
       <div class="relative max-w-6xl mx-auto">
+        <!-- Cabeçalho -->
         <div class="text-center mb-16">
           <p
             class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
@@ -1351,19 +1630,17 @@
           </p>
         </div>
 
-        <!-- Flow diagram -->
-        <div class="fade-in mb-14">
-          <div class="glass-cyan rounded-2xl p-8 overflow-x-auto">
-            <div
-              class="flow-diagram-wrap flex items-center justify-center gap-3 min-w-max mx-auto"
-            >
-              <div class="flow-node">
+        <!-- ═══ GRID 2 COLUNAS ═══ -->
+        <div class="grid lg:grid-cols-2 gap-10 items-center mb-14">
+          <!-- ── ESQUERDA: FLUXO VERTICAL ── -->
+          <div class="fade-in glass-cyan rounded-2xl p-8">
+            <div class="flow-vert flex flex-col gap-3">
+              <div class="flow-node-h">
                 <svg
-                  class="mb-3 text-cyan-neon"
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#00E5FF"
                   stroke-width="1.5"
                   viewBox="0 0 24 24"
                 >
@@ -1371,27 +1648,23 @@
                     d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
                   />
                 </svg>
-                <span
-                  class="font-heading text-xs font-semibold text-white text-center"
-                  >Cliente entra<br />no WhatsApp</span
-                >
+                <span class="text-white">Cliente entra no WhatsApp</span>
               </div>
 
-              <div class="flow-arrow">→</div>
+              <div class="flow-arrow-v">↓</div>
 
               <div
-                class="flow-node"
+                class="flow-node-h"
                 style="
                   background: rgba(0, 229, 255, 0.1);
                   border-color: rgba(0, 229, 255, 0.35);
                 "
               >
                 <svg
-                  class="mb-3 text-cyan-neon"
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#00E5FF"
                   stroke-width="1.5"
                   viewBox="0 0 24 24"
                 >
@@ -1400,21 +1673,19 @@
                     d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
                   />
                 </svg>
-                <span
-                  class="font-heading text-xs font-bold text-cyan-neon text-center"
-                  >Agente Altonics<br />Responde & Ajuda</span
+                <span class="text-cyan-neon font-bold"
+                  >Agente Altonics Responde &amp; Ajuda</span
                 >
               </div>
 
-              <div class="flow-arrow">→</div>
+              <div class="flow-arrow-v">↓</div>
 
-              <div class="flow-node">
+              <div class="flow-node-h">
                 <svg
-                  class="mb-3 text-cyan-neon"
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#00E5FF"
                   stroke-width="1.5"
                   viewBox="0 0 24 24"
                 >
@@ -1423,46 +1694,38 @@
                     d="M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"
                   />
                 </svg>
-                <span
-                  class="font-heading text-xs font-semibold text-white text-center"
-                  >Qualificação<br />com IA</span
-                >
+                <span class="text-white">Qualificação com IA</span>
               </div>
 
-              <div class="flow-arrow">→</div>
+              <div class="flow-arrow-v">↓</div>
 
-              <div class="flow-node">
+              <div class="flow-node-h">
                 <svg
-                  class="mb-3 text-cyan-neon"
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   fill="none"
-                  stroke="currentColor"
+                  stroke="#00E5FF"
                   stroke-width="1.5"
                   viewBox="0 0 24 24"
                 >
                   <rect x="2" y="3" width="20" height="14" rx="2" />
                   <path d="M8 21h8M12 17v4" />
                 </svg>
-                <span
-                  class="font-heading text-xs font-semibold text-white text-center"
-                  >Dados → CRM<br />& Dashboard</span
-                >
+                <span class="text-white">Dados → CRM &amp; Dashboard</span>
               </div>
 
-              <div class="flow-arrow">→</div>
+              <div class="flow-arrow-v">↓</div>
 
               <div
-                class="flow-node"
+                class="flow-node-h"
                 style="
                   background: rgba(212, 175, 55, 0.07);
                   border-color: rgba(212, 175, 55, 0.3);
                 "
               >
                 <svg
-                  class="mb-3"
-                  width="28"
-                  height="28"
+                  width="24"
+                  height="24"
                   fill="none"
                   stroke="#D4AF37"
                   stroke-width="1.5"
@@ -1472,12 +1735,60 @@
                   <circle cx="9" cy="7" r="4" />
                   <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
                 </svg>
-                <span
-                  class="font-heading text-xs font-bold text-center"
-                  style="color: #d4af37"
-                  >Equipe Humana<br />Fecha o Negócio</span
+                <span style="color: #d4af37" class="font-bold"
+                  >Equipe Humana Fecha o Negócio</span
                 >
               </div>
+            </div>
+          </div>
+
+          <!-- ── DIREITA: CELULAR + RAIOS + ÍCONES ── -->
+          <div class="fade-in alt-stage">
+            <!-- Raios SVG (camada de fundo) -->
+            <svg
+              class="alt-rays"
+              viewBox="0 0 400 400"
+              preserveAspectRatio="none"
+            >
+              <defs>
+                <linearGradient id="rayGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#00e696" />
+                  <stop offset="100%" stop-color="#00c8ff" />
+                </linearGradient>
+              </defs>
+              <!-- centro do celular ≈ (200,200) → cada canto -->
+              <path class="alt-ray" style="--d: 0s" d="M200,200 L60,60" />
+              <path class="alt-ray" style="--d: 0.6s" d="M200,200 L340,60" />
+              <path class="alt-ray" style="--d: 1.2s" d="M200,200 L60,340" />
+              <path class="alt-ray" style="--d: 1.8s" d="M200,200 L340,340" />
+            </svg>
+
+            <!-- Ícones nos cantos -->
+            <div class="alt-icon" style="top: 6%; left: 4%">
+              <span>CRM</span>
+            </div>
+            <div class="alt-icon" style="top: 6%; right: 4%">
+              <span>ERP</span>
+            </div>
+            <div class="alt-icon" style="bottom: 6%; left: 4%">
+              <span>Banco de Dados</span>
+            </div>
+            <div class="alt-icon" style="bottom: 6%; right: 4%">
+              <span>Excel</span>
+            </div>
+
+            <!-- Celular com vídeo -->
+            <div class="alt-phone">
+              <video
+                muted
+                loop
+                playsinline
+                preload="none"
+                class="alt-video"
+                id="altVideo"
+              >
+                <source src="Altonicsbot.mp4" type="video/mp4" />
+              </video>
             </div>
           </div>
         </div>
@@ -1492,7 +1803,7 @@
               <span class="text-cyan-neon">hiperautomação da máquina</span> e o
               <span style="color: #d4af37">toque humano</span>." <br /><span
                 class="font-body text-xs text-txt-dim mt-2 block"
-                >Human Handoff nativo.</span
+                >Human Handoff.</span
               >
             </p>
           </div>
@@ -1514,8 +1825,6 @@
         </div>
       </div>
     </section>
-
-    <div class="sep"></div>
 
     <!-- ═══════════════════════════════════════════
      SEÇÃO 5: DIAGNÓSTICOS E AUDITORIAS
@@ -1801,25 +2110,8 @@
       ></div>
 
       <div class="relative max-w-5xl mx-auto">
+        <!-- Cabeçalho -->
         <div class="text-center mb-16">
-          <div
-            class="fade-in inline-flex items-center justify-center w-16 h-16 rounded-full mx-auto mb-8"
-            style="
-              background: rgba(0, 229, 255, 0.08);
-              border: 1px solid rgba(0, 229, 255, 0.25);
-            "
-          >
-            <svg
-              width="28"
-              height="28"
-              fill="none"
-              stroke="#00E5FF"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
           <p
             class="fade-in font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-6"
           >
@@ -1842,83 +2134,126 @@
           </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
-          <!-- Security card 1 -->
-          <div class="fade-in sec-card">
-            <div class="flex items-center gap-4 mb-5">
-              <div
-                class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style="
-                  background: rgba(0, 229, 255, 0.08);
-                  border: 1px solid rgba(0, 229, 255, 0.2);
-                "
-              >
-                <svg
-                  width="22"
-                  height="22"
-                  fill="none"
-                  stroke="#00E5FF"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  <path d="M9 12l2 2 4-4" />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-heading text-base font-bold text-white">
-                  Blindagem Corporativa e Prevenção contra Invasões
-                </h3>
-                <span class="price-tag mt-1">R$ 897</span>
-              </div>
-            </div>
-            <p class="font-body text-xs text-txt-gray leading-relaxed">
-              Simulação controlada de ataques (Pentest Básico) e varredura
-              profunda de vulnerabilidades na sua rede, Wi-Fi e sistemas.
-              Fechamos as portas para hackers antes que a sua empresa vire um
-              alvo.
-            </p>
-          </div>
+        <!-- 🛡️ PALCO DO ESCUDO 3D -->
+        <div class="shield-stage" id="shieldStage">
+          <!-- Escudo SVG ao fundo -->
+          <svg
+            class="shield-svg"
+            viewBox="0 0 200 230"
+            preserveAspectRatio="xMidYMid slice"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="shieldGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.9" />
+                <stop offset="100%" stop-color="#0064C8" stop-opacity="0.7" />
+              </linearGradient>
+              <radialGradient id="shieldGlow" cx="50%" cy="40%" r="60%">
+                <stop offset="0%" stop-color="#00E5FF" stop-opacity="0.35" />
+                <stop offset="100%" stop-color="#00E5FF" stop-opacity="0" />
+              </radialGradient>
+            </defs>
 
-          <!-- Security card 2 -->
-          <div class="fade-in sec-card" style="transition-delay: 0.1s">
-            <div class="flex items-center gap-4 mb-5">
-              <div
-                class="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style="
-                  background: rgba(0, 229, 255, 0.08);
-                  border: 1px solid rgba(0, 229, 255, 0.2);
-                "
-              >
-                <svg
-                  width="22"
-                  height="22"
-                  fill="none"
-                  stroke="#00E5FF"
-                  stroke-width="1.5"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 8l-5-5-5 5M12 3v12"
-                  />
-                </svg>
-              </div>
-              <div>
-                <h3 class="font-heading text-base font-bold text-white">
-                  Disaster Recovery &amp; Backups Cloud
-                </h3>
-                <div class="flex gap-2 mt-1 flex-wrap">
-                  <span class="price-tag">Setup R$ 497</span>
-                  <span class="price-tag">Mensal a partir de R$ 147</span>
+            <!-- Brilho radial -->
+            <circle
+              class="shield-aura"
+              cx="100"
+              cy="100"
+              r="95"
+              fill="url(#shieldGlow)"
+            />
+
+            <!-- Corpo do escudo -->
+            <path
+              class="shield-body"
+              d="M100 8 L185 42 V120 C185 175 145 205 100 222 C55 205 15 175 15 120 V42 Z"
+              fill="rgba(0,229,255,0.04)"
+              stroke="url(#shieldGrad)"
+              stroke-width="2.5"
+            />
+            <!-- Borda interna animada -->
+            <path
+              class="shield-scan"
+              d="M100 8 L185 42 V120 C185 175 145 205 100 222 C55 205 15 175 15 120 V42 Z"
+              fill="none"
+              stroke="#00E5FF"
+              stroke-width="1.5"
+              stroke-dasharray="20 14"
+              opacity="0.5"
+            />
+          </svg>
+
+          <!-- Cards flutuantes DENTRO do escudo -->
+          <div class="shield-cards">
+            <!-- Card 1 -->
+            <div class="shield-card float-a">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="shield-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                    <path d="M9 12l2 2 4-4" />
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    class="font-heading text-sm font-bold text-white leading-tight"
+                  >
+                    Blindagem Corporativa &amp; Prevenção contra Invasões
+                  </h3>
+                  <span class="price-tag mt-1">R$ 897</span>
                 </div>
               </div>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                Simulação controlada de ataques (Pentest Básico) e varredura
+                profunda de vulnerabilidades na sua rede, Wi-Fi e sistemas.
+                Fechamos as portas para hackers antes que a sua empresa vire um
+                alvo.
+              </p>
             </div>
-            <p class="font-body text-xs text-txt-gray leading-relaxed">
-              A sua apólice de seguro digital. Estruturamos backups
-              automatizados e criptografados em nuvem com proteção
-              Anti-Ransomware. Se o pior acontecer, a sua operação volta ao ar
-              em tempo recorde, sem perder uma única informação.
-            </p>
+
+            <!-- Card 2 -->
+            <div class="shield-card float-b">
+              <div class="flex items-center gap-3 mb-3">
+                <div class="shield-icon">
+                  <svg
+                    width="20"
+                    height="20"
+                    fill="none"
+                    stroke="#00E5FF"
+                    stroke-width="1.5"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 8l-5-5-5 5M12 3v12"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3
+                    class="font-heading text-sm font-bold text-white leading-tight"
+                  >
+                    Disaster Recovery &amp; Backups Cloud
+                  </h3>
+                  <div class="flex gap-2 mt-1 flex-wrap">
+                    <span class="price-tag">Setup R$ 497</span>
+                    <span class="price-tag">Mensal a partir de R$ 147</span>
+                  </div>
+                </div>
+              </div>
+              <p class="font-body text-xs text-txt-gray leading-relaxed">
+                A sua apólice de seguro digital. Estruturamos backups
+                automatizados e criptografados em nuvem com proteção
+                Anti-Ransomware. Se o pior acontecer, a sua operação volta ao ar
+                em tempo recorde.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -3350,6 +3685,48 @@
           { threshold: 0.1 },
         );
         tlzObserver.observe(tlzBuilder);
+      }
+    </script>
+    <script>
+      const altStage = document.querySelector(".alt-stage");
+      const altVideo = document.getElementById("altVideo");
+
+      if (altStage) {
+        const altObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                // Liga os raios
+                altStage.classList.add("is-active");
+                // Toca o vídeo
+                if (altVideo) altVideo.play().catch(() => {});
+              } else {
+                // Pausa raios e vídeo ao sair da tela (economiza recursos)
+                altStage.classList.remove("is-active");
+                if (altVideo) altVideo.pause();
+              }
+            });
+          },
+          { threshold: 0.3 }, // ativa quando 30% da seção aparece
+        );
+
+        altObserver.observe(altStage);
+      }
+    </script>
+    <script>
+      const shieldStage = document.getElementById("shieldStage");
+      if (shieldStage) {
+        new IntersectionObserver(
+          (entries, obs) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                shieldStage.classList.add("is-active");
+                obs.unobserve(entry.target); // dispara só 1 vez
+              }
+            });
+          },
+          { threshold: 0.35 },
+        ).observe(shieldStage);
       }
     </script>
   </body>
