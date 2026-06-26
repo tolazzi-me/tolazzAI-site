@@ -1300,3 +1300,83 @@ img {
     height: 6px;
   }
 }
+/* ═══ Cards de Dores ═══ */
+.pain-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.5rem 1.75rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  backdrop-filter: blur(8px);
+  transition:
+    transform 0.4s ease,
+    border-color 0.4s ease,
+    box-shadow 0.4s ease,
+    background 0.4s ease;
+}
+
+.pain-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(34, 211, 238, 0.5);
+  background: rgba(34, 211, 238, 0.05);
+  box-shadow: 0 12px 40px rgba(34, 211, 238, 0.15);
+}
+
+/* Ícone gigante no topo */
+.pain-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 1.5rem;
+  color: var(--cyan-neon, #22d3ee);
+  filter: drop-shadow(0 0 12px rgba(34, 211, 238, 0.4));
+  transition: transform 0.4s ease;
+}
+
+.pain-card:hover .pain-icon {
+  transform: scale(1.12) rotate(-4deg);
+}
+
+.pain-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.pain-text {
+  font-family: var(--font-body, inherit);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--txt-gray, #9ca3af);
+}
+
+/* 📱 Mobile */
+@media (max-width: 640px) {
+  .pain-card {
+    padding: 2rem 1.5rem;
+  }
+  .pain-icon {
+    width: 52px;
+    height: 52px;
+    margin-bottom: 1.25rem;
+  }
+}
+/* 🟡 Ampulheta */
+.pain-icon.icon-amber {
+  color: #fbbf24;
+  filter: drop-shadow(0 0 12px rgba(251, 191, 36, 0.45));
+}
+
+/* 🔵 Lua (azul mais escuro) */
+.pain-icon.icon-blue {
+  color: #3b82f6;
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.45));
+}
+
+/* 🔴 Gráfico */
+.pain-icon.icon-red {
+  color: #ef4444;
+  filter: drop-shadow(0 0 12px rgba(239, 68, 68, 0.45));
+}
