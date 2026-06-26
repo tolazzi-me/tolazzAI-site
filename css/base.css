@@ -1,0 +1,37 @@
+/* ═══════════════════════════════════════
+   BASE.CSS — comum às duas páginas
+   ═══════════════════════════════════════ */
+
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+/* ── Body (mesma base nos dois) ── */
+body {
+  background-color: #0b0c10;
+  color: #9ca3af;
+  font-family: "Montserrat", sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Headings ── */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Space Grotesk", sans-serif;
+  color: #ffffff;
+}
