@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="icon" type="image/png" href="img/favicon.png" />
     <title>
       TolazzAI Corp — Inteligência Artificial & Governança Corporativa
     </title>
@@ -52,7 +52,7 @@
         <a href="#" class="flex items-center">
           <div class="h-10 w-36 flex items-center justify-center">
             <img
-              src="logoBranco.png"
+              src="img/logoBranco.png"
               alt="TolazzAI Corp"
               class="h-full w-auto object-contain"
               onerror="
@@ -706,10 +706,11 @@
                 loop
                 playsinline
                 preload="none"
+                poster="img/altonicsBot-poster.png"
                 class="alt-video"
                 id="altVideo"
               >
-                <source src="altonicsBot.mp4" type="video/mp4" />
+                <source src="img/altonicsBot.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -1821,7 +1822,7 @@
               <div class="tlz-mod" data-side="left">
                 <div class="tlz-mod-icon">
                   <img
-                    src="altonicsAzul.png"
+                    src="img/altonicsAzul.png"
                     alt="Agente Altonics"
                     onerror="
                       this.outerHTML =
@@ -1837,7 +1838,7 @@
               <div class="tlz-mod" data-side="left">
                 <div class="tlz-mod-icon">
                   <img
-                    src="governançaLGPD.png"
+                    src="img/governançaLGPD.png"
                     alt="Diagnóstico de Governança"
                     onerror="
                       this.outerHTML =
@@ -1862,7 +1863,7 @@
               <div class="tlz-mod" data-side="right">
                 <div class="tlz-mod-icon">
                   <img
-                    src="treinamento.png"
+                    src="img/treinamento.png"
                     alt="Treinamento de Equipe"
                     onerror="
                       this.outerHTML =
@@ -1878,7 +1879,7 @@
               <div class="tlz-mod" data-side="right">
                 <div class="tlz-mod-icon">
                   <img
-                    src="marketing.png"
+                    src="img/marketing.png"
                     alt="Marketing Automatizado"
                     onerror="
                       this.outerHTML =
@@ -2070,7 +2071,7 @@
             class="rounded-2xl overflow-hidden border border-white/10 aspect-[4/5] bg-[#161820]"
           >
             <img
-              src="suporte_humano.jpg"
+              src="img/suporte_humano.jpg"
               alt="Especialista de Customer Success TolazzIA"
               class="w-full h-full object-cover object-center"
             />
@@ -2103,7 +2104,7 @@
               style="box-shadow: 0 0 40px rgba(0, 229, 255, 0.2)"
             >
               <img
-                src="saimon.jpg"
+                src="img/saimon.jpg"
                 alt="Saimon Tolazzi"
                 class="w-full h-full object-cover"
                 onerror="
@@ -2256,7 +2257,7 @@
           <div>
             <div class="mb-4">
               <img
-                src="logoBranco.png"
+                src="img/logoBranco.png"
                 alt="TolazzAI Corp"
                 class="h-8 w-auto object-contain"
                 onerror="
@@ -2804,6 +2805,23 @@
         ); // começa 200px antes de aparecer
 
         io.observe(img);
+      })();
+    </script>
+    <script>
+      (function () {
+        const kwSpace = document.querySelector(".kw-space");
+        if (!kwSpace) return;
+
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              kwSpace.classList.toggle("is-active", entry.isIntersecting);
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        io.observe(kwSpace);
       })();
     </script>
   </body>
