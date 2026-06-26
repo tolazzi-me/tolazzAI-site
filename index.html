@@ -330,43 +330,96 @@
         </p>
 
         <!-- Checklist -->
-        <div class="space-y-4 mb-14 text-left">
-          <div class="fade-in check-item">
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-neon bg-opacity-10 border border-cyan-neon border-opacity-30 flex items-center justify-center text-cyan-neon font-heading font-bold text-sm"
-              >1</span
-            >
-            <p
-              class="font-body text-txt-gray text-sm sm:text-base leading-relaxed pt-1"
-            >
+        <!-- Grid de Dores -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-14 text-left">
+          <!-- Card 1 -->
+
+          <div class="fade-in pain-card">
+            <div class="pain-icon">
+              <div class="pain-icon icon-amber">
+                <!-- Ampulheta -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M6 2h12M6 22h12M6 2c0 4 3 6 6 8 3 2 6 4 6 8M18 2c0 4-3 6-6 8-3 2-6 4-6 8"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p class="pain-text">
               O talento da sua equipe está focado em fechar negócios, ou está
               <strong class="text-white">preso em processos manuais</strong>?
             </p>
           </div>
-          <div class="fade-in check-item" style="transition-delay: 0.1s">
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-neon bg-opacity-10 border border-cyan-neon border-opacity-30 flex items-center justify-center text-cyan-neon font-heading font-bold text-sm"
-              >2</span
-            >
-            <p
-              class="font-body text-txt-gray text-sm sm:text-base leading-relaxed pt-1"
-            >
+
+          <!-- Card 2 -->
+          <div class="fade-in pain-card" style="transition-delay: 0.1s">
+            <div class="pain-icon">
+              <div class="pain-icon icon-blue">
+                <!-- Lua / 24h -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p class="pain-text">
               A sua empresa mantém o mesmo padrão de atendimento
               <strong class="text-white">24/7</strong>, mesmo quando você não
               está presente?
             </p>
           </div>
-          <div class="fade-in check-item" style="transition-delay: 0.2s">
-            <span
-              class="flex-shrink-0 w-8 h-8 rounded-full bg-cyan-neon bg-opacity-10 border border-cyan-neon border-opacity-30 flex items-center justify-center text-cyan-neon font-heading font-bold text-sm"
-              >3</span
-            >
-            <p
-              class="font-body text-txt-gray text-sm sm:text-base leading-relaxed pt-1"
-            >
-              A sua tomada de decisão é suportada por
-              <strong class="text-white">dados em tempo real (BI)</strong>, ou
-              depende de intuição?
+
+          <!-- Card 3 -->
+          <div class="fade-in pain-card" style="transition-delay: 0.2s">
+            <div class="pain-icon">
+              <div class="pain-icon icon-red">
+                <!-- Gráfico caindo -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                >
+                  <path
+                    d="M3 3v18h18"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7 7l4 5 3-2 4 6"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M18 16h0M18 16l-2-1M18 16l1-2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </div>
+            </div>
+            <p class="pain-text">
+              <em class="text-white not-italic font-semibold"
+                >Decisão no escuro:</em
+              >
+              seu negócio é guiado por
+              <strong class="text-white">dados em tempo real (BI)</strong>
+              ou por intuição e planilhas?
             </p>
           </div>
         </div>
@@ -2712,6 +2765,8 @@
           "img/palestras/palestra-01.webp",
           "img/palestras/palestra-02.webp",
           "img/palestras/palestra-03.webp",
+          "img/palestras/palestra-04.webp",
+          "img/palestras/palestra-05.webp",
         ];
 
         const img = document.getElementById("eduRandomImg");
