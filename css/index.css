@@ -1576,3 +1576,7 @@ img {
     mask-image: none;
   }
 }
+.support-img {
+  filter: none !important; /* remove o contraste que realça grão */
+  image-rendering: auto;
+}
