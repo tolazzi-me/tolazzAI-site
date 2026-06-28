@@ -1396,3 +1396,183 @@ img {
     scroll-behavior: auto !important;
   }
 }
+/* ===== TRILHO DE SERVIÇOS ===== */
+.service-rail-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===== TÍTULO DO TRILHO ===== */
+.rail-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2rem;
+  padding: 0 1.5rem;
+}
+
+.rail-title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #fff;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.rail-title-accent {
+  color: #00e5ff;
+  text-shadow: 0 0 24px rgba(0, 229, 255, 0.45);
+}
+
+.rail-line {
+  position: relative;
+  height: 1px;
+  flex: 1;
+  max-width: 140px;
+  background: linear-gradient(to right, transparent, rgba(0, 229, 255, 0.5));
+}
+
+.rail-line:last-child {
+  background: linear-gradient(to left, transparent, rgba(0, 229, 255, 0.5));
+}
+
+.rail-line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00e5ff;
+  box-shadow: 0 0 12px #00e5ff;
+  animation: railPulse 1.8s ease-in-out infinite;
+}
+
+.rail-line:last-child::after {
+  right: auto;
+  left: 0;
+}
+
+@keyframes railPulse {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1.5);
+  }
+}
+
+@media (max-width: 640px) {
+  .rail-line {
+    display: none;
+  }
+  .rail-title {
+    white-space: normal;
+  }
+}
+
+/* Máscara que desvanece nas bordas (efeito premium) */
+.service-rail {
+  position: relative;
+  width: 100%;
+  /* máscara só na horizontal — não corta vertical */
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 12%,
+    #000 88%,
+    transparent
+  );
+}
+
+.rail-track {
+  display: flex;
+  width: max-content;
+  animation: railScroll 32s linear infinite;
+  padding: 12px 0; /* ✅ respiro p/ o lift + glow não cortarem */
+}
+
+/* Pausa ao passar o mouse */
+.service-rail:hover .rail-track {
+  animation-play-state: paused;
+}
+
+.rail-group {
+  display: flex;
+  gap: 1rem;
+  padding-right: 1rem; /* espaçamento entre cópias */
+}
+
+@keyframes railScroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  } /* anda metade = 1 grupo (2 cópias) */
+}
+
+/* Chips */
+.rail-chip {
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding: 0.65rem 1.25rem;
+  border-radius: 999px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #9ca3af;
+  background: rgba(0, 229, 255, 0.04);
+  border: 1px solid rgba(0, 229, 255, 0.18);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  will-change: transform; /* render mais suave */
+}
+
+.rail-chip:hover {
+  color: #fff;
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+  transform: translateY(-2px);
+}
+
+.rail-chip-gold {
+  color: #d4af37;
+  background: rgba(212, 175, 55, 0.06);
+  border-color: rgba(212, 175, 55, 0.3);
+}
+
+.rail-chip-gold:hover {
+  color: #fff;
+  background: rgba(212, 175, 55, 0.15);
+  border-color: rgba(212, 175, 55, 0.6);
+  box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+}
+
+/* Acessibilidade: para o movimento se o usuário preferir */
+@media (prefers-reduced-motion: reduce) {
+  .rail-track {
+    animation: none;
+  }
+  .service-rail {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}

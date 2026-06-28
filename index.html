@@ -499,6 +499,44 @@
     <div class="sep"></div>
 
     <!-- ═══════════════════════════════════════════
+     3.1 TRILHO DE SERVIÇOS (marque navegável)
+═══════════════════════════════════════════ -->
+    <section
+      class="service-rail-section py-10"
+      aria-label="Navegação rápida de serviços"
+    >
+      <div class="rail-heading">
+        <span class="rail-line"></span>
+        <h3 class="rail-title">
+          SERVIÇOS DA TOLAZZAI -
+          <span class="rail-title-accent">CLIQUE E SAIBA MAIS</span>
+        </h3>
+        <span class="rail-line"></span>
+      </div>
+
+      <div class="service-rail" id="serviceRail">
+        <div class="rail-track">
+          <!-- Grupo de chips (será duplicado via JS para loop infinito) -->
+          <div class="rail-group">
+            <a href="#ecossistema" class="rail-chip">🤖 Ecossistema Altonics</a>
+            <a href="#auditorias" class="rail-chip"
+              >🔍 Diagnósticos Rápidos & Auditorias</a
+            >
+            <a href="#seguranca" class="rail-chip"
+              >🛡️ Segurança & Continuidade</a
+            >
+            <a href="#kits" class="rail-chip">⚡ Kits de Implementação</a>
+            <a href="#executivo" class="rail-chip">👔 Consultoria Executiva</a>
+            <a href="#cultura" class="rail-chip">🎓 Treinamentos & Cultura </a>
+            <a href="#contato" class="rail-chip rail-chip-gold"
+              >💬 Falar com Especialista</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════
      SEÇÃO 4: ECOSSISTEMA ALTONICS
 ═══════════════════════════════════════════ -->
     <section
@@ -2822,6 +2860,40 @@
         );
 
         io.observe(kwSpace);
+      })();
+    </script>
+    <script>
+      (function () {
+        const rail = document.querySelector("#serviceRail");
+        const track = rail?.querySelector(".rail-track");
+        if (!track) return;
+
+        // Clona o grupo p/ loop contínuo
+        const group = track.querySelector(".rail-group");
+        track.appendChild(group.cloneNode(true));
+
+        // Pausa/retoma a animação conforme visibilidade
+        const io = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              track.style.animationPlayState = entry.isIntersecting
+                ? "running"
+                : "paused";
+            });
+          },
+          { threshold: 0.1 },
+        );
+        io.observe(rail);
+
+        // Scroll suave ao clicar
+        track.addEventListener("click", (e) => {
+          const chip = e.target.closest(".rail-chip");
+          if (!chip) return;
+          e.preventDefault();
+          const target = document.querySelector(chip.getAttribute("href"));
+          if (target)
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
+        });
       })();
     </script>
   </body>
