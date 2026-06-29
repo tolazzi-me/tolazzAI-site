@@ -1397,10 +1397,6 @@ img {
   }
 }
 /* ===== TRILHO DE SERVIÇOS ===== */
-.service-rail-section {
-  position: relative;
-  overflow: hidden;
-}
 
 /* ===== TÍTULO DO TRILHO ===== */
 .rail-heading {
@@ -1500,48 +1496,75 @@ img {
   );
 }
 
-.rail-track {
-  display: flex;
-  width: max-content;
-  animation: railScroll 32s linear infinite;
-  padding: 12px 0; /* ✅ respiro p/ o lift + glow não cortarem */
-}
-
 /* Pausa ao passar o mouse */
 .service-rail:hover .rail-track {
   animation-play-state: paused;
 }
 
-.rail-group {
-  display: flex;
-  gap: 1rem;
-  padding-right: 1rem; /* espaçamento entre cópias */
+.chip-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  box-sizing: border-box;
 }
 
-@keyframes railScroll {
-  from {
-    transform: translateX(0);
+/* Chip ocupa toda a célula = larguras uniformes */
+.chip-grid .rail-chip {
+  width: 100%;
+  min-width: 0;
+  justify-content: center;
+  white-space: normal;
+  text-align: center;
+  box-sizing: border-box;
+}
+.chip-grid .rail-chip-gold {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .chip-grid {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: translateX(-50%);
-  } /* anda metade = 1 grupo (2 cópias) */
+}
+.chip-grid-title {
+  grid-column: 1 / -1; /* mesma regra do gold, ocupa as 2 colunas */
+  text-align: center;
+  margin: 0 0 1rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
 }
 
 /* Chips */
 .rail-chip {
-  flex-shrink: 0;
-  white-space: nowrap;
-  padding: 0.65rem 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.9rem 1.75rem;
   border-radius: 999px;
   font-family: "Montserrat", sans-serif;
-  font-size: 0.85rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: #9ca3af;
   background: rgba(0, 229, 255, 0.04);
   border: 1px solid rgba(0, 229, 255, 0.18);
   transition: all 0.25s ease;
   cursor: pointer;
-  will-change: transform; /* render mais suave */
+  animation: chipFloat 4.5s ease-in-out infinite;
+}
+
+.rail-chip svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  stroke: #00e5ff;
 }
 
 .rail-chip:hover {
@@ -1552,17 +1575,47 @@ img {
   transform: translateY(-2px);
 }
 
-.rail-chip-gold {
-  color: #d4af37;
-  background: rgba(212, 175, 55, 0.06);
-  border-color: rgba(212, 175, 55, 0.3);
+.rail-chip-gold svg {
+  stroke: #d4af37;
 }
 
-.rail-chip-gold:hover {
+.rail-chip:hover {
   color: #fff;
-  background: rgba(212, 175, 55, 0.15);
-  border-color: rgba(212, 175, 55, 0.6);
-  box-shadow: 0 0 18px rgba(212, 175, 55, 0.3);
+  background: rgba(0, 229, 255, 0.12);
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+  animation-play-state: paused;
+  transform: translateY(-4px);
+}
+@keyframes chipFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+.rail-chip:nth-child(1) {
+  animation-delay: 0s;
+}
+.rail-chip:nth-child(2) {
+  animation-delay: 0.6s;
+}
+.rail-chip:nth-child(3) {
+  animation-delay: 1.2s;
+}
+.rail-chip:nth-child(4) {
+  animation-delay: 0.3s;
+}
+.rail-chip:nth-child(5) {
+  animation-delay: 0.9s;
+}
+.rail-chip:nth-child(6) {
+  animation-delay: 1.5s;
+}
+.rail-chip:nth-child(7) {
+  animation-delay: 0.45s;
 }
 
 /* Acessibilidade: para o movimento se o usuário preferir */
