@@ -1651,3 +1651,22 @@ img {
   filter: none !important; /* remove o contraste que realça grão */
   image-rendering: auto;
 }
+/* ── Rodapé: link discreto para política de privacidade ── */
+.footer-privacy-link {
+  display: inline-block;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #6b7280;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  transition:
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+.footer-privacy-link:hover {
+  color: #00e5ff;
+  border-color: rgba(0, 229, 255, 0.4);
+}
