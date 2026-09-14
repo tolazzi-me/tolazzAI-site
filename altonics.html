@@ -633,39 +633,6 @@
         </p>
       </div>
     </footer>
-
-    <script>
-      const chartBox = document.querySelector(".chart-box");
-      const el = document.getElementById("pct");
-      const alvo = 187;
-      const dur = 5000; // mesmo tempo da linha do gráfico
-      let jaAnimou = false;
-
-      function animarContador() {
-        const ini = performance.now();
-        function animar(agora) {
-          const p = Math.min((agora - ini) / dur, 1);
-          el.textContent = "+" + Math.floor(p * alvo) + "%";
-          if (p < 1) requestAnimationFrame(animar);
-        }
-        requestAnimationFrame(animar);
-      }
-
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting && !jaAnimou) {
-              jaAnimou = true;
-              chartBox.classList.add("animate"); // dispara animação do SVG
-              animarContador(); // dispara contador sincronizado
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        { threshold: 0.4 }, // dispara quando 40% do gráfico estiver visível
-      );
-
-      observer.observe(chartBox);
-    </script>
+    <script src="js/script.js"></script>
   </body>
 </html>
