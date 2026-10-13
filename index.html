@@ -7,6 +7,8 @@
     <title>
       TolazzAI Corp — Inteligência Artificial & Governança Corporativa
     </title>
+    <!-- Preload do logo principal para renderização instantânea do topo -->
+    <link rel="preload" href="img/logoBranco.png" as="image" fetchpriority="high" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -55,6 +57,10 @@
               src="img/logoBranco.png"
               alt="TolazzAI Corp"
               class="h-full w-auto object-contain"
+              width="144"
+              height="40"
+              fetchpriority="high"
+              decoding="async"
               onerror="
                 this.style.display = 'none';
                 this.nextElementSibling.style.display = 'flex';
@@ -218,8 +224,10 @@
         >
           Nós não automatizamos<br />
           apenas tarefas.<br />
-          <span id="typewriter" class="text-glow tw-cyan"></span
-          ><span class="tw-cursor"></span>
+          <span class="tw-wrap"
+            ><span id="typewriter" class="text-glow tw-cyan"></span
+            ><span class="tw-cursor"></span
+          ></span>
         </h1>
 
         <!-- Slogan (Subtítulo Direto) -->
@@ -2095,6 +2103,10 @@
                   src="img/datacenterpanic.png"
                   alt="Datacenter Panic - Jogo Educativo de Infraestrutura e Cibersegurança TolazzAI"
                   class="w-full h-auto rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]"
+                  loading="lazy"
+                  decoding="async"
+                  width="1356"
+                  height="1040"
                 />
                 <!-- Subtle cyber vignette -->
                 <div class="absolute inset-0 pointer-events-none rounded-xl" style="background: linear-gradient(180deg, rgba(0,229,255,0.02) 0%, transparent 60%, rgba(0,0,0,0.35) 100%);"></div>
@@ -2160,6 +2172,10 @@
                   src="img/promptauction.png"
                   alt="Prompt Auction - Jogo Educativo de Engenharia de Prompts TolazzAI"
                   class="w-full h-auto rounded-xl shadow-2xl transition-transform duration-500 group-hover:scale-[1.01]"
+                  loading="lazy"
+                  decoding="async"
+                  width="1710"
+                  height="752"
                 />
                 <div class="absolute inset-0 pointer-events-none rounded-xl" style="background: linear-gradient(180deg, rgba(0,229,255,0.02) 0%, transparent 60%, rgba(0,0,0,0.35) 100%);"></div>
               </div>
@@ -2361,6 +2377,10 @@
                   <img
                     src="img/altonicsAzul.png"
                     alt="Agente Altonics"
+                    loading="lazy"
+                    decoding="async"
+                    width="48"
+                    height="48"
                     onerror="
                       this.outerHTML =
                         '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><circle cx=\'12\' cy=\'12\' r=\'3\'/><path d=\'M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3\'/></svg>'
@@ -2377,6 +2397,10 @@
                   <img
                     src="img/governançaLGPD.png"
                     alt="Diagnóstico de Governança"
+                    loading="lazy"
+                    decoding="async"
+                    width="48"
+                    height="48"
                     onerror="
                       this.outerHTML =
                         '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z\'/></svg>'
@@ -2402,6 +2426,10 @@
                   <img
                     src="img/treinamento.png"
                     alt="Treinamento de Equipe"
+                    loading="lazy"
+                    decoding="async"
+                    width="48"
+                    height="48"
                     onerror="
                       this.outerHTML =
                         '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2\'/><circle cx=\'9\' cy=\'7\' r=\'4\'/><path d=\'M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75\'/></svg>'
@@ -2418,6 +2446,10 @@
                   <img
                     src="img/governança.png"
                     alt="Governança Automatizada"
+                    loading="lazy"
+                    decoding="async"
+                    width="48"
+                    height="48"
                     onerror="
                       this.outerHTML =
                         '<svg width=\'32\' height=\'32\' fill=\'none\' stroke=\'#00E5FF\' stroke-width=\'1.5\' viewBox=\'0 0 24 24\'><path d=\'M13 10V3L4 14h7v7l9-11h-7z\'/></svg>'
@@ -2611,6 +2643,10 @@
               src="img/suporte_humano.webp"
               alt="Especialista de Customer Success TolazzIA"
               class="w-full h-full object-cover object-center support-img"
+              loading="lazy"
+              decoding="async"
+              width="600"
+              height="750"
             />
           </div>
           <!-- Barra decorativa dourada -->
@@ -2644,6 +2680,10 @@
                 src="img/saimon.jpg"
                 alt="Saimon Tolazzi"
                 class="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                width="256"
+                height="256"
                 onerror="
                   this.style.display = 'none';
                   this.parentElement.innerHTML =
@@ -2782,6 +2822,10 @@
                 src="img/logoBranco.png"
                 alt="TolazzAI Corp"
                 class="h-8 w-auto object-contain"
+                loading="lazy"
+                decoding="async"
+                width="144"
+                height="32"
                 onerror="
                   this.style.display = 'none';
                   this.nextElementSibling.style.display = 'flex';

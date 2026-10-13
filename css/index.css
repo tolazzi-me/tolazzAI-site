@@ -782,7 +782,13 @@ body::before {
   pointer-events: none;
 }
 
-/* ── Cursor do efeito máquina de escrever ── */
+/* ── Cursor e container do efeito máquina de escrever ── */
+.tw-wrap {
+  display: inline-block;
+  min-height: 2.16em;
+  vertical-align: top;
+  text-align: inherit;
+}
 .tw-cursor {
   display: inline-block;
   width: 3px;
@@ -1669,4 +1675,39 @@ img {
 .footer-privacy-link:hover {
   color: #00e5ff;
   border-color: rgba(0, 229, 255, 0.4);
+}
+
+/* ══════════════════════════════════════════
+   DIRETIVAS PROFISSIONAIS DE PERFORMANCE
+   ══════════════════════════════════════════ */
+
+/* Otimização de renderização moderna: pula o trabalho de layout/estilo
+   de seções fora da viewport até o usuário rolar próximo a elas */
+@supports (content-visibility: auto) {
+  #ecossistema,
+  #auditorias,
+  #seguranca,
+  #executivo,
+  #cultura,
+  #sobre,
+  #contato {
+    content-visibility: auto;
+    contain-intrinsic-size: 1px 850px;
+  }
+}
+
+/* Aceleração por hardware GPU para elementos interativos */
+.card-hover,
+.sec-card,
+.exec-card,
+.check-item,
+.flow-node {
+  transform: translateZ(0);
+}
+
+/* Otimização de renderização de fontes e nitidez */
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
