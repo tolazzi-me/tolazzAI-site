@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Termos de Uso — TolazzAI Corp</title>
+    <title>Termos de Uso Centralizados — TolazzAI Corp</title>
+    <meta
+      name="description"
+      content="Termos e Condições Gerais de Uso do ecossistema TolazzAI: Soluções Corporativas em IA, Altonics AI, Cofre Digital HandOver B2B e Plataformas de Jogos (Datacenter Panic e Prompt Auction)."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -30,6 +37,7 @@
             fontFamily: {
               heading: ["Space Grotesk", "sans-serif"],
               body: ["Montserrat", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
             },
           },
         },
@@ -39,40 +47,52 @@
     <link rel="stylesheet" href="css/index.css" />
     <style>
       .policy-section {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        padding: 2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 2.75rem 0;
+        scroll-margin-top: 5rem;
       }
       .policy-section:last-of-type {
         border-bottom: none;
       }
       .policy-section h2 {
         font-family: "Space Grotesk", sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.45rem;
         font-weight: 700;
         color: #fff;
-        margin-bottom: 1rem;
+        margin-bottom: 1.15rem;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
       }
       .policy-section h2 svg {
         flex-shrink: 0;
         color: #00e5ff;
       }
+      .policy-section h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e2e8f0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
       .policy-section p,
       .policy-section li {
         font-family: "Montserrat", sans-serif;
-        font-size: 0.9rem;
-        line-height: 1.75;
+        font-size: 0.92rem;
+        line-height: 1.8;
         color: #9ca3af;
       }
       .policy-section ul {
-        margin-top: 0.75rem;
+        margin-top: 0.85rem;
         margin-left: 1.25rem;
         list-style-type: disc;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
       .policy-section strong {
         color: #fff;
@@ -81,418 +101,544 @@
       .policy-section a {
         color: #00e5ff;
         text-decoration: underline;
-        text-decoration-color: rgba(0, 229, 255, 0.3);
+        text-decoration-color: rgba(0, 229, 255, 0.35);
+        transition: all 0.2s ease;
       }
       .policy-section a:hover {
         text-decoration-color: #00e5ff;
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+      }
+      .legal-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .nav-quick-link {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        border-radius: 8px;
+        color: #9ca3af;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .nav-quick-link:hover {
+        color: #00e5ff;
+        background: rgba(0, 229, 255, 0.08);
+        border-color: rgba(0, 229, 255, 0.3);
+      }
+      .callout-box {
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+        display: flex;
+        gap: 14px;
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+      .callout-cyan {
+        background: rgba(0, 229, 255, 0.05);
+        border: 1px solid rgba(0, 229, 255, 0.25);
+        color: #e2e8f0;
+      }
+      .callout-gold {
+        background: rgba(212, 175, 55, 0.06);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: #fef08a;
+      }
+      .callout-purple {
+        background: rgba(168, 85, 247, 0.06);
+        border: 1px solid rgba(168, 85, 247, 0.25);
+        color: #e9d5ff;
+      }
+      .table-custom {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 1.25rem 0;
+        font-size: 0.85rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .table-custom th {
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+        padding: 10px 14px;
+        font-family: "Space Grotesk", sans-serif;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .table-custom td {
+        padding: 10px 14px;
+        color: #9ca3af;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .table-custom tr:last-child td {
+        border-bottom: none;
       }
     </style>
   </head>
 
-  <body class="bg-bg-deep">
+  <body class="bg-bg-deep text-txt-gray selection:bg-cyan-neon selection:text-black">
     <!-- ═══════════════════════════════════════════
-         NAVBAR SIMPLIFICADA
+         NAVBAR INSTITUCIONAL CENTRALIZADA
     ═══════════════════════════════════════════ -->
-    <nav class="py-5 px-6 lg:px-10 border-b border-border-dim">
-      <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <a href="index.html" class="flex items-center">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-bg-deep/90 border-b border-border-dim py-4 px-6 lg:px-10">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3">
           <img
             src="img/logoBranco.png"
             alt="TolazzAI Corp"
-            class="h-9 w-auto object-contain"
+            class="h-8 w-auto object-contain"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
           <div style="display: none" class="items-center gap-2">
-            <span class="font-heading font-bold text-white text-lg"
-              >TolazzAI</span
-            >
-            <span
-              class="font-heading text-gold text-xs uppercase tracking-widest"
-              >Corp</span
-            >
+            <span class="font-heading font-bold text-white text-lg">TolazzAI</span>
+            <span class="font-heading text-gold text-xs uppercase tracking-widest">Corp</span>
           </div>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-neon">
+            Central Jurídica
+          </span>
         </a>
-        <a
-          href="index.html"
-          class="font-body text-xs text-txt-gray hover:text-cyan-neon transition-colors flex items-center gap-2"
-        >
-          <svg
-            width="14"
-            height="14"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
+
+        <div class="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
+          <a
+            href="politica-de-privacidade.html"
+            class="font-body text-xs text-txt-gray hover:text-cyan-neon transition-colors flex items-center gap-1.5 py-1.5 px-3 rounded-lg bg-white/5 border border-white/10"
           >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          Voltar ao site
-        </a>
-      </div>
-    </nav>
-
-    <!-- ═══════════════════════════════════════════
-         HERO DA PÁGINA
-    ═══════════════════════════════════════════ -->
-    <section class="py-16 px-6 border-b border-border-dim">
-      <div class="max-w-4xl mx-auto text-center">
-        <p
-          class="font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-4"
-        >
-          Regras & Condições
-        </p>
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
-          Termos de Uso
-        </h1>
-        <p
-          class="font-body text-sm text-txt-gray max-w-2xl mx-auto leading-relaxed"
-        >
-          Estes Termos de Uso regulam o acesso e a utilização do site, produtos
-          e serviços da TolazzAI Corp. Ao utilizar nossos serviços, você
-          concorda integralmente com as condições abaixo.
-        </p>
-        <p class="font-body text-xs text-txt-dim mt-6">
-          Última atualização: 11 de setembro de 2026
-        </p>
-      </div>
-    </section>
-
-    <!-- ═══════════════════════════════════════════
-         CONTEÚDO
-    ═══════════════════════════════════════════ -->
-    <section class="py-16 px-6">
-      <div class="max-w-3xl mx-auto glass rounded-2xl px-8 sm:px-12 py-4">
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
-              />
-            </svg>
-            1. Aceitação dos Termos
-          </h2>
-          <p>
-            Ao acessar o site, contratar serviços ou utilizar qualquer produto
-            da <strong>TolazzAI Corp</strong> — incluindo diagnósticos,
-            auditorias, consultorias, kits de implementação e o ecossistema
-            <strong>Altonics</strong> — você declara que leu, compreendeu e
-            aceita integralmente os termos aqui descritos. Caso não concorde,
-            recomendamos que não utilize nossos serviços.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-            </svg>
-            2. Descrição dos Serviços
-          </h2>
-          <p>
-            A TolazzAI Corp oferece soluções em Inteligência Artificial,
-            automação, Business Intelligence, governança corporativa, segurança
-            digital e consultoria executiva, incluindo, mas não se limitando a:
-          </p>
-          <ul>
-            <li>
-              Implementação de agentes autônomos (Altonics Agent) integrados a
-              WhatsApp, ERP, CRM e sites;
-            </li>
-            <li>
-              Diagnósticos e auditorias técnicas, jurídicas e de segurança;
-            </li>
-            <li>Kits de automação e governança de dados;</li>
-            <li>Consultoria executiva e treinamentos corporativos.</li>
-          </ul>
-          <p>
-            Os serviços podem ser prestados de forma pontual ou recorrente,
-            conforme escopo contratado individualmente com cada cliente.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="9" cy="7" r="4" />
-              <path
-                d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"
-              />
-            </svg>
-            3. Cadastro e Responsabilidades do Usuário
-          </h2>
-          <p>
-            Ao utilizar nossos canais de contato ou contratar serviços, você se
-            compromete a:
-          </p>
-          <ul>
-            <li>Fornecer informações verdadeiras, completas e atualizadas;</li>
-            <li>
-              Não utilizar nossos serviços para fins ilícitos, fraudulentos ou
-              que violem direitos de terceiros;
-            </li>
-            <li>
-              Manter a confidencialidade de credenciais de acesso a sistemas
-              integrados (CRM, ERP, dashboards);
-            </li>
-            <li>
-              Notificar imediatamente a TolazzAI Corp em caso de uso não
-              autorizado de suas contas ou integrações.
-            </li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <path d="M3 9h18M9 21V9" />
-            </svg>
-            4. Propriedade Intelectual
-          </h2>
-          <p>
-            Todo o conteúdo do site, marca, layout, textos, códigos-fonte,
-            fluxos de automação, tecnologia proprietária (incluindo o
-            <strong>Altonics Agent</strong>) e demais materiais são de
-            propriedade exclusiva da TolazzAI Corp, sendo protegidos pela
-            legislação de direitos autorais e propriedade industrial. É proibida
-            a reprodução, distribuição ou engenharia reversa sem autorização
-            expressa e por escrito.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M9 12l2 2 4-4" />
             </svg>
-            5. Contratação, Pagamentos e Cancelamento
-          </h2>
-          <p>
-            Os valores, condições de pagamento e prazos de entrega dos serviços
-            (auditorias, kits, mensalidades de infraestrutura, consultorias,
-            etc.) são definidos em proposta comercial específica enviada ao
-            cliente. Cancelamentos, reembolsos e renegociações seguem as
-            condições descritas no contrato ou proposta assinada entre as
-            partes, prevalecendo sempre o que for formalmente acordado sobre o
-            disposto neste documento geral.
-          </p>
+            Ver Política de Privacidade
+          </a>
+          <a
+            href="index.html"
+            class="font-body text-xs text-txt-gray hover:text-white transition-colors flex items-center gap-1.5 py-1.5 px-3 rounded-lg hover:bg-white/5"
+          >
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Voltar ao Início
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══════════════════════════════════════════
+         HERO DA PÁGINA CENTRALIZADA
+    ═══════════════════════════════════════════ -->
+    <section class="py-14 px-6 border-b border-border-dim bg-gradient-to-b from-bg-mid to-bg-deep relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,229,255,0.08),transparent_50%)] pointer-events-none"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-neon/10 border border-cyan-neon/25 text-cyan-neon font-mono text-xs mb-4">
+          <span class="w-2 h-2 rounded-full bg-cyan-neon animate-pulse"></span>
+          Regulamento Unificado & Abrangente • v2.0
+        </div>
+        <h1 class="font-heading text-3xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+          Termos de Uso Unificados
+        </h1>
+        <p class="font-body text-sm sm:text-base text-txt-gray max-w-3xl mx-auto leading-relaxed">
+          Estes Termos de Uso regulam o acesso e a utilização de <strong>todos os produtos, serviços, plataformas e jogos</strong> mantidos pela <strong class="text-white">TolazzAI</strong> (CNPJ 61.363.615/0001-77). Ao acessar qualquer uma de nossas ferramentas, você concorda integralmente com as condições unificadas descritas abaixo.
+        </p>
+
+        <!-- Pílulas de Cobertura das Ferramentas -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 max-w-3xl mx-auto text-xs">
+          <span class="legal-badge-pill bg-cyan-neon/10 text-cyan-neon border border-cyan-neon/20">
+            🏢 Portal Institucional & B2B
+          </span>
+          <span class="legal-badge-pill bg-gold/10 text-gold border border-gold/20">
+            🤖 Altonics & Agentes de IA
+          </span>
+          <span class="legal-badge-pill bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            🔐 Cofre Digital HandOver B2B
+          </span>
+          <span class="legal-badge-pill bg-purple-500/10 text-purple-400 border border-purple-500/20">
+            🎮 TolazzAI Games (Datacenter Panic & Prompt Auction)
+          </span>
         </div>
 
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M3 15v4c0 1.1.9 2 2 2h14a2 2 0 002-2v-4M17 8l-5-5-5 5M12 3v12"
-              />
-            </svg>
-            6. Limitação de Responsabilidade
-          </h2>
-          <p>
-            A TolazzAI Corp emprega os melhores esforços técnicos para garantir
-            a qualidade, segurança e disponibilidade de seus serviços. No
-            entanto, não nos responsabilizamos por:
-          </p>
-          <ul>
-            <li>
-              Falhas decorrentes de instabilidades em serviços de terceiros
-              (provedores de nuvem, APIs, operadoras de internet);
-            </li>
-            <li>
-              Danos indiretos resultantes do uso inadequado das ferramentas
-              entregues;
-            </li>
-            <li>
-              Decisões de negócio tomadas exclusivamente com base em relatórios,
-              diagnósticos ou dashboards, sem análise crítica complementar do
-              cliente;
-            </li>
-            <li>
-              Interrupções motivadas por caso fortuito, força maior ou ataques
-              cibernéticos de terceiros não previstos nos escopos de segurança
-              contratados.
-            </li>
-          </ul>
-        </div>
+        <p class="font-mono text-xs text-txt-dim mt-6">
+          Última atualização geral: <strong>Outubro de 2026</strong> • Vigência imediata
+        </p>
+      </div>
 
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35M11 8v3M11 14h.01" />
-            </svg>
-            7. Confidencialidade e Proteção de Dados
-          </h2>
-          <p>
-            Dados e informações trocadas durante auditorias, diagnósticos e
-            consultorias são tratados com estrita confidencialidade, conforme
-            descrito em nossa
-            <a href="politica-de-privacidade.html">Política de Privacidade</a>
-            e em acordos de confidencialidade (NDA) firmados quando aplicável.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M22 10L12 5 2 10l10 5 10-5z" />
-              <path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5" />
-            </svg>
-            8. Uso de Inteligência Artificial
-          </h2>
-          <p>
-            Os agentes autônomos e sistemas de IA desenvolvidos pela TolazzAI
-            Corp operam com base em regras de negócio e dados fornecidos pelo
-            cliente. Embora empreguemos as melhores práticas de engenharia,
-            respostas geradas por IA podem eventualmente conter imprecisões,
-            cabendo ao cliente supervisionar e validar decisões críticas tomadas
-            com base nessas interações.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 8v4l3 3M12 22a10 10 0 100-20 10 10 0 000 20z" />
-            </svg>
-            9. Alterações nos Termos
-          </h2>
-          <p>
-            A TolazzAI Corp reserva-se o direito de atualizar estes Termos de
-            Uso periodicamente, sempre indicando a data da última atualização no
-            topo desta página. O uso continuado dos serviços após qualquer
-            alteração implica na aceitação dos novos termos.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 3v12M5 10l7 7 7-7" />
-              <path d="M5 21h14" />
-            </svg>
-            10. Legislação Aplicável e Foro
-          </h2>
-          <p>
-            Estes Termos de Uso são regidos pelas leis da República Federativa
-            do Brasil. Fica eleito o foro da comarca de domicílio da TolazzAI
-            Corp para dirimir quaisquer controvérsias, salvo disposição
-            específica em contrato firmado entre as partes.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-              />
-            </svg>
-            11. Contato
-          </h2>
-          <p>
-            Para dúvidas sobre estes Termos de Uso, entre em contato pelo e-mail
-            <a href="mailto:contato@tolazzai.com.br">contato@tolazzai.com.br</a
-            >.
-          </p>
-        </div>
+      <!-- Barra de Navegação Rápida entre Seções -->
+      <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/5 flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <a href="#sec-identificacao" class="nav-quick-link">1. Identificação & Escopo</a>
+        <a href="#sec-modulos" class="nav-quick-link">2. Ecossistema & Módulos</a>
+        <a href="#sec-altonics" class="nav-quick-link">3. Altonics & IA</a>
+        <a href="#sec-handover" class="nav-quick-link">4. Cofre HandOver B2B</a>
+        <a href="#sec-jogos" class="nav-quick-link">5. TolazzAI Games (Jogos)</a>
+        <a href="#sec-fairplay" class="nav-quick-link">6. Conduta & Fair Play</a>
+        <a href="#sec-propriedade" class="nav-quick-link">7. Propriedade Intelectual</a>
+        <a href="#sec-anuncios" class="nav-quick-link">8. Publicidade & AdSense</a>
+        <a href="#sec-responsabilidade" class="nav-quick-link">9. Responsabilidade</a>
+        <a href="#sec-foro" class="nav-quick-link">10. Legislação & Foro</a>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
-         RODAPÉ
+         CONTEÚDO JURÍDICO INTEGRADO
     ═══════════════════════════════════════════ -->
-    <footer class="py-8 px-6 border-t border-border-dim text-center">
-      <p class="font-body text-xs text-txt-dim mb-2">
-        © 2026 TolazzAI Corp. Todos os direitos reservados.
-      </p>
-      <div class="flex items-center justify-center gap-4">
-        <a href="politica-de-privacidade.html" class="footer-privacy-link">
-          Política de Privacidade
-        </a>
-        <a href="index.html" class="footer-privacy-link">
-          Voltar à página inicial
-        </a>
+    <main class="py-12 px-6">
+      <div class="max-w-4xl mx-auto glass rounded-2xl p-6 sm:p-12 border border-white/10 shadow-2xl relative">
+        
+        <!-- CALLOUT DE CENTRALIZAÇÃO -->
+        <div class="callout-box callout-cyan mb-8">
+          <div class="text-xl">🌐</div>
+          <div>
+            <strong class="text-white block mb-1">Centralização Oficial de Termos de Uso</strong>
+            A TolazzAI unificou seus termos jurídicos para garantir transparência total e evitar discrepâncias entre produtos. Quer você esteja navegando pelo portal institucional <a href="https://tolazzai.com.br" target="_blank">tolazzai.com.br</a>, acessando seus entregáveis no <strong>Cofre Digital HandOver</strong>, utilizando nossos agentes <strong>Altonics</strong>, ou jogando nossos games (como <strong>Datacenter Panic</strong> e <strong>Prompt Auction</strong>), as regras unificadas contidas neste documento aplicam-se a você.
+          </div>
+        </div>
+
+        <!-- 1. IDENTIFICAÇÃO E ACEITAÇÃO -->
+        <section id="sec-identificacao" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+            </svg>
+            1. Identificação do Controlador e Aceitação dos Termos
+          </h2>
+          <p>
+            Estes Termos de Uso constituem um contrato vinculante entre você (denominado "Usuário", "Cliente" ou "Jogador") e a <strong>TolazzAI</strong> (nome empresarial: <strong>TolazzAI Soluções em Tecnologia e Inteligência Artificial / Saimon Tolazzi</strong>), pessoa jurídica de direito privado inscrita no <strong>CNPJ sob o nº 61.363.615/0001-77</strong>, com sede em Ponta Grossa, Estado do Paraná, Brasil, mantenedora do domínio oficial <a href="https://tolazzai.com.br" target="_blank">https://tolazzai.com.br</a>.
+          </p>
+          <p class="mt-3">
+            Ao acessar qualquer website, utilizar aplicações web, autenticar-se em cofres corporativos, interagir com agentes autônomos de IA ou conectar-se aos servidores de jogos digitais da TolazzAI, você confirma que leu, compreendeu e concorda integralmente com estes Termos de Uso e com nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>. Caso discorde de qualquer cláusula, você deve descontinuar imediatamente o uso de todas as nossas ferramentas.
+          </p>
+        </section>
+
+        <!-- 2. ECOSSISTEMA E DESCRIÇÃO DOS MÓDULOS -->
+        <section id="sec-modulos" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+            </svg>
+            2. Descrição do Ecossistema e Abrangência das Ferramentas
+          </h2>
+          <p>
+            A TolazzAI atua no desenvolvimento de software de alta performance, inteligência artificial aplicada, consultoria de negócios, segurança cibernética e jogos educativos interativos. As diretrizes aqui dispostas cobrem todos os seguintes ambientes e submarcas:
+          </p>
+
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Módulo / Ferramenta</th>
+                <th>Finalidade Principal</th>
+                <th>Público & Regras Específicas</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Portal Institucional B2B</strong><br><span class="text-xs text-txt-dim">tolazzai.com.br</span></td>
+                <td>Apresentação de serviços, diagnósticos de IA, auditorias de governança, consultorias e contato comercial.</td>
+                <td>Público geral, líderes de tecnologia e empresas contratantes de soluções digitais.</td>
+              </tr>
+              <tr>
+                <td><strong>Altonics AI</strong><br><span class="text-xs text-txt-dim">Altonics Agent & Automações</span></td>
+                <td>Agentes autônomos para WhatsApp, CRM, ERPs e atendimento corporativo com tecnologia de ponta.</td>
+                <td>Empresas contratantes e usuários finais atendidos por canais automatizados com supervisão humana.</td>
+              </tr>
+              <tr>
+                <td><strong>Cofre HandOver B2B</strong><br><span class="text-xs text-txt-dim">Handover Portal / Vault</span></td>
+                <td>Custódia segura e entrega homologada de ativos digitais, senhas, APIs, manuais de vídeo e contratos assinados.</td>
+                <td>Acesso restrito e confidencial para clientes homologados via chave criptografada.</td>
+              </tr>
+              <tr>
+                <td><strong>TolazzAI Games</strong><br><span class="text-xs text-txt-dim">Datacenter Panic, Prompt Auction</span></td>
+                <td>Jogos web educativos e multijogador em tempo real sobre cibersegurança, redes, IA e engenharia de prompts.</td>
+                <td>Comunidade gamer, estudantes e profissionais tech. Ambiente lúdico com regras de Fair Play e monetização via AdSense.</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 3. DIRETRIZES DO ALTONICS E SISTEMAS DE IA -->
+        <section id="sec-altonics" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            3. Ecossistema Altonics & Uso de Inteligência Artificial
+          </h2>
+          <p>
+            O <strong>Altonics</strong> e os agentes autônomos de software criados pela TolazzAI empregam modelos de linguagem de larga escala (LLMs), processamento de linguagem natural (PLN) e integrações via API (WhatsApp Business API, CRMs, ERPs e bancos de dados).
+          </p>
+          <ul>
+            <li>
+              <strong>Supervisão Humana ("Human Handoff"):</strong> Nossos agentes de IA contam nativamente com mecanismos de transição para operadores humanos. O cliente contratante reconhece que modelos generativos possuem natureza estatística e podem eventualmente apresentar imprecisões ou alucinações. É dever da empresa contratante manter supervisão e validar fluxos críticos de negócio;
+            </li>
+            <li>
+              <strong>Responsabilidade pelas Instruções da Empresa:</strong> Os agentes operam baseando-se nas bases de conhecimento, catálogos, tabelas de preço e diretrizes inseridas pelo próprio cliente contratante. A TolazzAI não responde por dados inverídicos alimentados pelo cliente no robô;
+            </li>
+            <li>
+              <strong>Vedação ao Uso Malicioso:</strong> É expressamente proibido reprogramar, forçar injeção de prompt ("prompt injection") ou utilizar o Altonics para envio de SPAM, mensagens ilegais, difamatórias, fraudulentas ou que violem os termos de serviço da Meta/WhatsApp.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 4. DIRETRIZES DO COFRE DIGITAL HANDOVER B2B -->
+        <section id="sec-handover" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+            </svg>
+            4. Portal de Handover B2B — Cofre Digital de Ativos
+          </h2>
+          <p>
+            O <strong>Cofre Digital de Handover</strong> é um ambiente de alta segurança desenvolvido para a entrega formal e definitiva de ativos de tecnologia desenvolvidos pela TolazzAI aos seus clientes empresariais homologados.
+          </p>
+          <ul>
+            <li>
+              <strong>Acesso Exclusivo & Chaves Criptográficas:</strong> O acesso é concedido por meio de chaves exclusivas vinculadas ao diretório isolado do cliente. O cliente é o único responsável pela guarda de sua senha de acesso, devendo notificar imediatamente a TolazzAI em caso de perda ou suspeita de comprometimento;
+            </li>
+            <li>
+              <strong>Confidencialidade e Custódia Documental:</strong> Todos os arquivos, códigos-fonte, chaves de API, credenciais de servidores e contratos assinados disponibilizados no cofre estão resguardados por estrito dever de sigilo comercial e acordos de confidencialidade (NDA);
+            </li>
+            <li>
+              <strong>Sessões Seguras e Logs de Auditoria:</strong> Para garantir a integridade dos ativos entregues, o cofre implementa cookies criptografados com flags <code>HttpOnly</code>, <code>Secure</code> e <code>SameSite</code>, regeneração de sessão e registro temporário de IP e carimbo de tempo para fins exclusivos de conformidade e segurança da informação;
+            </li>
+            <li>
+              <strong>Responsabilidade pós-entrega:</strong> Após a realização do handover e validação das credenciais pelo cliente, a administração das senhas e chaves dos serviços terceiros de produção torna-se responsabilidade integral da organização contratante.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 5. DIRETRIZES DE JOGOS: DATACENTER PANIC & PROMPT AUCTION -->
+        <section id="sec-jogos" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z" />
+            </svg>
+            5. Divisão de Jogos TolazzAI Games (Datacenter Panic, Prompt Auction e Futuros Lançamentos)
+          </h2>
+          <p>
+            A TolazzAI mantém jogos web gratuitos, educativos e interativos focados no ecossistema de computação em nuvem, cibersegurança e engenharia de inteligência artificial.
+          </p>
+
+          <div class="callout-box callout-gold">
+            <div class="text-xl">🪙</div>
+            <div>
+              <strong class="text-white block mb-1">Moedas e Economias Virtuais sem Valor Monetário</strong>
+              Quaisquer moedas virtuais, saldos fictícios (como as moedas de leilão do <em>Prompt Auction</em>), pontuações de ranking, conquistas, skins ou inventários nos jogos da TolazzAI têm finalidade estritamente lúdica e educacional. Elas <strong>não possuem valor financeiro real</strong>, não configuram investimento ou aposta, não são conversíveis em dinheiro fiduciário (Reais, Dólares, criptomoedas) e não geram qualquer direito a reembolso ou indenização patrimonial.
+            </div>
+          </div>
+
+          <ul>
+            <li>
+              <strong>Acesso Gratuito e Descomplicado:</strong> Os jogos são acessíveis via navegador web moderno e não exigem que o usuário forneça dados bancários, números de cartão de crédito ou documentos sensíveis para jogar;
+            </li>
+            <li>
+              <strong>Armazenamento Local das Preferências:</strong> Dados de personalização visual (skins, cores de operadores, nível de áudio e histórico de rodadas) são gravados diretamente no armazenamento local do navegador do jogador (<code>localStorage</code>), sem transferência desnecessária para nossos bancos de dados principais;
+            </li>
+            <li>
+              <strong>Salas Multiplayer e WebSockets:</strong> A comunicação multijogador em tempo real (como nas partidas cooperativas do <em>Datacenter Panic</em>) ocorre via conexões WebSockets seguras. Os pacotes de telemetria trafegam de forma volátil apenas durante a duração da partida;
+            </li>
+            <li>
+              <strong>Disponibilidade dos Servidores de Jogo:</strong> A TolazzAI emprega seus melhores esforços para manter a infraestrutura dos jogos estável, mas reserva-se o direito de realizar manutenções programadas, atualizações de mapa ou balanceamento de regras sem aviso prévio.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 6. CONDUTA DO USUÁRIO E FAIR PLAY -->
+        <section id="sec-fairplay" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728A9 9 0 015.636 5.636m12.728 12.728L5.636 5.636" />
+            </svg>
+            6. Regras de Conduta, Fair Play e Vedações Absolutas
+          </h2>
+          <p>
+            Ao utilizar qualquer plataforma ou jogo da TolazzAI, todo usuário compromete-se a manter uma conduta ética, respeitosa e em estrito cumprimento às leis vigentes. São condutas terminantemente proibidas:
+          </p>
+          <ul>
+            <li>
+              <strong>Cheats, Bots e Trapaças:</strong> Usar programas de terceiros, scripts automatizados, auto-clickers ou modificar a memória do navegador para obter vantagens ilícitas em jogos ou burlar limites de requisições de APIs;
+            </li>
+            <li>
+              <strong>Exploração de Falhas ("Exploits"):</strong> Tirar proveito intencional de falhas de lógica, bugs de saldo ou brechas de segurança. Qualquer falha identificada deve ser reportada eticamente através do e-mail <code>contato@tolazzai.com.br</code>;
+            </li>
+            <li>
+              <strong>Apelidos Ofensivos e Toxicidade:</strong> Escolher apelidos (nicknames) ou enviar mensagens em chats de partidas contendo linguagem preconceituosa, discriminatória, racista, com apologia a crimes, assédio ou ofensas aos demais participantes;
+            </li>
+            <li>
+              <strong>Ataques à Infraestrutura:</strong> Tentar ataques de negação de serviço (DDoS), injeções de código malicioso, scraping massivo de dados ou escaneamento de portas sem autorização expressa;
+            </li>
+            <li>
+              <strong>Penalidades:</strong> A inobservância destas regras sujeitará o infrator à desconexão imediata, bloqueio por endereço IP, banimento permanente de salas de jogos e, quando cabível, responsabilização civil e criminal.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 7. PROPRIEDADE INTELECTUAL -->
+        <section id="sec-propriedade" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+            7. Propriedade Intelectual e Direitos Autorais
+          </h2>
+          <p>
+            Todo o ecossistema tecnológico da TolazzAI é protegido pela legislação brasileira de propriedade intelectual (Leis nº 9.609/1998 e 9.610/1998) e por tratados internacionais:
+          </p>
+          <ul>
+            <li>
+              <strong>Ativos Proprietários:</strong> As marcas <strong>TolazzAI</strong>, <strong>Altonics</strong>, o logotipo oficial, identidades visuais, layouts de página, códigos-fonte (HTML, CSS, JavaScript, TypeScript, PHP), mapas de jogos (como a planta do <em>Complexo Alfa</em> do Datacenter Panic), sprites e modelos de robôs, trilhas de áudio, textos descritivos e arquiteturas de prompt engineering pertencem com exclusividade à TolazzAI;
+            </li>
+            <li>
+              <strong>Licença de Uso Pessoal e Restrita:</strong> É outorgada ao usuário uma licença pessoal, revogável, não exclusiva e intransferível exclusivamente para executar os jogos e páginas no navegador para seu entretenimento ou contratação comercial;
+            </li>
+            <li>
+              <strong>Vedação à Engenharia Reversa e Cópia:</strong> É estritamente vedada a reprodução total ou parcial, engenharia reversa, descompilação, espelhamento em outros domínios ou comercialização não autorizada de qualquer ativo da empresa.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 8. PUBLICIDADE DIGITAL E GOOGLE ADSENSE -->
+        <section id="sec-anuncios" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            8. Publicidade Digital, Anúncios de Terceiros e Google AdSense
+          </h2>
+          <p>
+            Para viabilizar a gratuidade e a contínua manutenção de nossos jogos e conteúdos educativos, a TolazzAI exibe anúncios digitais fornecidos por redes parceiras homologadas, especialmente o <strong>Google AdSense</strong>.
+          </p>
+          <ul>
+            <li>
+              <strong>Independência dos Anunciantes:</strong> A TolazzAI não produz, avaliza, garante nem se responsabiliza por produtos, softwares, ofertas comerciais ou promessas veiculadas por banners de anunciantes terceiros exibidos através de redes programáticas;
+            </li>
+            <li>
+              <strong>Transparência nos Cookies de Anúncios:</strong> O Google e outras redes utilizam cookies (como o cookie DART/DoubleClick) para exibir anúncios contextuais ou baseados no histórico de navegação do usuário. O jogador pode optar por desativar a personalização de anúncios visitando as <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Configurações de Anúncios do Google</a>;
+            </li>
+            <li>
+              <strong>Proibição de Fraude em Cliques:</strong> É proibido o uso de mecanismos automatizados, incentivo desleal a cliques em anúncios ou qualquer ato que viole as políticas para editores do Google AdSense.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 9. LIMITAÇÃO DE RESPONSABILIDADE -->
+        <section id="sec-responsabilidade" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+            9. Limitação de Responsabilidade e Isenções Legais
+          </h2>
+          <p>
+            A TolazzAI aplica os mais modernos padrões de engenharia, arquiteturas em nuvem resilientes e protocolos de segurança digital. Contudo, em conformidade com as normas aplicáveis, a TolazzAI não poderá ser responsabilizada por:
+          </p>
+          <ul>
+            <li>
+              Falhas, lentidões ou interrupções decorrentes de instabilidade técnica em operadoras de telecomunicação, cabos submarinos ou provedores globais de nuvem (AWS, Oracle, Cloudflare, Google, Meta);
+            </li>
+            <li>
+              Perdas de partidas, histórico local ou pontuações em jogos decorrentes de quedas de energia no dispositivo do usuário ou limpeza voluntária de cache/localStorage pelo navegador;
+            </li>
+            <li>
+              Decisões comerciais tomadas por contratantes com base em relatórios gerenciais ou respostas preliminares de agentes de IA sem a devida checagem humana prévia;
+            </li>
+            <li>
+              Comprometimento de contas decorrente de negligência do próprio cliente na guarda de suas credenciais ou exposição de links privados de entrega;
+            </li>
+            <li>
+              Eventos de caso fortuito ou força maior nos termos do Art. 393 do Código Civil Brasileiro.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 10. MODIFICAÇÕES, LEGISLAÇÃO E FORO -->
+        <section id="sec-foro" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+            </svg>
+            10. Alterações dos Termos, Legislação Aplicável e Foro Eleito
+          </h2>
+          <p>
+            A TolazzAI reserva-se o direito de atualizar estes Termos de Uso periodicamente para refletir o lançamento de novas ferramentas, atualizações nos jogos ou adequações regulatórias. A data da versão mais recente estará sempre documentada no cabeçalho desta página.
+          </p>
+          <p class="mt-3">
+            Estes Termos de Uso são regidos e interpretados exclusivamente em conformidade com as <strong>Leis da República Federativa do Brasil</strong>, em especial o Marco Civil da Internet (Lei nº 12.965/2014) e a Lei Geral de Proteção de Dados (Lei nº 13.709/2018).
+          </p>
+          <p class="mt-3">
+            Para dirimir quaisquer controvérsias oriundas destes termos ou do uso de qualquer produto da TolazzAI, as partes elegem o <strong>Foro da Comarca de Ponta Grossa, Estado do Paraná</strong>, com renúncia expressa a qualquer outro foro, por mais privilegiado que seja, ressalvadas hipóteses legais de competência absoluta fixadas por lei.
+          </p>
+        </section>
+
+        <!-- 11. CANAL DIRETO DE CONTATO -->
+        <section class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            11. Canais Oficiais de Contato
+          </h2>
+          <p>
+            Em caso de dúvidas sobre estes Termos de Uso, reporte de vulnerabilidades ou suporte relacionado a qualquer uma de nossas ferramentas corporativas ou jogos, entre em contato através dos nossos canais diretos:
+          </p>
+          <div class="mt-4 p-4 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-white font-medium text-sm">TolazzAI — Suporte Jurídico & Operações</p>
+              <p class="text-xs text-txt-dim mt-0.5">E-mail oficial: <a href="mailto:contato@tolazzai.com.br" class="text-cyan-neon">contato@tolazzai.com.br</a></p>
+              <p class="text-xs text-txt-dim">WhatsApp Corporativo: <a href="https://wa.me/5542984025913" target="_blank" class="text-cyan-neon">+55 (42) 98402-5913</a></p>
+            </div>
+            <a
+              href="mailto:contato@tolazzai.com.br?subject=D%C3%BAvida%20sobre%20os%20Termos%20de%20Uso"
+              class="px-4 py-2 rounded-lg bg-cyan-neon text-black font-heading font-bold text-xs uppercase tracking-wider hover:bg-cyan-300 transition-colors shadow-lg shadow-cyan-neon/20 whitespace-nowrap"
+            >
+              Falar com o Jurídico
+            </a>
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+    <!-- ═══════════════════════════════════════════
+         RODAPÉ UNIFICADO COM LINKS RÁPIDOS
+    ═══════════════════════════════════════════ -->
+    <footer class="py-10 px-6 border-t border-border-dim text-center bg-bg-mid">
+      <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-4">
+        <div class="flex items-center gap-3">
+          <img
+            src="img/logoBranco.png"
+            alt="TolazzAI Corp"
+            class="h-6 w-auto object-contain opacity-75"
+          />
+          <span class="text-xs font-mono text-txt-dim">• CNPJ: 61.363.615/0001-77</span>
+        </div>
+        <p class="font-body text-xs text-txt-dim">
+          © 2026 TolazzAI Corp. Todos os direitos reservados. Ecossistema unificado para Soluções B2B, Altonics, HandOver e Games.
+        </p>
+        <div class="flex items-center justify-center gap-6 text-xs font-body flex-wrap">
+          <a href="politica-de-privacidade.html" class="text-txt-gray hover:text-cyan-neon transition-colors underline">
+            Política de Privacidade Centralizada
+          </a>
+          <span class="text-txt-dim">•</span>
+          <a href="index.html" class="text-txt-gray hover:text-cyan-neon transition-colors underline">
+            Página Inicial (tolazzai.com.br)
+          </a>
+          <span class="text-txt-dim">•</span>
+          <a href="altonics.html" class="text-txt-gray hover:text-cyan-neon transition-colors underline">
+            Altonics AI
+          </a>
+        </div>
       </div>
     </footer>
   </body>

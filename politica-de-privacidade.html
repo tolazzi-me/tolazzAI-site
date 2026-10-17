@@ -4,12 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="img/favicon.png" />
-    <title>Política de Privacidade — TolazzAI Corp</title>
+    <title>Política de Privacidade Unificada — TolazzAI Corp</title>
+    <meta
+      name="description"
+      content="Política de Privacidade Oficial e Unificada da TolazzAI Corp. Transparência sobre o tratamento de dados pessoais no portal institucional, Altonics AI, Cofre Digital HandOver B2B, Google AdSense, cookies e jogos (Datacenter Panic e Prompt Auction), em conformidade com a LGPD e GDPR."
+    />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=JetBrains+Mono:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
     <script>
@@ -30,6 +37,7 @@
             fontFamily: {
               heading: ["Space Grotesk", "sans-serif"],
               body: ["Montserrat", "sans-serif"],
+              mono: ["JetBrains Mono", "monospace"],
             },
           },
         },
@@ -39,40 +47,52 @@
     <link rel="stylesheet" href="css/index.css" />
     <style>
       .policy-section {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-        padding: 2rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        padding: 2.75rem 0;
+        scroll-margin-top: 5rem;
       }
       .policy-section:last-of-type {
         border-bottom: none;
       }
       .policy-section h2 {
         font-family: "Space Grotesk", sans-serif;
-        font-size: 1.3rem;
+        font-size: 1.45rem;
         font-weight: 700;
         color: #fff;
-        margin-bottom: 1rem;
+        margin-bottom: 1.15rem;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
       }
       .policy-section h2 svg {
         flex-shrink: 0;
         color: #00e5ff;
       }
+      .policy-section h3 {
+        font-family: "Space Grotesk", sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #e2e8f0;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
       .policy-section p,
       .policy-section li {
         font-family: "Montserrat", sans-serif;
-        font-size: 0.9rem;
-        line-height: 1.75;
+        font-size: 0.92rem;
+        line-height: 1.8;
         color: #9ca3af;
       }
       .policy-section ul {
-        margin-top: 0.75rem;
+        margin-top: 0.85rem;
         margin-left: 1.25rem;
         list-style-type: disc;
         display: flex;
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 0.6rem;
       }
       .policy-section strong {
         color: #fff;
@@ -81,369 +101,588 @@
       .policy-section a {
         color: #00e5ff;
         text-decoration: underline;
-        text-decoration-color: rgba(0, 229, 255, 0.3);
+        text-decoration-color: rgba(0, 229, 255, 0.35);
+        transition: all 0.2s ease;
       }
       .policy-section a:hover {
         text-decoration-color: #00e5ff;
+        text-shadow: 0 0 8px rgba(0, 229, 255, 0.4);
+      }
+      .legal-badge-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border-radius: 9999px;
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+      .nav-quick-link {
+        font-family: "JetBrains Mono", monospace;
+        font-size: 0.75rem;
+        padding: 6px 12px;
+        border-radius: 8px;
+        color: #9ca3af;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .nav-quick-link:hover {
+        color: #00e5ff;
+        background: rgba(0, 229, 255, 0.08);
+        border-color: rgba(0, 229, 255, 0.3);
+      }
+      .callout-box {
+        border-radius: 12px;
+        padding: 1.25rem 1.5rem;
+        margin: 1.5rem 0;
+        display: flex;
+        gap: 14px;
+        font-size: 0.88rem;
+        line-height: 1.65;
+      }
+      .callout-cyan {
+        background: rgba(0, 229, 255, 0.05);
+        border: 1px solid rgba(0, 229, 255, 0.25);
+        color: #e2e8f0;
+      }
+      .callout-gold {
+        background: rgba(212, 175, 55, 0.06);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        color: #fef08a;
+      }
+      .callout-green {
+        background: rgba(16, 185, 129, 0.06);
+        border: 1px solid rgba(16, 185, 129, 0.25);
+        color: #a7f3d0;
+      }
+      .table-custom {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0;
+        margin: 1.25rem 0;
+        font-size: 0.85rem;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .table-custom th {
+        background: rgba(255, 255, 255, 0.04);
+        color: #fff;
+        padding: 10px 14px;
+        font-family: "Space Grotesk", sans-serif;
+        text-align: left;
+        font-weight: 600;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .table-custom td {
+        padding: 10px 14px;
+        color: #9ca3af;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      }
+      .table-custom tr:last-child td {
+        border-bottom: none;
       }
     </style>
   </head>
 
-  <body class="bg-bg-deep">
+  <body class="bg-bg-deep text-txt-gray selection:bg-cyan-neon selection:text-black">
     <!-- ═══════════════════════════════════════════
-         NAVBAR SIMPLIFICADA
+         NAVBAR INSTITUCIONAL CENTRALIZADA
     ═══════════════════════════════════════════ -->
-    <nav class="py-5 px-6 lg:px-10 border-b border-border-dim">
-      <div class="max-w-4xl mx-auto flex items-center justify-between">
-        <a href="index.html" class="flex items-center">
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-bg-deep/90 border-b border-border-dim py-4 px-6 lg:px-10">
+      <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+        <a href="index.html" class="flex items-center gap-3">
           <img
             src="img/logoBranco.png"
             alt="TolazzAI Corp"
-            class="h-9 w-auto object-contain"
+            class="h-8 w-auto object-contain"
             onerror="
               this.style.display = 'none';
               this.nextElementSibling.style.display = 'flex';
             "
           />
           <div style="display: none" class="items-center gap-2">
-            <span class="font-heading font-bold text-white text-lg"
-              >TolazzAI</span
-            >
-            <span
-              class="font-heading text-gold text-xs uppercase tracking-widest"
-              >Corp</span
-            >
+            <span class="font-heading font-bold text-white text-lg">TolazzAI</span>
+            <span class="font-heading text-gold text-xs uppercase tracking-widest">Corp</span>
           </div>
+          <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-white/5 border border-white/10 text-cyan-neon">
+            Privacidade & LGPD
+          </span>
         </a>
-        <a
-          href="index.html"
-          class="font-body text-xs text-txt-gray hover:text-cyan-neon transition-colors flex items-center gap-2"
-        >
-          <svg
-            width="14"
-            height="14"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            viewBox="0 0 24 24"
+
+        <div class="flex items-center gap-3 sm:gap-4 flex-wrap justify-center">
+          <a
+            href="termos-de-uso.html"
+            class="font-body text-xs text-txt-gray hover:text-cyan-neon transition-colors flex items-center gap-1.5 py-1.5 px-3 rounded-lg bg-white/5 border border-white/10"
           >
-            <path d="M19 12H5M12 19l-7-7 7-7" />
-          </svg>
-          Voltar ao site
-        </a>
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            Ver Termos de Uso
+          </a>
+          <a
+            href="index.html"
+            class="font-body text-xs text-txt-gray hover:text-white transition-colors flex items-center gap-1.5 py-1.5 px-3 rounded-lg hover:bg-white/5"
+          >
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            Voltar ao Início
+          </a>
+        </div>
       </div>
-    </nav>
+    </header>
 
     <!-- ═══════════════════════════════════════════
-         HERO DA PÁGINA
+         HERO DA PÁGINA CENTRALIZADA
     ═══════════════════════════════════════════ -->
-    <section class="py-16 px-6 border-b border-border-dim">
-      <div class="max-w-4xl mx-auto text-center">
-        <p
-          class="font-body text-xs tracking-[0.2em] uppercase text-cyan-neon mb-4"
-        >
-          Transparência & Confiança
-        </p>
-        <h1 class="font-heading text-3xl sm:text-4xl font-bold text-white mb-4">
-          Política de Privacidade
+    <section class="py-14 px-6 border-b border-border-dim bg-gradient-to-b from-bg-mid to-bg-deep relative overflow-hidden">
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(0,229,255,0.08),transparent_50%)] pointer-events-none"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-neon/10 border border-cyan-neon/25 text-cyan-neon font-mono text-xs mb-4">
+          <span class="w-2 h-2 rounded-full bg-cyan-neon animate-pulse"></span>
+          Conformidade LGPD & GDPR • v2.0
+        </div>
+        <h1 class="font-heading text-3xl sm:text-5xl font-bold text-white mb-4 tracking-tight">
+          Política de Privacidade Unificada
         </h1>
-        <p
-          class="font-body text-sm text-txt-gray max-w-2xl mx-auto leading-relaxed"
-        >
-          A TolazzAI Corp valoriza a sua privacidade. Este documento explica, de
-          forma clara e objetiva, como coletamos, usamos, armazenamos e
-          protegemos os seus dados pessoais e corporativos.
+        <p class="font-body text-sm sm:text-base text-txt-gray max-w-3xl mx-auto leading-relaxed">
+          A <strong class="text-white">TolazzAI</strong> (CNPJ 61.363.615/0001-77) preza pela transparência, privacidade e proteção dos seus dados pessoais. Este documento explica de forma clara como tratamos informações em todo o nosso ecossistema — abrangendo nosso <strong>portal institucional, Altonics AI, Cofre Digital HandOver B2B, Google AdSense e nossos jogos digitais (Datacenter Panic e Prompt Auction)</strong>.
         </p>
-        <p class="font-body text-xs text-txt-dim mt-6">
-          Última atualização: 11 de setembro de 2026
+
+        <!-- Pílulas de Cobertura das Ferramentas -->
+        <div class="mt-8 flex flex-wrap items-center justify-center gap-2.5 max-w-3xl mx-auto text-xs">
+          <span class="legal-badge-pill bg-cyan-neon/10 text-cyan-neon border border-cyan-neon/20">
+            🏢 Portal Institucional & B2B
+          </span>
+          <span class="legal-badge-pill bg-gold/10 text-gold border border-gold/20">
+            🤖 Altonics & Agentes de IA
+          </span>
+          <span class="legal-badge-pill bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            🔐 Cofre Digital HandOver B2B
+          </span>
+          <span class="legal-badge-pill bg-purple-500/10 text-purple-400 border border-purple-500/20">
+            🎮 TolazzAI Games & AdSense
+          </span>
+        </div>
+
+        <p class="font-mono text-xs text-txt-dim mt-6">
+          Última atualização geral: <strong>Outubro de 2026</strong> • Vigência imediata
         </p>
+      </div>
+
+      <!-- Barra de Navegação Rápida entre Seções -->
+      <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/5 flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+        <a href="#sec-controlador" class="nav-quick-link">1. Controlador & DPO</a>
+        <a href="#sec-dados" class="nav-quick-link">2. Dados Coletados</a>
+        <a href="#sec-bases" class="nav-quick-link">3. Bases Legais (LGPD)</a>
+        <a href="#sec-adsense" class="nav-quick-link">4. Google AdSense & Anúncios</a>
+        <a href="#sec-cookies" class="nav-quick-link">5. Cookies & LocalStorage</a>
+        <a href="#sec-compartilhamento" class="nav-quick-link">6. Compartilhamento</a>
+        <a href="#sec-menores" class="nav-quick-link">7. Menores de Idade</a>
+        <a href="#sec-direitos" class="nav-quick-link">8. Direitos do Titular</a>
+        <a href="#sec-seguranca" class="nav-quick-link">9. Segurança da Informação</a>
+        <a href="#sec-contato" class="nav-quick-link">10. Canal DPO & Contato</a>
       </div>
     </section>
 
     <!-- ═══════════════════════════════════════════
-         CONTEÚDO
+         CONTEÚDO JURÍDICO INTEGRADO
     ═══════════════════════════════════════════ -->
-    <section class="py-16 px-6">
-      <div class="max-w-3xl mx-auto glass rounded-2xl px-8 sm:px-12 py-4">
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
-              />
-            </svg>
-            1. Introdução
-          </h2>
-          <p>
-            Esta Política de Privacidade descreve como a
-            <strong>TolazzAI Corp</strong> ("nós", "nosso" ou "empresa") coleta,
-            utiliza, compartilha e protege as informações de clientes, leads,
-            visitantes do site e usuários de nossos produtos e serviços,
-            incluindo o ecossistema <strong>Altonics</strong> e demais soluções
-            de Inteligência Artificial, automação e Business Intelligence.
-          </p>
+    <main class="py-12 px-6">
+      <div class="max-w-4xl mx-auto glass rounded-2xl p-6 sm:p-12 border border-white/10 shadow-2xl relative">
+        
+        <!-- CALLOUT DE CENTRALIZAÇÃO -->
+        <div class="callout-box callout-green mb-8">
+          <div class="text-xl">🛡️</div>
+          <div>
+            <strong class="text-white block mb-1">Centralização Oficial de Privacidade</strong>
+            Todos os serviços desenvolvidos pela TolazzAI estão sob a mesma política de proteção de dados. Seus direitos de privacidade sob a <strong>Lei Geral de Proteção de Dados (LGPD — Lei nº 13.709/2018)</strong> e o <strong>GDPR europeu</strong> são garantidos de maneira uniforme no portal corporativo <a href="https://tolazzai.com.br" target="_blank">tolazzai.com.br</a>, no <strong>HandOver B2B</strong>, nas soluções <strong>Altonics</strong> e em jogos como <strong>Datacenter Panic</strong> e <strong>Prompt Auction</strong>.
+          </div>
         </div>
 
-        <div class="policy-section">
+        <!-- 1. IDENTIFICAÇÃO DO CONTROLADOR E DPO -->
+        <section id="sec-controlador" class="policy-section">
           <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="11" cy="11" r="8" />
-              <path d="m21 21-4.35-4.35M11 8v3M11 14h.01" />
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
             </svg>
-            2. Quais dados coletamos
+            1. Identificação do Controlador e Encarregado de Dados (DPO)
           </h2>
-          <p>Podemos coletar as seguintes categorias de informação:</p>
+          <p>
+            O controlador dos seus dados pessoais é a <strong>TolazzAI</strong> (razão social: <strong>TolazzAI Soluções em Tecnologia e Inteligência Artificial / Saimon Tolazzi</strong>), inscrita no <strong>CNPJ sob o nº 61.363.615/0001-77</strong>, sediada em Ponta Grossa, Estado do Paraná, Brasil.
+          </p>
+          <p class="mt-3">
+            Para zelar pela conformidade com a LGPD e atender às suas solicitações relativas aos seus dados pessoais, designamos nosso <strong>Encarregado de Proteção de Dados (Data Protection Officer - DPO)</strong>, que pode ser contatado diretamente através do e-mail:
+          </p>
+          <div class="mt-3 p-3.5 rounded-lg bg-white/5 border border-white/10 font-mono text-sm text-cyan-neon inline-flex items-center gap-2">
+            <span>📧 Canal DPO:</span>
+            <a href="mailto:contato@tolazzai.com.br" class="hover:underline">contato@tolazzai.com.br</a>
+            <span class="text-xs text-txt-dim">(Assunto: [LGPD / Privacidade])</span>
+          </div>
+        </section>
+
+        <!-- 2. DADOS COLETADOS POR MÓDULO -->
+        <section id="sec-dados" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+            </svg>
+            2. Quais Dados Pessoais Coletamos
+          </h2>
+          <p>
+            Adotamos com rigor o <strong>Princípio da Minimização</strong> (Art. 6º, III da LGPD): coletamos estritamente o necessário para prestar nossos serviços, manter a segurança da infraestrutura e propiciar uma excelente experiência aos usuários. Dividimos a coleta pelas áreas de atividade:
+          </p>
+
+          <div class="space-y-6 mt-4">
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10">
+              <h3 class="text-cyan-neon text-base font-heading font-semibold mb-2 flex items-center gap-2">
+                <span>🏢</span> A. Portal Institucional e Atendimento Comercial (tolazzai.com.br)
+              </h3>
+              <p>Ao solicitar contato, diagnósticos de IA ou propostas empresariais, podemos coletar:</p>
+              <ul>
+                <li><strong>Dados de Identificação e Contato:</strong> Nome completo, e-mail corporativo, telefone/WhatsApp, empresa, cargo e detalhes do projeto;</li>
+                <li><strong>Comunicações:</strong> Histórico de mensagens enviadas voluntariamente através de formulários do site ou conversas via WhatsApp oficial.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10">
+              <h3 class="text-gold text-base font-heading font-semibold mb-2 flex items-center gap-2">
+                <span>🤖</span> B. Ecossistema Altonics & Agentes de IA
+              </h3>
+              <p>Nos serviços de agentes autônomos de atendimento:</p>
+              <ul>
+                <li><strong>Metadados de Mensagens:</strong> Número de telefone do usuário no WhatsApp, data e hora da mensagem;</li>
+                <li><strong>Histórico Contextual:</strong> Conteúdo das mensagens trocadas estritamente para que o agente processe a resposta de suporte ou vendas;</li>
+                <li><strong>Importante:</strong> Não utilizamos dados confidenciais dos clientes contratantes do Altonics para alimentar modelos públicos de terceiros.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10">
+              <h3 class="text-emerald-400 text-base font-heading font-semibold mb-2 flex items-center gap-2">
+                <span>🔐</span> C. Cofre Digital de HandOver B2B (Portal de Entregas)
+              </h3>
+              <p>No portal de custódia e entrega homologada de tecnologia:</p>
+              <ul>
+                <li><strong>Autenticação e Sessão Criptografada:</strong> Cookies de sessão restritos (<code>TLZ_*</code>) contendo tokens seguros, com flags <code>HttpOnly</code>, <code>SameSite=Lax</code> e <code>Secure</code>;</li>
+                <li><strong>Telemetria de Auditoria de Acesso:</strong> Endereço IP, User-Agent e carimbo de data/hora (timestamp) do desbloqueio do cofre para prevenção contra intrusões e comprovação de entrega contratual.</li>
+              </ul>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10">
+              <h3 class="text-purple-400 text-base font-heading font-semibold mb-2 flex items-center gap-2">
+                <span>🎮</span> D. TolazzAI Games (Datacenter Panic e Prompt Auction)
+              </h3>
+              <p>O acesso aos nossos jogos é aberto e não exige fornecimento de documentos pessoais, dados bancários ou cadastro prévio invasivo:</p>
+              <ul>
+                <li><strong>Apelido Voluntário (Nickname):</strong> Nome lúdico informado antes de iniciar a partida (recomendamos não utilizar seu nome civil completo);</li>
+                <li><strong>Preferências Visuais e Locais:</strong> Skin selecionada, cor hexadecimal e configurações de som gravadas exclusivamente no <code>localStorage</code> do seu navegador;</li>
+                <li><strong>Dados Técnicos Voláteis de Partida:</strong> Endereço IP, identificador temporário de socket WebSocket, código de sala multiplayer e ações sincronizadas em tempo real. Esses dados não são utilizados para montar perfil individual do jogador e expiram após o término da partida.</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- 3. FINALIDADES E BASES LEGAIS -->
+        <section id="sec-bases" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            3. Finalidades do Tratamento e Bases Legais (LGPD)
+          </h2>
+          <p>
+            O tratamento de dados pessoais pela TolazzAI possui fundamentação expressa no Art. 7º da Lei Geral de Proteção de Dados (Lei nº 13.709/2018):
+          </p>
+
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Categoria de Dados</th>
+                <th>Finalidade Específica</th>
+                <th>Base Legal na LGPD</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Nome, e-mail, telefone comercial</td>
+                <td>Responder solicitações, elaborar propostas e prestar consultorias de IA contratadas.</td>
+                <td><strong>Execução de Contrato</strong> (Art. 7º, V)</td>
+              </tr>
+              <tr>
+                <td>Sessões e credenciais do Cofre HandOver</td>
+                <td>Autenticação segura, liberação de senhas/ativos e auditoria de entrega técnica.</td>
+                <td><strong>Execução de Contrato & Segurança</strong> (Art. 7º, V e IX)</td>
+              </tr>
+              <tr>
+                <td>Logs de conexão, IP e timestamp</td>
+                <td>Cumprir o dever de guarda de registros previsto no Marco Civil da Internet (Lei 12.965/14, Art. 15).</td>
+                <td><strong>Cumprimento de Obrigação Legal</strong> (Art. 7º, II)</td>
+              </tr>
+              <tr>
+                <td>Apelido e sockets temporários em jogos</td>
+                <td>Viabilizar a jogabilidade multiplayer e sincronização de partidas em tempo real.</td>
+                <td><strong>Execução de Termos / Legítimo Interesse</strong> (Art. 7º, V e IX)</td>
+              </tr>
+              <tr>
+                <td>Cookies de anúncios e estatísticas</td>
+                <td>Monetização via AdSense e métricas analíticas anônimas de desempenho de página.</td>
+                <td><strong>Consentimento / Legítimo Interesse</strong> (Art. 7º, I e IX)</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 4. GOOGLE ADSENSE E ANÚNCIOS (ÂNCORA SEC-ADSENSE) -->
+        <section id="sec-adsense" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
+              <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
+            </svg>
+            4. Google AdSense, Cookies de Terceiros e Publicidade Digital
+          </h2>
+          <p>
+            Para manter a gratuidade dos nossos jogos educativos (como <strong>Datacenter Panic</strong> e <strong>Prompt Auction</strong>), utilizamos o serviço de publicidade digital <strong>Google AdSense</strong>, operado pela Google LLC.
+          </p>
+
+          <div class="callout-box callout-gold">
+            <div class="text-xl">📢</div>
+            <div>
+              <strong class="text-white block mb-1">Como Funciona a Veiculação de Anúncios</strong>
+              <ul>
+                <li>Fornecedores terceiros, incluindo o Google, utilizam cookies para veicular anúncios com base em visitas anteriores do usuário a este ou outros sites na internet;</li>
+                <li>Com o uso de cookies de publicidade (incluindo o <strong>cookie DART / DoubleClick</strong>), o Google e seus parceiros podem veicular anúncios para os usuários com base nas visitas feitas ao nosso portal e a outros endereços da web;</li>
+                <li>Os anúncios veiculados respeitam as políticas de segurança e privacidade do Google para publishers, vedando anúncios impróprios ou maliciosos.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="text-white text-sm font-heading font-semibold mt-4">Como Desativar a Publicidade Personalizada:</h3>
+          <p>Você tem o direito de optar por não receber anúncios personalizados a qualquer momento:</p>
           <ul>
             <li>
-              <strong>Dados de identificação:</strong> nome, e-mail, telefone,
-              empresa e cargo.
+              <strong>Configurações de Anúncios do Google:</strong> Você pode desativar o uso de cookies para publicidade personalizada acessando as <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Configurações de Anúncios do Google</a>;
             </li>
             <li>
-              <strong>Dados de navegação:</strong> endereço IP, cookies, páginas
-              visitadas e tempo de permanência no site.
+              <strong>Network Advertising Initiative (NAI):</strong> Você pode desativar cookies de publicidade de fornecedores terceiros visitando a página <a href="https://optout.networkadvertising.org" target="_blank" rel="noopener noreferrer">optout.networkadvertising.org</a>;
             </li>
             <li>
-              <strong>Dados de comunicação:</strong> mensagens trocadas via
-              WhatsApp, formulários de contato e agentes de IA (como o Altonics
-              Agent).
-            </li>
-            <li>
-              <strong>Dados corporativos:</strong> informações fornecidas
-              durante auditorias, diagnósticos e consultorias, incluindo acesso
-              via integrações (CRM, ERP, Google Ads, Google Analytics, entre
-              outros).
+              <strong>YourAdChoices:</strong> Informações adicionais e opt-out de redes aderentes no portal <a href="https://youradchoices.com" target="_blank" rel="noopener noreferrer">youradchoices.com</a>.
             </li>
           </ul>
-        </div>
+        </section>
 
-        <div class="policy-section">
+        <!-- 5. COOKIES E ARMAZENAMENTO LOCAL -->
+        <section id="sec-cookies" class="policy-section">
           <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M9 12l2 2 4-4M21 12c0 4.97-4.03 9-9 9S3 16.97 3 12 7.03 3 12 3s9 4.03 9 9z"
-              />
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 18a8 8 0 118-8 8.009 8.009 0 01-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
             </svg>
-            3. Como utilizamos os dados
-          </h2>
-          <p>Os dados coletados são utilizados para:</p>
-          <ul>
-            <li>
-              Fornecer, personalizar e melhorar nossos produtos e serviços;
-            </li>
-            <li>
-              Executar diagnósticos, auditorias e consultorias contratadas;
-            </li>
-            <li>
-              Realizar atendimento via agentes de Inteligência Artificial e
-              equipe humana;
-            </li>
-            <li>
-              Enviar comunicações comerciais e institucionais, quando
-              autorizado;
-            </li>
-            <li>
-              Cumprir obrigações legais e regulatórias, incluindo a LGPD (Lei
-              Geral de Proteção de Dados).
-            </li>
-          </ul>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <path d="M8 21h8M12 17v4" />
-            </svg>
-            4. Compartilhamento de informações
+            5. Gestão de Cookies e Armazenamento Local (localStorage)
           </h2>
           <p>
-            Não vendemos, alugamos ou comercializamos seus dados pessoais. O
-            compartilhamento ocorre apenas em situações específicas:
+            Utilizamos tecnologias de armazenamento local para garantir a operacionalidade, segurança e personalização dos sistemas da TolazzAI:
+          </p>
+
+          <table class="table-custom">
+            <thead>
+              <tr>
+                <th>Tipo</th>
+                <th>Exemplos & Mecanismo</th>
+                <th>Finalidade & Duração</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Estritamente Necessários</strong></td>
+                <td>Cookie de sessão <code>TLZ_*</code> no Cofre HandOver, tokens anti-CSRF</td>
+                <td>Permitir a autenticação e impedir invasões ou falsificação de requisições. Expiram ao fechar o navegador.</td>
+              </tr>
+              <tr>
+                <td><strong>Preferências Locais</strong></td>
+                <td><code>localStorage</code> no navegador dos jogos (skins, cor de robô, áudio)</td>
+                <td>Salvar escolhas estéticas e configurações do jogador sem enviar formulários ao servidor. Permanecem no seu dispositivo até limpeza do cache.</td>
+              </tr>
+              <tr>
+                <td><strong>Analíticos & Métricas</strong></td>
+                <td>Cookies do Google Analytics / telemetria WebGL</td>
+                <td>Compreender padrões de uso de páginas, resolução de tela e erros de renderização gráfica para melhorar a estabilidade.</td>
+              </tr>
+              <tr>
+                <td><strong>Publicidade</strong></td>
+                <td>Cookies Google AdSense / DART</td>
+                <td>Veiculação de banners patrocinados e controle de frequência de exibição de anúncios.</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 class="text-white text-sm font-heading font-semibold mt-4">Como Gerenciar ou Desativar Cookies no Navegador:</h3>
+          <p>
+            Você pode configurar seu navegador para recusar todos os cookies ou para alertá-lo quando um cookie for enviado. Veja instruções nos navegadores mais populares:
           </p>
           <ul>
-            <li>
-              Com fornecedores e parceiros tecnológicos necessários à prestação
-              do serviço (ex.: provedores de nuvem, CRM, plataformas de
-              automação);
-            </li>
-            <li>
-              Com autoridades competentes, quando exigido por lei ou ordem
-              judicial;
-            </li>
-            <li>
-              Em processos de integração com APIs de terceiros (Google, Meta,
-              entre outros), sempre com consentimento prévio do cliente.
-            </li>
+            <li><strong>Google Chrome:</strong> Configurações ▹ Privacidade e segurança ▹ Cookies de terceiros;</li>
+            <li><strong>Mozilla Firefox:</strong> Opções ▹ Privacidade e Segurança ▹ Cookies e dados de sites;</li>
+            <li><strong>Apple Safari:</strong> Preferências ▹ Privacidade ▹ Bloquear todos os cookies;</li>
+            <li><strong>Microsoft Edge:</strong> Configurações ▹ Permissões do site ▹ Cookies e dados armazenados.</li>
           </ul>
-        </div>
+        </section>
 
-        <div class="policy-section">
+        <!-- 6. COMPARTILHAMENTO DE DADOS -->
+        <section id="sec-compartilhamento" class="policy-section">
           <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              <path d="M9 12l2 2 4-4" />
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
             </svg>
-            5. Segurança da informação
+            6. Compartilhamento Responsável de Dados
           </h2>
           <p>
-            Adotamos medidas técnicas e organizacionais rigorosas para proteger
-            seus dados contra acessos não autorizados, alterações, divulgações
-            ou destruição, incluindo criptografia, backups em nuvem,
-            monitoramento contínuo e auditorias periódicas de segurança —
-            práticas que aplicamos inclusive aos nossos próprios clientes
-            através dos serviços de Segurança &amp; Continuidade.
-          </p>
-        </div>
-
-        <div class="policy-section">
-          <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75" />
-            </svg>
-            6. Seus direitos (LGPD)
-          </h2>
-          <p>
-            Nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018),
-            você tem direito a:
+            A TolazzAI <strong>jamais vende, aluga ou comercializa</strong> dados pessoais ou corporativos de clientes e usuários com terceiros. O compartilhamento ocorre exclusivamente nas seguintes hipóteses estritas:
           </p>
           <ul>
-            <li>Confirmar a existência de tratamento de seus dados;</li>
-            <li>Acessar, corrigir ou atualizar seus dados;</li>
             <li>
-              Solicitar a anonimização, bloqueio ou eliminação de dados
-              desnecessários;
+              <strong>Infraestrutura e Provedores de Nuvem:</strong> Servidores de hospedagem de alta disponibilidade, redes de distribuição de conteúdo (CDN) e segurança DDoS (como Cloudflare), sob rígidos acordos de confidencialidade;
             </li>
-            <li>Revogar o consentimento em qualquer momento;</li>
-            <li>Solicitar a portabilidade dos dados a outro fornecedor.</li>
+            <li>
+              <strong>Modelos e APIs de Inteligência Artificial:</strong> Provedores corporativos de LLM (OpenAI, Anthropic, Google Cloud) estritamente para o processamento de consultas das soluções Altonics, sob termos corporativos de proteção que impedem o uso de dados de clientes para treinamento público de IA;
+            </li>
+            <li>
+              <strong>Redes de Publicidade:</strong> Google AdSense para entrega automatizada de anúncios em jogos gratuitos;
+            </li>
+            <li>
+              <strong>Obrigação Legal ou Ordem Judicial:</strong> Mediante requerimento formal de autoridades judiciais ou órgãos reguladores competentes, nos estritos limites da lei brasileira.
+            </li>
           </ul>
-        </div>
+        </section>
 
-        <div class="policy-section">
+        <!-- 7. PROTEÇÃO A MENORES DE IDADE -->
+        <section id="sec-menores" class="policy-section">
           <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <circle cx="12" cy="12" r="3" />
-              <path
-                d="M12 1v3M12 20v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M1 12h3M20 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"
-              />
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-            7. Cookies
+            7. Privacidade de Crianças e Adolescentes (Art. 14 da LGPD)
           </h2>
           <p>
-            Utilizamos cookies para melhorar a sua experiência de navegação,
-            analisar o tráfego do site e personalizar conteúdo. Você pode
-            desativar os cookies nas configurações do seu navegador, embora isso
-            possa afetar algumas funcionalidades do site.
+            Nossos jogos (<em>Datacenter Panic</em> e <em>Prompt Auction</em>) possuem temática educativa sobre redes de computadores, inteligência artificial e tecnologia, direcionados ao público geral e estudantes.
           </p>
-        </div>
+          <ul>
+            <li>
+              Não exigimos a criação de contas com fornecimento de CPF, nome civil completo, localização precisa ou dados escolares para jogar;
+            </li>
+            <li>
+              Não coletamos intencionalmente dados pessoais sensíveis ou identificadores diretos de menores de 13 anos;
+            </li>
+            <li>
+              Caso pais, mães ou responsáveis legais verifiquem que uma criança forneceu informações pessoais involuntariamente, poderão solicitar a imediata remoção de tais registros através do e-mail <code>contato@tolazzai.com.br</code>.
+            </li>
+          </ul>
+        </section>
 
-        <div class="policy-section">
+        <!-- 8. SEUS DIREITOS COMO TITULAR DE DADOS -->
+        <section id="sec-direitos" class="policy-section">
           <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path
-                d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"
-              />
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            8. Contato
+            8. Seus Direitos Garantidos pela LGPD (Art. 18)
           </h2>
           <p>
-            Para dúvidas, solicitações ou exercício dos direitos previstos na
-            LGPD, entre em contato pelo e-mail
-            <a href="mailto:contato@tolazzai.com.br">contato@tolazzai.com.br</a
-            >.
+            Você, na condição de titular de dados pessoais, tem o direito de solicitar a qualquer momento e gratuitamente à TolazzAI:
           </p>
-        </div>
+          <ul>
+            <li><strong>Confirmação e Acesso:</strong> Confirmar se realizamos o tratamento de seus dados e obter cópia dos dados tratados;</li>
+            <li><strong>Correção:</strong> Solicitar a retificação de dados incorretos, inexatos ou desatualizados;</li>
+            <li><strong>Anonimização, Bloqueio ou Eliminação:</strong> Excluir dados desnecessários, excessivos ou tratados em desconformidade com a LGPD;</li>
+            <li><strong>Portabilidade:</strong> Solicitar a transferência dos seus dados a outro prestador de serviços, observados os segredos comerciais;</li>
+            <li><strong>Informação sobre Compartilhamento:</strong> Saber com quais entidades públicas e privadas seus dados foram compartilhados;</li>
+            <li><strong>Revogação do Consentimento:</strong> Retirar consentimentos fornecidos anteriormente, de maneira facilitada e gratuita.</li>
+          </ul>
+        </section>
 
-        <div class="policy-section">
+        <!-- 9. SEGURANÇA DA INFORMAÇÃO -->
+        <section id="sec-seguranca" class="policy-section">
           <h2>
-            <svg
-              width="20"
-              height="20"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              viewBox="0 0 24 24"
-            >
-              <path d="M12 8v4l3 3M12 22a10 10 0 100-20 10 10 0 000 20z" />
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            9. Alterações a esta política
+            9. Segurança da Informação e Padrões de Criptografia
           </h2>
           <p>
-            Esta Política de Privacidade pode ser atualizada periodicamente para
-            refletir melhorias em nossos processos ou mudanças legais. A data da
-            última atualização estará sempre indicada no topo desta página.
+            A segurança digital é um dos pilares centrais da TolazzAI, refletida em toda a nossa arquitetura tecnológica:
           </p>
-        </div>
+          <ul>
+            <li><strong>HTTPS & Criptografia TLS:</strong> Todo o tráfego web e comunicações WebSockets são criptografados com certificados SSL/TLS modernos;</li>
+            <li><strong>Zero-Leak Backend no HandOver:</strong> Isolamento de clientes por diretórios seguros, senhas criptografadas com funções hash robustas (Bcrypt / Argon2), proteção contra Session Fixation e mitigation contra timing attacks;</li>
+            <li><strong>Monitoramento Contínuo:</strong> Firewalls de aplicação web (WAF), varreduras regulares de vulnerabilidades e restrição estrita de privilégios de acesso aos bancos de dados de produção.</li>
+          </ul>
+        </section>
+
+        <!-- 10. CANAL DPO E CONTATO -->
+        <section id="sec-contato" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            10. Como Exercer seus Direitos e Contato com o DPO
+          </h2>
+          <p>
+            Para exercer qualquer um dos seus direitos de titular de dados sob a LGPD ou tirar dúvidas sobre esta Política de Privacidade, envie uma mensagem para o nosso canal de privacidade:
+          </p>
+          <div class="mt-4 p-5 rounded-xl bg-white/5 border border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <div>
+              <p class="text-white font-medium text-sm">Encarregado de Proteção de Dados (DPO) — TolazzAI</p>
+              <p class="text-xs text-txt-dim mt-0.5">E-mail: <a href="mailto:contato@tolazzai.com.br" class="text-cyan-neon font-mono">contato@tolazzai.com.br</a></p>
+              <p class="text-xs text-txt-dim">Sede: Ponta Grossa, PR — Brasil</p>
+            </div>
+            <a
+              href="mailto:contato@tolazzai.com.br?subject=[LGPD]%20Solicita%C3%A7%C3%A3o%20de%20Titular%20de%20Dados"
+              class="px-4 py-2 rounded-lg bg-gradient-to-r from-cyan-neon to-cyan-300 text-black font-heading font-bold text-xs uppercase tracking-wider hover:opacity-90 transition-opacity shadow-lg shadow-cyan-neon/20 whitespace-nowrap"
+            >
+              Fazer Solicitação LGPD
+            </a>
+          </div>
+        </section>
+
       </div>
-    </section>
+    </main>
 
     <!-- ═══════════════════════════════════════════
-         RODAPÉ
+         RODAPÉ UNIFICADO COM LINKS RÁPIDOS
     ═══════════════════════════════════════════ -->
-    <footer class="py-8 px-6 border-t border-border-dim text-center">
-      <p class="font-body text-xs text-txt-dim">
-        © 2026 TolazzAI Corp. Todos os direitos reservados.
-      </p>
-      <a href="index.html" class="footer-privacy-link mt-2 inline-block">
-        Voltar à página inicial
-      </a>
+    <footer class="py-10 px-6 border-t border-border-dim text-center bg-bg-mid">
+      <div class="max-w-4xl mx-auto flex flex-col items-center justify-center gap-4">
+        <div class="flex items-center gap-3">
+          <img
+            src="img/logoBranco.png"
+            alt="TolazzAI Corp"
+            class="h-6 w-auto object-contain opacity-75"
+          />
+          <span class="text-xs font-mono text-txt-dim">• CNPJ: 61.363.615/0001-77</span>
+        </div>
+        <p class="font-body text-xs text-txt-dim">
+          © 2026 TolazzAI Corp. Todos os direitos reservados. Ecossistema unificado para Soluções B2B, Altonics, HandOver e Games.
+        </p>
+        <div class="flex items-center justify-center gap-6 text-xs font-body flex-wrap">
+          <a href="termos-de-uso.html" class="text-txt-gray hover:text-cyan-neon transition-colors underline">
+            Termos de Uso Centralizados
+          </a>
+          <span class="text-txt-dim">•</span>
+          <a href="index.html" class="text-txt-gray hover:text-cyan-neon transition-colors underline">
+            Página Inicial (tolazzai.com.br)
+          </a>
+          <span class="text-txt-dim">•</span>
+          <a href="altonics.html" class="text-txt-gray hover:text-cyan-neon transition-colors underline">
+            Altonics AI
+          </a>
+        </div>
+      </div>
     </footer>
   </body>
 </html>
