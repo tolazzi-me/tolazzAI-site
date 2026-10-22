@@ -78,6 +78,14 @@
           box-shadow 0.3s ease;
       }
 
+      #sheet-container {
+        transform-origin: top center !important;
+        margin: 0 auto;
+        position: relative;
+        z-index: 10;
+        transition: transform 0.15s ease-out;
+      }
+
       /* ── Temas da Folha de Entrega ── */
       /* Tema Escuro (Cyber Tech Obsidian) */
       .sheet-dark {
@@ -830,45 +838,48 @@ Todos os códigos proprietários, documentações executivas, credenciais e aces
         id="workspace-area"
         class="flex-1 workbench-bg p-4 sm:p-8 lg:p-12 overflow-y-auto flex flex-col items-center justify-start min-h-[500px]"
       >
-        <!-- Controles de Visualização / Zoom da Folha -->
+        <!-- Controles de Visualização / Zoom da Folha (Sticky Header Fixo e Seguro) -->
         <div
-          class="no-print w-full max-w-[148mm] flex items-center justify-between mb-4 text-xs font-mono text-txt-dim px-1"
+          id="zoom-controls-bar"
+          class="no-print sticky top-2 z-40 w-full max-w-[154mm] flex items-center justify-between py-2 px-3.5 mb-5 rounded-xl bg-[#0c0e14]/95 backdrop-blur-md border border-border-dim shadow-[0_8px_30px_rgba(0,0,0,0.7)] text-xs font-mono text-txt-dim select-none"
         >
           <div class="flex items-center gap-2">
             <span
               class="inline-block w-2 h-2 rounded-full bg-cyan-neon animate-pulse"
             ></span>
             <span class="text-white font-medium">FORMATO A5</span>
-            <span class="text-txt-dim">(148 × 210 mm)</span>
+            <span class="text-txt-dim hidden sm:inline">(148 × 210 mm)</span>
           </div>
 
           <div
-            class="flex items-center gap-1.5 bg-[#13151c]/90 border border-border-dim rounded-lg p-1"
+            class="flex items-center gap-1.5 bg-[#13151c] border border-border-dim rounded-lg p-1"
           >
             <button
               type="button"
               id="zoom-out-btn"
               title="Reduzir Visualização"
-              class="w-7 h-7 rounded flex items-center justify-center hover:bg-white/10 text-white cursor-pointer"
+              class="w-7 h-7 rounded flex items-center justify-center hover:bg-white/10 text-white cursor-pointer font-bold transition-colors"
             >
               -
             </button>
-            <span id="zoom-label" class="px-2 text-cyan-neon font-semibold"
+            <span
+              id="zoom-label"
+              class="px-2 text-cyan-neon font-semibold select-none min-w-[44px] text-center"
               >100%</span
             >
             <button
               type="button"
               id="zoom-in-btn"
               title="Aumentar Visualização"
-              class="w-7 h-7 rounded flex items-center justify-center hover:bg-white/10 text-white cursor-pointer"
+              class="w-7 h-7 rounded flex items-center justify-center hover:bg-white/10 text-white cursor-pointer font-bold transition-colors"
             >
               +
             </button>
             <button
               type="button"
               id="zoom-reset-btn"
-              title="Ajustar à Tela"
-              class="px-2 h-7 rounded text-[11px] hover:bg-white/10 text-txt-gray hover:text-white cursor-pointer"
+              title="Ajustar à Tela (100%)"
+              class="px-2.5 h-7 rounded text-[11px] hover:bg-white/10 text-txt-gray hover:text-white cursor-pointer transition-colors"
             >
               Reset
             </button>
@@ -878,7 +889,11 @@ Todos os códigos proprietários, documentações executivas, credenciais e aces
         <!-- ═══════════════════════════════════════════
              A FOLHA DE ENTREGA A5 (ELEMENTO OFICIAL)
              ═══════════════════════════════════════════ -->
-        <div id="sheet-container" class="transition-transform duration-150">
+        <div
+          id="sheet-container"
+          class="relative z-10 transition-transform duration-150"
+          style="transform-origin: top center !important;"
+        >
           <article
             id="delivery-sheet"
             class="a5-sheet sheet-dark rounded-none sm:rounded-sm flex flex-col p-[9.5mm] pb-[8.5mm] select-none"
@@ -1285,14 +1300,40 @@ Todos os códigos proprietários, documentações executivas, credenciais e aces
 
           try {
             const temp = document.createElement("div");
-            new QRCode(temp, {
-              text: urlToEncode,
-              width: 512,
-              height: 512,
-              colorDark: "#0B0C10",
-              colorLight: "#FFFFFF",
-              correctLevel: QRCode.CorrectLevel.H,
-            });
+            // Geração adaptativa com fallback de correção para links longos
+            let qr = null;
+            try {
+              qr = new QRCode(temp, {
+                text: urlToEncode,
+                width: 512,
+                height: 512,
+                colorDark: "#0B0C10",
+                colorLight: "#FFFFFF",
+                correctLevel: QRCode.CorrectLevel.Q,
+              });
+            } catch (errQ) {
+              temp.innerHTML = "";
+              try {
+                qr = new QRCode(temp, {
+                  text: urlToEncode,
+                  width: 512,
+                  height: 512,
+                  colorDark: "#0B0C10",
+                  colorLight: "#FFFFFF",
+                  correctLevel: QRCode.CorrectLevel.M,
+                });
+              } catch (errM) {
+                temp.innerHTML = "";
+                qr = new QRCode(temp, {
+                  text: urlToEncode,
+                  width: 512,
+                  height: 512,
+                  colorDark: "#0B0C10",
+                  colorLight: "#FFFFFF",
+                  correctLevel: QRCode.CorrectLevel.L,
+                });
+              }
+            }
 
             // Extrai o canvas de alta resolução gerado
             const srcCanvas = temp.querySelector("canvas");
