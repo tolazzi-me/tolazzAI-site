@@ -1633,12 +1633,15 @@ img {
   animation-delay: 0.3s;
 }
 .rail-chip:nth-child(5) {
-  animation-delay: 0.9s;
+  animation-delay: 0.8s;
 }
 .rail-chip:nth-child(6) {
-  animation-delay: 1.5s;
+  animation-delay: 0.9s;
 }
 .rail-chip:nth-child(7) {
+  animation-delay: 1.5s;
+}
+.rail-chip:nth-child(8) {
   animation-delay: 0.45s;
 }
 
@@ -1687,6 +1690,7 @@ img {
   #ecossistema,
   #auditorias,
   #seguranca,
+  #softwares,
   #executivo,
   #cultura,
   #sobre,
@@ -1710,4 +1714,333 @@ html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ═══════════════════════════════════════════════════════
+   SEÇÃO SOFTWARES SOB DEMANDA — CARROSSEL DUPLO SOBREPOSTO
+   ═══════════════════════════════════════════════════════ */
+
+.software-carousel-wrapper {
+  perspective: 1200px;
+}
+
+/* Palco onde as 2 telas ficam sobrepostas */
+.software-dual-stage {
+  position: relative;
+  width: 100%;
+  max-width: 660px;
+  height: 360px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .software-dual-stage {
+    height: 410px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .software-dual-stage {
+    height: 430px;
+  }
+}
+
+/* Base dos cards de janela de software */
+.soft-card {
+  position: absolute;
+  border-radius: 16px;
+  transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.45s ease,
+              box-shadow 0.45s ease,
+              border-color 0.45s ease,
+              filter 0.45s ease;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+.soft-card-inner {
+  background: #11131a;
+  border-radius: 16px;
+  border: 1px solid rgba(0, 229, 255, 0.22);
+  overflow: hidden;
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.85),
+              0 0 30px rgba(0, 229, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Topbar do card simulando janela de sistema operacional moderno */
+.soft-card-topbar {
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 14px;
+  background: rgba(15, 17, 23, 0.95);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+.soft-window-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.soft-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.soft-dot.red { background: #ff5f56; box-shadow: 0 0 6px rgba(255, 95, 86, 0.5); }
+.soft-dot.yellow { background: #ffbd2e; box-shadow: 0 0 6px rgba(255, 189, 46, 0.5); }
+.soft-dot.cyan { background: #00e5ff; box-shadow: 0 0 6px rgba(0, 229, 255, 0.5); }
+
+.soft-window-url {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: #6b7280;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 50%;
+}
+
+.soft-window-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.soft-pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #6b7280;
+}
+
+.soft-pulse-dot.active {
+  background: #00e5ff;
+  box-shadow: 0 0 8px #00e5ff;
+  animation: pulseDot 2s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* Área de imagem com proporção responsiva */
+.soft-card-screen {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #0b0c10;
+  overflow: hidden;
+}
+
+.soft-card-screen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+/* Vinheta de luz sutil no card da frente */
+.soft-front-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(0, 229, 255, 0.03) 0%, transparent 60%, rgba(0, 0, 0, 0.4) 100%);
+  border-radius: 0 0 16px 16px;
+}
+
+/* POSICIONAMENTO: CARD DA FRENTE (Principal) */
+.soft-card-front {
+  left: 0;
+  bottom: 0;
+  width: 86%;
+  z-index: 20;
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.soft-card-front .soft-card-inner {
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.9),
+              0 0 35px rgba(0, 229, 255, 0.16);
+}
+
+.soft-card-front:hover .soft-card-screen img {
+  transform: scale(1.02);
+}
+
+/* POSICIONAMENTO: CARD DE TRÁS (Sobreposto / Offset) */
+.soft-card-back {
+  right: 0;
+  top: 0;
+  width: 86%;
+  z-index: 10;
+  transform: translate(0, 0) scale(0.95);
+  opacity: 0.78;
+  filter: brightness(0.82) contrast(0.95);
+  cursor: pointer;
+}
+
+.soft-card-back .soft-card-inner {
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.soft-card-back:hover {
+  transform: translate(6px, -6px) scale(0.98);
+  opacity: 0.98;
+  filter: brightness(1) contrast(1);
+  z-index: 15;
+}
+
+.soft-card-back:hover .soft-card-inner {
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.9),
+              0 0 25px rgba(0, 229, 255, 0.22);
+}
+
+/* Overlay do card de trás indicando clique para próxima aplicação */
+.soft-screen-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(11, 12, 16, 0.45);
+  backdrop-filter: blur(2px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.soft-card-back:hover .soft-screen-overlay {
+  opacity: 1;
+}
+
+.soft-overlay-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(0, 229, 255, 0.15);
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  color: #00e5ff;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.3);
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .soft-card-front {
+    width: 90%;
+  }
+  .soft-card-back {
+    width: 90%;
+    opacity: 0.72;
+  }
+  .soft-window-url {
+    max-width: 40%;
+    font-size: 0.62rem;
+  }
+}
+
+/* Animação suave de transição ao trocar de slide */
+.soft-card.is-switching .soft-card-screen img {
+  opacity: 0.35;
+  transform: scale(0.97);
+}
+
+/* Chips / Pills seletores abaixo do carrossel */
+.soft-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #9ca3af;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.25s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.soft-pill:hover {
+  color: #fff;
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(0, 229, 255, 0.08);
+  transform: translateY(-1px);
+}
+
+.soft-pill.active {
+  color: #00e5ff;
+  border-color: #00e5ff;
+  background: rgba(0, 229, 255, 0.12);
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.2);
+}
+
+.soft-pill.active span {
+  background: #00e5ff !important;
+  box-shadow: 0 0 6px #00e5ff;
+}
+
+/* Botões de navegação anterior/próximo */
+.soft-nav-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 229, 255, 0.06);
+  border: 1px solid rgba(0, 229, 255, 0.25);
+  color: #00e5ff;
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.soft-nav-btn:hover {
+  background: rgba(0, 229, 255, 0.18);
+  border-color: #00e5ff;
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.soft-nav-btn:active {
+  transform: translateY(0);
+}
+
+/* Barra de progresso do timer */
+.soft-progress-bar-wrap {
+  width: 100%;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.soft-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.4), #00e5ff);
+  box-shadow: 0 0 8px rgba(0, 229, 255, 0.6);
+  border-radius: 2px;
+  transition: width 0.1s linear;
 }

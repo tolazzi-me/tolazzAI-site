@@ -93,8 +93,14 @@ document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
         const scaleX = newWidth / oldW;
         const scaleY = newHeight / oldH;
         for (let i = 0; i < particles.length; i++) {
-          particles[i].x = Math.max(0, Math.min(newWidth, particles[i].x * scaleX));
-          particles[i].y = Math.max(0, Math.min(newHeight, particles[i].y * scaleY));
+          particles[i].x = Math.max(
+            0,
+            Math.min(newWidth, particles[i].x * scaleX),
+          );
+          particles[i].y = Math.max(
+            0,
+            Math.min(newHeight, particles[i].y * scaleY),
+          );
         }
       }
     }
@@ -360,7 +366,9 @@ document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
     }
 
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", () => setTimeout(type, 300));
+      document.addEventListener("DOMContentLoaded", () =>
+        setTimeout(type, 300),
+      );
     } else {
       setTimeout(type, 300);
     }
@@ -530,4 +538,302 @@ document.querySelectorAll(".exec-head").forEach((btn) => {
   );
 
   observer.observe(chartBox);
+})();
+
+// ==========================================
+// CARROSSEL DUPLO SOBREPOSTO: SOFTWARES SOB DEMANDA
+// ==========================================
+
+(function () {
+  const stage = document.getElementById("softwaresStage");
+  if (!stage) return;
+
+  const cardFront = document.getElementById("softCardFront");
+  const cardBack = document.getElementById("softCardBack");
+  const frontWebp = document.getElementById("softFrontWebp");
+  const frontImg = document.getElementById("softFrontImg");
+  const backWebp = document.getElementById("softBackWebp");
+  const backImg = document.getElementById("softBackImg");
+  const frontUrl = document.getElementById("softFrontUrl");
+  const backUrl = document.getElementById("softBackUrl");
+  const frontStatus = document.getElementById("softFrontStatus");
+
+  const badgeEl = document.getElementById("softBadge");
+  const indexBadgeEl = document.getElementById("softIndexBadge");
+  const titleEl = document.getElementById("softTitle");
+  const descEl = document.getElementById("softDesc");
+  const tagsEl = document.getElementById("softTags");
+  const demoLinkEl = document.getElementById("softDemoLink");
+  const demoLabelEl = document.getElementById("softDemoLabel");
+
+  const prevBtn = document.getElementById("softPrevBtn");
+  const nextBtn = document.getElementById("softNextBtn");
+  const pills = document.querySelectorAll(".soft-pill");
+  const progressBar = document.getElementById("softProgressBar");
+
+  const softwareItems = [
+    {
+      title: "Datacenter Panic",
+      badge: "Simulação & Game Corporativo",
+      url: "tolazzai://apps/datacenterpanic",
+      status: "Ao Vivo",
+      desc: "Aplicação web gamificada de dedução social e cibersegurança em tempo real. Desenvolvida para treinamento corporativo, simulação de incidentes de rede, telemetria NOC e agentes de IA autônomos integrados.",
+      tags: [
+        "WebSockets Tempo Real",
+        "Bots IA Autônomos",
+        "Gamificação Corporativa",
+        "Multiplayer Web",
+      ],
+      demoUrl: "https://datacenterpanic.tolazzai.com.br",
+      demoLabel: "Jogar Demonstração",
+      isExternal: true,
+      imgWebp: "img/softwaresImg/datacenterpanic.webp",
+      imgPng: "img/softwaresImg/datacenterpanic.png",
+      alt: "Datacenter Panic - Software TolazzAI",
+    },
+    {
+      title: "IALuísio Mayer",
+      badge: "Recriação das Memórias de Fundador de Escola",
+      url: "tolazzai://apps/ialuisio",
+      status: "Sob Medida",
+      desc: "Recriação das memórias do fundador da escola, Aluísio Mayer, em formato de Chat IA para uso educacional e cultural.",
+      tags: ["IA", "Memórias", "Chat", "Linguagem"],
+      demoUrl: "#contato",
+      demoLabel: "Solicitar Projeto Semelhante",
+      isExternal: false,
+      imgWebp: "img/softwaresImg/IAluisio.webp",
+      imgPng: "img/softwaresImg/IAluisio.png",
+      alt: "IALuísio Mayer - Software TolazzAI",
+    },
+    {
+      title: "Prompt Auction",
+      badge: "Marketplace & Leilão de IA",
+      url: "tolazzai://apps/promptauction",
+      status: "Ao Vivo",
+      desc: "Plataforma web sob medida de marketplace e leilão gamificado de prompts para Inteligência Artificial. Conta com pontuação dinâmica, avaliação de acurácia de prompts e rankings em tempo real.",
+      tags: [
+        "Arquitetura Web Moderna",
+        "Sistema de Leilão",
+        "Benchmarking de IA",
+        "Ranking em Tempo Real",
+      ],
+      demoUrl: "https://promptauction.tolazzai.com.br",
+      demoLabel: "Acessar Plataforma",
+      isExternal: true,
+      imgWebp: "img/softwaresImg/promptauction.webp",
+      imgPng: "img/softwaresImg/promptauction.png",
+      alt: "Prompt Auction - Software TolazzAI",
+    },
+    {
+      title: "Reservas LDS",
+      badge: "Gestão & Agendamento de Recursos",
+      url: "tolazzai://apps/reservaslds",
+      status: "Sob Medida",
+      desc: "Software corporativo completo desenvolvido sob medida para agendamento e gerenciamento de salas, capelas e recursos comunitários. Elimina conflitos de horários e centraliza permissões por perfil.",
+      tags: [
+        "Calendário Dinâmico",
+        "Controle de Conflitos",
+        "Gestão Multi-espaços",
+        "Controle de Acesso RBAC",
+      ],
+      demoUrl: "#contato",
+      demoLabel: "Solicitar Projeto Semelhante",
+      isExternal: false,
+      imgWebp: "img/softwaresImg/reservasLDS.webp",
+      imgPng: "img/softwaresImg/reservasLDS.png",
+      alt: "Reservas LDS - Software TolazzAI",
+    },
+  ];
+
+  let currentIndex = 0;
+  const count = softwareItems.length;
+  let isPaused = false;
+  let progress = 0;
+  const duration = 5000; // 5s por slide
+  const interval = 50;
+
+  function render(index, animate = true) {
+    currentIndex = (index + count) % count;
+    const nextIndex = (currentIndex + 1) % count;
+
+    const currentItem = softwareItems[currentIndex];
+    const nextItem = softwareItems[nextIndex];
+
+    if (animate) {
+      if (cardFront) cardFront.classList.add("is-switching");
+      if (cardBack) cardBack.classList.add("is-switching");
+    }
+
+    setTimeout(
+      () => {
+        // Atualiza card da frente
+        if (frontWebp) frontWebp.srcset = currentItem.imgWebp;
+        if (frontImg) {
+          frontImg.src = currentItem.imgPng;
+          frontImg.alt = currentItem.alt;
+        }
+        if (frontUrl) frontUrl.textContent = currentItem.url;
+        if (frontStatus) frontStatus.textContent = currentItem.status;
+
+        // Atualiza card de trás (segunda imagem sobreposta)
+        if (backWebp) backWebp.srcset = nextItem.imgWebp;
+        if (backImg) {
+          backImg.src = nextItem.imgPng;
+          backImg.alt = nextItem.alt;
+        }
+        if (backUrl) backUrl.textContent = nextItem.url;
+
+        // Atualiza painel de detalhes do projeto
+        if (badgeEl) badgeEl.textContent = currentItem.badge;
+        if (indexBadgeEl) {
+          indexBadgeEl.textContent = `0${currentIndex + 1} / 0${count}`;
+        }
+        if (titleEl) titleEl.textContent = currentItem.title;
+        if (descEl) descEl.textContent = currentItem.desc;
+
+        if (tagsEl) {
+          tagsEl.innerHTML = currentItem.tags
+            .map(
+              (t) =>
+                `<span class="inline-flex items-center text-[0.72rem] font-body px-2.5 py-1 rounded bg-white/5 border border-white/10 text-txt-gray">${t}</span>`,
+            )
+            .join("");
+        }
+
+        if (demoLinkEl) {
+          demoLinkEl.href = currentItem.demoUrl;
+          if (currentItem.isExternal) {
+            demoLinkEl.setAttribute("target", "_blank");
+            demoLinkEl.setAttribute("rel", "noopener noreferrer");
+          } else {
+            demoLinkEl.removeAttribute("target");
+            demoLinkEl.removeAttribute("rel");
+          }
+        }
+        if (demoLabelEl) demoLabelEl.textContent = currentItem.demoLabel;
+
+        // Atualiza pills
+        pills.forEach((p, idx) => {
+          const isActive = idx === currentIndex;
+          p.classList.toggle("active", isActive);
+          const dot = p.querySelector("span");
+          if (dot) {
+            if (isActive) {
+              dot.className = "w-1.5 h-1.5 rounded-full bg-cyan-neon";
+            } else {
+              dot.className =
+                "w-1.5 h-1.5 rounded-full bg-transparent border border-txt-dim";
+            }
+          }
+        });
+
+        if (animate) {
+          setTimeout(() => {
+            if (cardFront) cardFront.classList.remove("is-switching");
+            if (cardBack) cardBack.classList.remove("is-switching");
+          }, 60);
+        }
+      },
+      animate ? 180 : 0,
+    );
+
+    progress = 0;
+    if (progressBar) progressBar.style.width = "0%";
+  }
+
+  function next() {
+    render(currentIndex + 1);
+  }
+
+  function prev() {
+    render(currentIndex - 1);
+  }
+
+  // Controles
+  if (nextBtn) nextBtn.addEventListener("click", () => next());
+  if (prevBtn) prevBtn.addEventListener("click", () => prev());
+
+  // Clique no card de trás avança diretamente para ele
+  if (cardBack) {
+    cardBack.addEventListener("click", () => next());
+  }
+
+  // Clique nos pills
+  pills.forEach((p) => {
+    p.addEventListener("click", () => {
+      const idx = parseInt(p.getAttribute("data-index"), 10);
+      if (!isNaN(idx) && idx !== currentIndex) {
+        render(idx);
+      }
+    });
+  });
+
+  // Pausa ao passar o mouse ou focar
+  const pauseEls = [stage, document.getElementById("softwares")];
+  pauseEls.forEach((el) => {
+    if (!el) return;
+    el.addEventListener("mouseenter", () => {
+      isPaused = true;
+    });
+    el.addEventListener("mouseleave", () => {
+      isPaused = false;
+    });
+  });
+
+  // Suporte a swipe em mobile
+  let touchStartX = 0;
+  let touchEndX = 0;
+  stage.addEventListener(
+    "touchstart",
+    (e) => {
+      touchStartX = e.changedTouches[0].screenX;
+      isPaused = true;
+    },
+    { passive: true },
+  );
+
+  stage.addEventListener(
+    "touchend",
+    (e) => {
+      touchEndX = e.changedTouches[0].screenX;
+      isPaused = false;
+      const diff = touchStartX - touchEndX;
+      if (Math.abs(diff) > 40) {
+        if (diff > 0) next();
+        else prev();
+      }
+    },
+    { passive: true },
+  );
+
+  // Autoplay apenas quando visível na tela
+  let isSectionVisible = false;
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isSectionVisible = entry.isIntersecting;
+        });
+      },
+      { threshold: 0.15 },
+    );
+    observer.observe(stage);
+  } else {
+    isSectionVisible = true;
+  }
+
+  setInterval(() => {
+    if (!isPaused && isSectionVisible) {
+      progress += (interval / duration) * 100;
+      if (progressBar) {
+        progressBar.style.width = `${Math.min(progress, 100)}%`;
+      }
+      if (progress >= 100) {
+        next();
+      }
+    }
+  }, interval);
+
+  // Render inicial
+  render(0, false);
 })();
