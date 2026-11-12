@@ -272,7 +272,7 @@
         </div>
 
         <p class="font-mono text-xs text-txt-dim mt-6">
-          Última atualização geral: <strong>Outubro de 2026</strong> • Vigência imediata
+          Última atualização geral: <strong>Novembro de 2026</strong> • Vigência imediata
         </p>
       </div>
 
@@ -280,14 +280,15 @@
       <div class="max-w-5xl mx-auto mt-10 pt-6 border-t border-white/5 flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
         <a href="#sec-controlador" class="nav-quick-link">1. Controlador & DPO</a>
         <a href="#sec-dados" class="nav-quick-link">2. Dados Coletados</a>
-        <a href="#sec-bases" class="nav-quick-link">3. Bases Legais (LGPD)</a>
-        <a href="#sec-adsense" class="nav-quick-link">4. Google AdSense & Anúncios</a>
-        <a href="#sec-cookies" class="nav-quick-link">5. Cookies & LocalStorage</a>
-        <a href="#sec-compartilhamento" class="nav-quick-link">6. Compartilhamento</a>
-        <a href="#sec-menores" class="nav-quick-link">7. Menores de Idade</a>
-        <a href="#sec-direitos" class="nav-quick-link">8. Direitos do Titular</a>
-        <a href="#sec-seguranca" class="nav-quick-link">9. Segurança da Informação</a>
-        <a href="#sec-contato" class="nav-quick-link">10. Canal DPO & Contato</a>
+        <a href="#sec-altonics" class="nav-quick-link">3. Altonics AI & LGPD</a>
+        <a href="#sec-bases" class="nav-quick-link">4. Bases Legais (LGPD)</a>
+        <a href="#sec-adsense" class="nav-quick-link">5. Google AdSense & Anúncios</a>
+        <a href="#sec-cookies" class="nav-quick-link">6. Cookies & LocalStorage</a>
+        <a href="#sec-compartilhamento" class="nav-quick-link">7. Compartilhamento</a>
+        <a href="#sec-menores" class="nav-quick-link">8. Menores de Idade</a>
+        <a href="#sec-direitos" class="nav-quick-link">9. Direitos do Titular</a>
+        <a href="#sec-seguranca" class="nav-quick-link">10. Segurança da Informação</a>
+        <a href="#sec-contato" class="nav-quick-link">11. Canal DPO & Contato</a>
       </div>
     </section>
 
@@ -353,13 +354,13 @@
 
             <div class="p-4 rounded-xl bg-white/[0.02] border border-white/10">
               <h3 class="text-gold text-base font-heading font-semibold mb-2 flex items-center gap-2">
-                <span>🤖</span> B. Ecossistema Altonics & Agentes de IA
+                <span>🤖</span> B. Ecossistema Altonics & Agentes de IA (Resumo)
               </h3>
-              <p>Nos serviços de agentes autônomos de atendimento:</p>
+              <p>Nos serviços de agentes autônomos e no painel <em>Altonics Control Plane</em> (detalhados na <a href="#sec-altonics">Seção 3</a>):</p>
               <ul>
-                <li><strong>Metadados de Mensagens:</strong> Número de telefone do usuário no WhatsApp, data e hora da mensagem;</li>
-                <li><strong>Histórico Contextual:</strong> Conteúdo das mensagens trocadas estritamente para que o agente processe a resposta de suporte ou vendas;</li>
-                <li><strong>Importante:</strong> Não utilizamos dados confidenciais dos clientes contratantes do Altonics para alimentar modelos públicos de terceiros.</li>
+                <li><strong>Dados de Equipe e Acesso (B2B):</strong> Nome de usuário, nome de exibição, perfil de permissão e senhas armazenadas exclusivamente com hash criptográfico (<code>scrypt</code>);</li>
+                <li><strong>Metadados e Histórico de Conversas:</strong> Número de telefone/identificador no WhatsApp, nome de perfil, carimbos de data/hora, mensagens trocadas e mídias em trânsito estritamente para o atendimento ou transbordo humano;</li>
+                <li><strong>Importante:</strong> Não utilizamos conversas ou bases de conhecimento confidenciais dos clientes contratantes do Altonics para treinar modelos públicos de terceiros.</li>
               </ul>
             </div>
 
@@ -388,13 +389,72 @@
           </div>
         </section>
 
-        <!-- 3. FINALIDADES E BASES LEGAIS -->
+        <!-- 3. ECOSSISTEMA ALTONICS AI & CONFORMIDADE LGPD -->
+        <section id="sec-altonics" class="policy-section">
+          <h2>
+            <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            3. Ecossistema Altonics AI &amp; Proteção de Dados (LGPD)
+          </h2>
+          <p>
+            Esta seção estabelece as regras específicas de privacidade e proteção de dados aplicáveis ao <strong>Altonics</strong> (incluindo o painel de gestão <em>Altonics Control Plane</em> e os agentes cognitivos integrados ao WhatsApp, fluxos de automação, CRMs e ERPs), em estrita observância à <strong>Lei Geral de Proteção de Dados (Lei nº 13.709/2018)</strong>.
+          </p>
+
+          <div class="callout-box callout-cyan">
+            <div class="text-xl">⚖️</div>
+            <div>
+              <strong class="text-white block mb-1">Papéis de Controlador e Operador (Art. 5º, VI e VII da LGPD)</strong>
+              <ul>
+                <li><strong>TolazzAI como Operadora:</strong> Quando uma empresa contratante utiliza o Altonics para atender seus próprios clientes finais, a <strong>Empresa Contratante é a Controladora</strong> dos dados desses leads e consumidores (definindo base legal, instruções do agente e solicitações de exclusão), atuando a <strong>TolazzAI exclusivamente como Operadora</strong> sob suas diretrizes contratuais;</li>
+                <li><strong>TolazzAI como Controladora:</strong> Para os dados cadastrais da empresa contratante, credenciais administrativas de acesso ao painel e interações nos canais comerciais oficiais da própria TolazzAI, a TolazzAI atua como Controladora.</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3>3.1. Categorias de Dados Tratados no Altonics</h3>
+          <ul>
+            <li>
+              <strong>Contas de Acesso e Equipe (<em>Multi-Tenant</em>):</strong> Nome de usuário, nome de exibição, função/nível de permissão (administrador, titular da conta ou atendente) e senha protegida por hash criptográfico <code>scrypt</code> com <em>salt</em> individual, além de preferências visuais do painel;
+            </li>
+            <li>
+              <strong>Dados de Usuários Finais (WhatsApp):</strong> Número de telefone/identificador de sessão (<code>session_id</code>), nome de exibição no mensageiro, histórico de mensagens trocadas com o agente ou atendente humano, carimbo de data/hora e metadados de mídias/áudios processados em cache temporário;
+            </li>
+            <li>
+              <strong>Notas Internas (<em>Whisper Notes</em>) e Transbordo Humano:</strong> Anotações internas restritas à equipe do mesmo <em>tenant</em> (incluindo menções entre operadores) e sinalizadores temporários de pausa do robô (armazenados em cache Redis) para permitir o atendimento humano contínuo;
+            </li>
+            <li>
+              <strong>Bases de Conhecimento e Prompts:</strong> Instruções de sistema (<em>system prompts</em>), respostas rápidas e documentos vetorizados (RAG) armazenados em tabelas segregadas por cliente contratante.
+            </li>
+          </ul>
+
+          <h3>3.2. Isolamento, Retenção, Suboperadores e Transferência Internacional</h3>
+          <ul>
+            <li>
+              <strong>Isolamento Lógico Multi-Tenant:</strong> Cada empresa contratante possui ambiente logicamente segregado por identificador exclusivo (<code>slug</code>) e tabelas dedicadas, impedindo acesso cruzado de conversas, históricos ou bases de conhecimento entre clientes distintos;
+            </li>
+            <li>
+              <strong>Não Utilização para Treinamento Público:</strong> Conversas, dados de contatos e documentos empresariais tratados no Altonics <strong>não são utilizados</strong> para treinar modelos públicos ou compartilhados de inteligência artificial;
+            </li>
+            <li>
+              <strong>Logs de Auditoria com Retenção Mínima:</strong> Registros operacionais de auditoria do painel (usuário, ação executada e data/hora) são mantidos apenas pelo prazo estritamente necessário à segurança e rastreabilidade, com rotina automática de expurgo para registros com mais de <strong>2 (dois) dias</strong>;
+            </li>
+            <li>
+              <strong>Limpeza de Memória e Eliminação:</strong> O painel disponibiliza recurso de limpeza de memória de conversas sob comando do cliente autorizado. Encerrado o contrato, os dados do ambiente contratante são excluídos ou anonimizados após o período de transição acordado, ressalvadas hipóteses legais de guarda obrigatória;
+            </li>
+            <li>
+              <strong>Suboperadores e Transferência Internacional (Art. 33 da LGPD):</strong> Para viabilizar o funcionamento em tempo real, o Altonics integra-se a infraestrutura em nuvem, gateway de WhatsApp, motor de orquestração e APIs corporativas de IA (OpenAI, Anthropic, Google Cloud). Tais provedores operam sob cláusulas contratuais de confidencialidade e proteção de dados compatíveis com a LGPD.
+            </li>
+          </ul>
+        </section>
+
+        <!-- 4. FINALIDADES E BASES LEGAIS -->
         <section id="sec-bases" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            3. Finalidades do Tratamento e Bases Legais (LGPD)
+            4. Finalidades do Tratamento e Bases Legais (LGPD)
           </h2>
           <p>
             O tratamento de dados pessoais pela TolazzAI possui fundamentação expressa no Art. 7º da Lei Geral de Proteção de Dados (Lei nº 13.709/2018):
@@ -413,6 +473,11 @@
                 <td>Nome, e-mail, telefone comercial</td>
                 <td>Responder solicitações, elaborar propostas e prestar consultorias de IA contratadas.</td>
                 <td><strong>Execução de Contrato</strong> (Art. 7º, V)</td>
+              </tr>
+              <tr>
+                <td>Sessões, histórico e atendimento no Altonics</td>
+                <td>Autenticação multi-tenant, operação de agentes de IA no WhatsApp, transbordo humano e auditoria de segurança.</td>
+                <td><strong>Execução de Contrato / Legítimo Interesse</strong> (Art. 7º, V e IX) — atuando como Operadora para dados de clientes finais da contratante</td>
               </tr>
               <tr>
                 <td>Sessões e credenciais do Cofre HandOver</td>
@@ -438,14 +503,14 @@
           </table>
         </section>
 
-        <!-- 4. GOOGLE ADSENSE E ANÚNCIOS (ÂNCORA SEC-ADSENSE) -->
+        <!-- 5. GOOGLE ADSENSE E ANÚNCIOS (ÂNCORA SEC-ADSENSE) -->
         <section id="sec-adsense" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z" />
               <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z" />
             </svg>
-            4. Google AdSense, Cookies de Terceiros e Publicidade Digital
+            5. Google AdSense, Cookies de Terceiros e Publicidade Digital
           </h2>
           <p>
             Para manter a gratuidade dos nossos jogos educativos (como <strong>Datacenter Panic</strong> e <strong>Prompt Auction</strong>), utilizamos o serviço de publicidade digital <strong>Google AdSense</strong>, operado pela Google LLC.
@@ -478,13 +543,13 @@
           </ul>
         </section>
 
-        <!-- 5. COOKIES E ARMAZENAMENTO LOCAL -->
+        <!-- 6. COOKIES E ARMAZENAMENTO LOCAL -->
         <section id="sec-cookies" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M12 2a10 10 0 1010 10A10.011 10.011 0 0012 2zm0 18a8 8 0 118-8 8.009 8.009 0 01-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z" />
             </svg>
-            5. Gestão de Cookies e Armazenamento Local (localStorage)
+            6. Gestão de Cookies e Armazenamento Local (localStorage)
           </h2>
           <p>
             Utilizamos tecnologias de armazenamento local para garantir a operacionalidade, segurança e personalização dos sistemas da TolazzAI:
@@ -501,8 +566,8 @@
             <tbody>
               <tr>
                 <td><strong>Estritamente Necessários</strong></td>
-                <td>Cookie de sessão <code>TLZ_*</code> no Cofre HandOver, tokens anti-CSRF</td>
-                <td>Permitir a autenticação e impedir invasões ou falsificação de requisições. Expiram ao fechar o navegador.</td>
+                <td>Cookie de sessão <code>TLZ_*</code> (Cofre HandOver) e <code>altonics_session</code> (Painel Altonics), tokens anti-CSRF</td>
+                <td>Permitir autenticação segura (<code>HttpOnly</code>, <code>SameSite=Lax</code>, <code>Secure</code>) e impedir falsificação de requisições. Expiram ao encerrar a sessão ou em até 7 dias no painel Altonics.</td>
               </tr>
               <tr>
                 <td><strong>Preferências Locais</strong></td>
@@ -534,13 +599,13 @@
           </ul>
         </section>
 
-        <!-- 6. COMPARTILHAMENTO DE DADOS -->
+        <!-- 7. COMPARTILHAMENTO DE DADOS -->
         <section id="sec-compartilhamento" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
             </svg>
-            6. Compartilhamento Responsável de Dados
+            7. Compartilhamento Responsável de Dados
           </h2>
           <p>
             A TolazzAI <strong>jamais vende, aluga ou comercializa</strong> dados pessoais ou corporativos de clientes e usuários com terceiros. O compartilhamento ocorre exclusivamente nas seguintes hipóteses estritas:
@@ -561,13 +626,13 @@
           </ul>
         </section>
 
-        <!-- 7. PROTEÇÃO A MENORES DE IDADE -->
+        <!-- 8. PROTEÇÃO A MENORES DE IDADE -->
         <section id="sec-menores" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-            7. Privacidade de Crianças e Adolescentes (Art. 14 da LGPD)
+            8. Privacidade de Crianças e Adolescentes (Art. 14 da LGPD)
           </h2>
           <p>
             Nossos jogos (<em>Datacenter Panic</em> e <em>Prompt Auction</em>) possuem temática educativa sobre redes de computadores, inteligência artificial e tecnologia, direcionados ao público geral e estudantes.
@@ -585,13 +650,13 @@
           </ul>
         </section>
 
-        <!-- 8. SEUS DIREITOS COMO TITULAR DE DADOS -->
+        <!-- 9. SEUS DIREITOS COMO TITULAR DE DADOS -->
         <section id="sec-direitos" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
-            8. Seus Direitos Garantidos pela LGPD (Art. 18)
+            9. Seus Direitos Garantidos pela LGPD (Art. 18)
           </h2>
           <p>
             Você, na condição de titular de dados pessoais, tem o direito de solicitar a qualquer momento e gratuitamente à TolazzAI:
@@ -606,13 +671,13 @@
           </ul>
         </section>
 
-        <!-- 9. SEGURANÇA DA INFORMAÇÃO -->
+        <!-- 10. SEGURANÇA DA INFORMAÇÃO -->
         <section id="sec-seguranca" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            9. Segurança da Informação e Padrões de Criptografia
+            10. Segurança da Informação e Padrões de Criptografia
           </h2>
           <p>
             A segurança digital é um dos pilares centrais da TolazzAI, refletida em toda a nossa arquitetura tecnológica:
@@ -624,13 +689,13 @@
           </ul>
         </section>
 
-        <!-- 10. CANAL DPO E CONTATO -->
+        <!-- 11. CANAL DPO E CONTATO -->
         <section id="sec-contato" class="policy-section">
           <h2>
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            10. Como Exercer seus Direitos e Contato com o DPO
+            11. Como Exercer seus Direitos e Contato com o DPO
           </h2>
           <p>
             Para exercer qualquer um dos seus direitos de titular de dados sob a LGPD ou tirar dúvidas sobre esta Política de Privacidade, envie uma mensagem para o nosso canal de privacidade:

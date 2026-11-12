@@ -272,7 +272,7 @@
         </div>
 
         <p class="font-mono text-xs text-txt-dim mt-6">
-          Última atualização geral: <strong>Outubro de 2026</strong> • Vigência imediata
+          Última atualização geral: <strong>Novembro de 2026</strong> • Vigência imediata
         </p>
       </div>
 
@@ -373,20 +373,46 @@
             <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
               <path d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
             </svg>
-            3. Ecossistema Altonics & Uso de Inteligência Artificial
+            3. Ecossistema Altonics &amp; Uso de Inteligência Artificial (SaaS B2B)
           </h2>
           <p>
-            O <strong>Altonics</strong> e os agentes autônomos de software criados pela TolazzAI empregam modelos de linguagem de larga escala (LLMs), processamento de linguagem natural (PLN) e integrações via API (WhatsApp Business API, CRMs, ERPs e bancos de dados).
+            O <strong>Altonics</strong> (incluindo o painel <em>Altonics Control Plane</em> e seus agentes cognitivos nos planos <strong>Core</strong>, <strong>Cortex</strong> e <strong>Nexus</strong>) é uma plataforma SaaS corporativa de automação de atendimento, qualificação de leads e monitoramento operacional integrada a APIs de mensageria (WhatsApp), orquestração de fluxos, bases vetoriais (RAG), CRMs, ERPs e modelos de linguagem de larga escala (LLMs).
           </p>
+
+          <div class="callout-box callout-gold">
+            <div class="text-xl">⚖️</div>
+            <div>
+              <strong class="text-white block mb-1">Divisão de Responsabilidades na LGPD (Controlador vs. Operador)</strong>
+              Quando uma empresa contratante utiliza o Altonics para atender seus próprios clientes finais via WhatsApp ou outros canais, a <strong>Empresa Contratante atua como Controladora</strong> dos dados pessoais de seus contatos e leads (definindo finalidades, instruções do agente e base de conhecimento), enquanto a <strong>TolazzAI atua como Operadora</strong> (Art. 5º, VI e VII da Lei nº 13.709/2018), realizando o tratamento técnico estritamente conforme o contrato e as configurações da contratante.
+            </div>
+          </div>
+
+          <h3>3.1. Operação, Supervisão Humana e Limitações da IA</h3>
           <ul>
             <li>
-              <strong>Supervisão Humana ("Human Handoff"):</strong> Nossos agentes de IA contam nativamente com mecanismos de transição para operadores humanos. O cliente contratante reconhece que modelos generativos possuem natureza estatística e podem eventualmente apresentar imprecisões ou alucinações. É dever da empresa contratante manter supervisão e validar fluxos críticos de negócio;
+              <strong>Supervisão Humana (<em>Human Handoff</em>):</strong> Os agentes do Altonics contam nativamente com mecanismos de pausa automatizada e transferência para atendentes humanos no painel de atendimento ao vivo. A empresa contratante reconhece que modelos generativos possuem natureza probabilística e podem apresentar imprecisões; por isso, compromete-se a manter supervisão ativa e validar fluxos críticos (como valores, contratos, agendamentos e orientações sensíveis);
             </li>
             <li>
-              <strong>Responsabilidade pelas Instruções da Empresa:</strong> Os agentes operam baseando-se nas bases de conhecimento, catálogos, tabelas de preço e diretrizes inseridas pelo próprio cliente contratante. A TolazzAI não responde por dados inverídicos alimentados pelo cliente no robô;
+              <strong>Base de Conhecimento e Prompts do Cliente:</strong> O comportamento do agente reflete os <em>system prompts</em>, catálogos, tabelas de preço e documentos inseridos ou homologados pela contratante. A TolazzAI não se responsabiliza por informações comerciais incorretas, desatualizadas ou promessas geradas a partir de diretrizes fornecidas pela própria contratante;
             </li>
             <li>
-              <strong>Vedação ao Uso Malicioso:</strong> É expressamente proibido reprogramar, forçar injeção de prompt ("prompt injection") ou utilizar o Altonics para envio de SPAM, mensagens ilegais, difamatórias, fraudulentas ou que violem os termos de serviço da Meta/WhatsApp.
+              <strong>Gestão de Equipe e Sub-usuários:</strong> O administrador do ambiente (<em>tenant</em>) é integralmente responsável pelos perfis de atendentes cadastrados, pela guarda confidencial das credenciais de acesso e pelas ações realizadas no painel (incluindo envio de mensagens manuais, uso de respostas rápidas, limpeza de memória e registro de notas internas/<em>whisper notes</em>).
+            </li>
+          </ul>
+
+          <h3>3.2. Obrigações de Conformidade e Vedações Absolutas no Altonics</h3>
+          <ul>
+            <li>
+              <strong>Base Legal e Políticas da Meta / WhatsApp:</strong> É dever exclusivo da empresa contratante assegurar que possui base legal válida na LGPD (como consentimento ou legítimo interesse legítimo/execução contratual) para interagir com seus contatos no WhatsApp, bem como cumprir integralmente os Termos Comerciais e de Mensageria da Meta e dos provedores de gateway integrados;
+            </li>
+            <li>
+              <strong>Proibição de SPAM e Uso Ilícito:</strong> É terminantemente proibido utilizar o Altonics para disparos em massa não solicitados (SPAM), engenharia social, assédio, fraudes, conteúdo ilícito, discriminação ou tentativas de <em>prompt injection</em> e burla de isolamento entre clientes (<em>tenants</em>);
+            </li>
+            <li>
+              <strong>Dados Pessoais Sensíveis:</strong> Salvo previsão contratual específica e adoção de salvaguardas reforçadas, o contratante compromete-se a não instruir o agente a coletar ou tratar dados pessoais sensíveis (Art. 5º, II da LGPD — saúde, biometria, convicção religiosa, orientação política) sem a devida base legal e transparência ao titular;
+            </li>
+            <li>
+              <strong>Suspensão e Encerramento:</strong> O descumprimento destas diretrizes ou o comprometimento de segurança da conta autoriza a TolazzAI a suspender preventivamente a instância do agente afetado. Após o encerramento contratual, os dados do ambiente serão exportados (quando solicitado) ou eliminados/anonimizados conforme os prazos legais aplicáveis.
             </li>
           </ul>
         </section>
